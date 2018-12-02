@@ -87,10 +87,10 @@ class depositHistory(Resource):
                 return jsonify({'StatusCode' : '200', 'Missing field': missing})
             __regno = req_data['regno']
 
-            cursor.execute("SELECT amount, depositLocation, depositType, depositorName, dateDeposited FROM custormers WHERE regno = {};".format(__regno))
+            cursor.execute("SELECT amount, depositLocation, depositType, depositorName, dateDeposited FROM deposit WHERE userid = {};".format(__regno))
+            data = cursor.fetchall()
 
-            if not cursor.fetchone()[0]:
-                raise Exception('Invalid username')
+            if not data:
                 return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
 
 
@@ -103,10 +103,10 @@ class depositHistory(Resource):
                     'depositorName':item[3],
                     'dateDeposited':item[4]
                 }
-                items_list.append(i)
+                items.append(i)
 
             # return {'StatusCode':'200','Items':items_list}
-            return jsonify({'StatusCode' : '200', 'Items':items_list})
+            return jsonify({'StatusCode' : '200', 'Items':items})
             
 
             
