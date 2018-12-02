@@ -35,7 +35,7 @@ class logout(Resource):
     def logout():
         session.pop('regno', None)
         session.pop('userid', None)
-        return jsonify({'status' : '200', 'message':'logged Out'})
+        return jsonify({'StatusCode' : '200', 'message':'logged Out'})
 
 class Authenticate(Resource):
     def post(self):
@@ -44,13 +44,13 @@ class Authenticate(Resource):
             expectedFields = ['regno','password']
             missing = handler.checkJson(expectedFields,req_data)
             if missing:
-                return jsonify({'status' : '200', 'Missing field': missing})
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
             __regno = req_data['regno']
             __password = req_data['password']
 
 
             if __regno in session:
-                return jsonify({'status' : '200', 'message':'sessionActive'})
+                return jsonify({'StatusCode' : '200', 'message':'sessionActive'})
 
             cursor.execute("SELECT COUNT(1) FROM custormers WHERE regno = {};".format(__regno))
 
@@ -66,9 +66,50 @@ class Authenticate(Resource):
                 if __password  == row[1]:
                     session['regno'] = __regno
                     session['userid'] = row[0]
-                    return jsonify({'status' : '200', 'message':'successfull', 'sessionId':session['userid'], "sessionRegno":session['regno']})
+                    return jsonify({'StatusCode' : '200', 'message':'successfull', 'sessionId':session['userid'], "sessionRegno":session['regno']})
 
             raise Exception('Invalid password')
+        
+        except Exception as e:
+            return {'error': str(e)}
+        except TypeError:
+            return jsonify({'StatusCode' : '400', 'message':'Invalid json input'})
+
+
+class depositHistory(Resource):
+    """docstring for depositHistory"""
+    def post(self):
+        try:
+            req_data = request.get_json(force=True)
+            expectedFields = ['regno']
+            missing = handler.checkJson(expectedFields,req_data)
+            if missing:
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
+            __regno = req_data['regno']
+
+            cursor.execute("SELECT amount, depositLocation, depositType, depositorName, dateDeposited FROM custormers WHERE regno = {};".format(__regno))
+
+            if not cursor.fetchone()[0]:
+                raise Exception('Invalid username')
+                return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
+
+
+            items=[];
+            for item in data:
+                i = {
+                    'amount':item[0],
+                    'ItdepositLocationem':item[1],
+                    'depositType':item[2],
+                    'depositorName':item[3],
+                    'dateDeposited':item[4]
+                }
+                items_list.append(i)
+
+            # return {'StatusCode':'200','Items':items_list}
+            return jsonify({'StatusCode' : '200', 'Items':items_list})
+            
+
+            
         
         except Exception as e:
             return {'error': str(e)}
@@ -76,6 +117,7 @@ class Authenticate(Resource):
             return jsonify({'status' : '400', 'message':'Invalid json input'})
 
 
+        
 class GetAllTrans(Resource):
     def post(self):
         try: 
