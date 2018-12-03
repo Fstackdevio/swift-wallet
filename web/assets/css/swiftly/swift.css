@@ -33,3 +33,24 @@
 .compact-sidebar>.side-navbar a{
     padding: 10px !important;
 }
+
+.loader-logo{
+    height: 50px;
+    width: 50px;
+}
+.navbar-header .logo-big{
+    width: 55px;
+    padding: 15px;
+}
+@media screen and (min-width: 767px){
+    header.header{
+        display: none;
+    }
+    .navbar-header .logo-big{
+        display: none
+    }
+}
+.navbar-header .logo-small {
+    width: 55px;
+    padding: 10px;
+}
