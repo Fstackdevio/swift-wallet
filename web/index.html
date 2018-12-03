@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
-<!-- Mirrored from www.saerox-design.com/elisyam/app-calendar.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Dec 2018 16:37:36 GMT -->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Swift-wallet - Calendar</title>
+<title>Swift-wallet - Dashboard</title>
 <meta name="description" content="Swift-wallet is a Web App and Admin Dashboard Template built with Bootstrap 4">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<script src="./assets/js/common/webfont.js" type="7122504cca1824749f08bc4a-text/javascript"></script>
-<script type="7122504cca1824749f08bc4a-text/javascript">
+<script src="./assets/js/common/webfont.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
+<script type="4cf525128d815cb38db90e8c-text/javascript">
           WebFont.load({
             google: {"families":["Montserrat:400,500,600,700","Noto+Sans:400,700"]},
             active: function() {
@@ -26,9 +24,9 @@
 
 <link rel="stylesheet" href="assets/vendors/css/base/bootstrap.min.css">
 <link rel="stylesheet" href="assets/vendors/css/base/elisyam-1.5.min.css">
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+<link rel="stylesheet" href="assets/css/owl-carousel/owl.carousel.min.css">
+<link rel="stylesheet" href="assets/css/owl-carousel/owl.theme.min.css">
+
 </head>
 <body id="page-top">
 
@@ -194,9 +192,9 @@ Faq
 <nav class="side-navbar box-scroll sidebar-scroll">
 
 <ul class="list-unstyled">
-<li><a href="#dropdown-db" aria-expanded="false" data-toggle="collapse"><i class="la la-columns"></i><span>Dashboard</span></a>
-<ul id="dropdown-db" class="collapse list-unstyled pt-0">
-<li><a href="db-default.html">Default</a></li>
+<li class="active"><a href="#dropdown-db" aria-expanded="true" data-toggle="collapse"><i class="la la-columns"></i><span>Dashboard</span></a>
+<ul id="dropdown-db" class="collapse list-unstyled show pt-0">
+<li><a class="active" href="db-default.html">Default</a></li>
 <li><a href="db-clean.html">Clean</a></li>
 <li><a href="db-compact.html">Compact</a></li>
 <li><a href="db-modern.html">Modern</a></li>
@@ -205,9 +203,9 @@ Faq
 <li><a href="db-all.html">All</a></li>
 </ul>
 </li>
-<li class="active"><a href="#dropdown-app" aria-expanded="true" data-toggle="collapse"><i class="la la-puzzle-piece"></i><span>Applications</span></a>
-<ul id="dropdown-app" class="collapse list-unstyled show pt-0">
-<li><a class="active" href="app-calendar.html">Calendar</a></li>
+<li><a href="#dropdown-app" aria-expanded="false" data-toggle="collapse"><i class="la la-puzzle-piece"></i><span>Applications</span></a>
+<ul id="dropdown-app" class="collapse list-unstyled pt-0">
+<li><a href="app-calendar.html">Calendar</a></li>
 <li><a href="app-chat.html">Chat</a></li>
 <li><a href="app-mail.html">Mail</a></li>
 <li><a href="app-contact.html">Contact</a></li>
@@ -315,83 +313,389 @@ Faq
 </div>
 
 <div class="content-inner">
-
-<div class="container-fluid calendar">
+<div class="container-fluid">
 
 <div class="row">
 <div class="page-header">
 <div class="d-flex align-items-center">
-<h2 class="page-header-title">Calendar</h2>
+<h2 class="page-header-title">Dashboard</h2>
 <div>
-<ul class="breadcrumb">
-<li class="breadcrumb-item"><a href="db-default.html"><i class="ti ti-home"></i></a></li>
-<li class="breadcrumb-item"><a href="#">App</a></li>
-<li class="breadcrumb-item active">Calendar</li>
-</ul>
+<div class="page-header-tools">
+<a class="btn btn-gradient-01" href="#">Add Widget</a>
+</div>
 </div>
 </div>
 </div>
 </div>
 
-<div class="row no-margin">
-<div class="col-xl-12">
 
-<div class="row widget has-shadow">
-<div class="widget-header bordered d-flex align-items-center">
-<h2>Basic Calendar</h2>
-<div class="widget-options">
-<div class="dropdown">
-<button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
-<i class="la la-ellipsis-h"></i>
-</button>
-<div class="dropdown-menu">
-<a href="#" class="dropdown-item">
-Add Event
-</a>
-<a href="app-calendar.html" class="dropdown-item">
-Basic Calendar
-</a>
-<a href="app-calendar-list.html" class="dropdown-item">
-List Views
-</a>
-<a href="app-calendar-event.html" class="dropdown-item">
-External Events
-</a>
+<div class="row flex-row">
+
+<div class="col-xl-4 col-md-6 col-sm-6">
+<div class="widget widget-12 has-shadow">
+<div class="widget-body">
+<div class="media">
+<div class="align-self-center ml-5 mr-5">
+<i class="ion-social-facebook text-facebook"></i>
+</div>
+<div class="media-body align-self-center">
+<div class="title text-facebook">David Green</div>
+<div class="number">10,865 Likes</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+
+
+<div class="col-xl-4 col-md-6 col-sm-6">
+<div class="widget widget-12 has-shadow">
+<div class="widget-body">
+<div class="media">
+<div class="align-self-center ml-5 mr-5">
+<i class="ion-social-twitter text-twitter"></i>
+</div>
+<div class="media-body align-self-center">
+<div class="title text-twitter">@David_Green</div>
+<div class="number">8,986 Followers</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="col-xl-4 col-md-6 col-sm-6">
+<div class="widget widget-12 has-shadow">
+<div class="widget-body">
+<div class="media">
+<div class="align-self-center ml-5 mr-5">
+<i class="ion-social-linkedin-outline text-linkedin"></i>
+</div>
+<div class="media-body align-self-center">
+<div class="title text-linkedin">@David_Green</div>
+<div class="number">3,654 Followers</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<div class="row flex-row">
+<div class="col-xl-4 col-sm-4 col-md-6">
+
+<div class="widget widget-09 has-shadow">
+
+<div class="widget-header d-flex align-items-center">
+<h2>NGN 17,259.63</h2>
+<div class="widget-options" style="float:center   ;">
+<button type="button" class="btn btn-shadow">Deposit</button>
 </div>
 </div>
 
 
 <div class="widget-body">
-
-<div id="calendar"></div>
-
+<div class="row">
+<div class="col-xl-12 col-12 no-padding">
+<div>
+<canvas id="orders"></canvas>
+</div>
 </div>
 
 </div>
-
+</div>
 </div>
 
 </div>
+</div>
+
+
+
+
+
+<div class="row">
+<div class="col-xl-12">
+
+  <div class="widget has-shadow">
+    <div class="widget-header bordered no-actions d-flex align-items-center">
+    <h4>Export</h4>
+    </div>
+    <div class="widget-body">
+    <div class="table-responsive">
+    <table id="export-table" class="table mb-0">
+    <thead>
+    <tr>
+    <th>Order ID</th>
+    <th>Customer Name</th>
+    <th>Country</th>
+    <th>Ship Date</th>
+    <th><span style="width:100px;">Status</span></th>
+    <th>Order Total</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><span class="text-primary">054-01-FR</span></td>
+    <td>Lori Baker</td>
+    <td>US</td>
+    <td>10/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$139.45</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">021-12-US</span></td>
+    <td>Lawrence Crawford</td>
+    <td>FR</td>
+    <td>10/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$189.00</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">189-01-RU</span></td>
+    <td>Samuel Walker</td>
+    <td>AU</td>
+    <td>08/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small danger">Failed</span></span></td>
+    <td>$107.55</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">092-06-FR</span></td>
+    <td>Angela Walters</td>
+    <td>US</td>
+    <td>08/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small success">Delivered</span></span></td>
+    <td>$129.85</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">021-09-US</span></td>
+    <td>Ryan Hanson</td>
+    <td>ES</td>
+    <td>07/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$199.95</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">054-01-FR</span></td>
+    <td>Evelyn Black</td>
+    <td>FR</td>
+    <td>10/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$139.45</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">021-12-US</span></td>
+    <td>James Morris</td>
+    <td>EN</td>
+    <td>10/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$189.00</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">189-01-RU</span></td>
+    <td>Valentin H.</td>
+    <td>AU</td>
+    <td>08/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small danger">Failed</span></span></td>
+    <td>$107.55</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">092-06-FR</span></td>
+    <td>Beverly Matthews</td>
+    <td>RU</td>
+    <td>08/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$129.85</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">021-09-US</span></td>
+    <td>Jeffrey Arnold</td>
+    <td>US</td>
+    <td>07/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$199.95</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">054-01-FR</span></td>
+    <td>Lori Baker</td>
+    <td>US</td>
+    <td>10/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$139.45</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">021-12-US</span></td>
+    <td>Lawrence Crawford</td>
+    <td>FR</td>
+    <td>10/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$189.00</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">189-01-RU</span></td>
+    <td>Samuel Walker</td>
+    <td>AU</td>
+    <td>08/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small danger">Failed</span></span></td>
+    <td>$107.55</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">092-06-FR</span></td>
+    <td>Angela Walters</td>
+    <td>US</td>
+    <td>08/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small success">Delivered</span></span></td>
+    <td>$129.85</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">021-09-US</span></td>
+    <td>Ryan Hanson</td>
+    <td>ES</td>
+    <td>07/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$199.95</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">054-01-FR</span></td>
+    <td>Evelyn Black</td>
+    <td>FR</td>
+    <td>10/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$139.45</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">021-12-US</span></td>
+    <td>James Morris</td>
+    <td>EN</td>
+    <td>10/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$189.00</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">189-01-RU</span></td>
+    <td>Valentin H.</td>
+     <td>AU</td>
+    <td>08/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small danger">Failed</span></span></td>
+    <td>$107.55</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+     <tr>
+    <td><span class="text-primary">092-06-FR</span></td>
+    <td>Beverly Matthews</td>
+    <td>RU</td>
+    <td>08/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$129.85</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    <tr>
+    <td><span class="text-primary">021-09-US</span></td>
+    <td>Jeffrey Arnold</td>
+    <td>US</td>
+    <td>07/21/2017</td>
+    <td><span style="width:100px;"><span class="badge-text badge-text-small info">Paid</span></span></td>
+    <td>$199.95</td>
+    <td class="td-actions">
+    <a href="#"><i class="la la-edit edit"></i></a>
+    <a href="#"><i class="la la-close delete"></i></a>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
 
 </div>
+</div>
+</div>
+
+<br>
 
 
 <footer class="main-footer">
 <div class="row">
 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex align-items-center justify-content-xl-start justify-content-lg-start justify-content-md-start justify-content-center">
-<p class="text-gradient-02">Design By Saerox</p>
-</div>
-<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex align-items-center justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-center">
-<ul class="nav">
-<li class="nav-item">
-<a class="nav-link" href="documentation.html">Documentation</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="changelog.html">Changelog</a>
-</li>
-</ul>
+<p class="text-gradient-02">Design By FStackDev</p>
 </div>
 </div>
 </footer>
@@ -459,7 +763,7 @@ I can't wait to see
 <div class="messenger-message messenger-message-recipient">
 <div class="messenger-message-wrapper">
 <div class="messenger-message-content">
- <p>
+<p>
 I'm almost done
 </p>
 </div>
@@ -470,7 +774,7 @@ I'm almost done
 </div>
 <span class="date">Yesterday</span>
 <div class="messenger-message messenger-message-sender">
- <img class="messenger-image messenger-image-default" src="assets/img/avatar/avatar-05.jpg" alt="...">
+<img class="messenger-image messenger-image-default" src="assets/img/avatar/avatar-05.jpg" alt="...">
 <div class="messenger-message-wrapper">
 <div class="messenger-message-content">
 <p>
@@ -666,9 +970,29 @@ See you later!
 </div>
 
 </div>
+
 </div>
 
 </div>
+
+<div id="delay-modal" class="modal fade">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-body text-center">
+<div class="sa-icon sa-success animate" style="display: block;">
+ <span class="sa-line sa-tip animateSuccessTip"></span>
+<span class="sa-line sa-long animateSuccessLong"></span>
+<div class="sa-placeholder"></div>
+<div class="sa-fix"></div>
+</div>
+<div class="section-title mt-5 mb-5">
+<h2 class="text-dark">Meeting successfully created</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 
 <div id="modal-view-event" class="modal modal-top fade calendar-modal">
 <div class="modal-dialog">
@@ -698,19 +1022,36 @@ See you later!
 </div>
 
 
-<script src="assets/vendors/js/base/jquery.min.js" type="7122504cca1824749f08bc4a-text/javascript"></script>
-<script src="assets/vendors/js/base/core.min.js" type="7122504cca1824749f08bc4a-text/javascript"></script>
+<script src="assets/vendors/js/base/jquery.min.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
+<script src="assets/vendors/js/base/core.min.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
+<script src="assets/vendors/js/base/jquery.min.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
+<script src="assets/vendors/js/base/core.min.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
 
 
-<script src="assets/vendors/js/nicescroll/nicescroll.min.js" type="7122504cca1824749f08bc4a-text/javascript"></script>
-<script src="assets/vendors/js/calendar/moment.min.js" type="7122504cca1824749f08bc4a-text/javascript"></script>
-<script src="assets/vendors/js/calendar/fullcalendar.min.js" type="7122504cca1824749f08bc4a-text/javascript"></script>
-<script src="assets/vendors/js/app/app.min.js" type="7122504cca1824749f08bc4a-text/javascript"></script>
+<script src="assets/vendors/js/nicescroll/nicescroll.min.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
+<script src="assets/vendors/js/chart/chart.min.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
+<script src="assets/vendors/js/progress/circle-progress.min.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
+<script src="assets/vendors/js/calendar/moment.min.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
+<script src="assets/vendors/js/calendar/fullcalendar.min.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
+<script src="assets/vendors/js/owl-carousel/owl.carousel.min.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
+<script src="assets/vendors/js/app/app.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
+
+<script src="assets/vendors/js/datatables/datatables.min.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
+<script src="assets/vendors/js/datatables/dataTables.buttons.min.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
+<script src="assets/vendors/js/datatables/jszip.min.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
+<script src="assets/vendors/js/datatables/buttons.html5.min.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
+<script src="assets/vendors/js/datatables/pdfmake.min.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
+<script src="assets/vendors/js/datatables/vfs_fonts.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
+<script src="assets/vendors/js/datatables/buttons.print.min.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
+<script src="assets/vendors/js/nicescroll/nicescroll.min.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
+<script src="assets/vendors/js/app/app.min.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
 
 
-<script src="assets/js/app/calendar/basic-calendar.min.js" type="7122504cca1824749f08bc4a-text/javascript"></script>
+<script src="assets/js/components/tables/tables.js" type="9187d337eb132f84d39ae3dd-text/javascript"></script>
 
-<script src="./assets/js/common/rocket-loader.min.js" data-cf-nonce="7122504cca1824749f08bc4a-" defer=""></script></body>
+<script src="assets/js/dashboard/db-default.min.js" type="4cf525128d815cb38db90e8c-text/javascript"></script>
 
-<!-- Mirrored from www.saerox-design.com/elisyam/app-calendar.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Dec 2018 16:37:36 GMT -->
+<script src="./assets/js/common/rocket-loader.min.js" data-cf-nonce="4cf525128d815cb38db90e8c-" defer=""></script></body>
+
+<!-- Mirrored from www.saerox-design.com/elisyam/db-default.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Dec 2018 16:37:03 GMT -->
 </html>
