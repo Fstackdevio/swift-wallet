@@ -13,10 +13,11 @@ from v1.api import *
 
 api.add_resource(Authenticate, '/Authenticate')
 api.add_resource(logout, '/logout')
+api.add_resource(spendingHistory, '/spendingHistory')
+api.add_resource(transferHistory, '/transferHistory')
 api.add_resource(depositHistory, '/depositHistory')
-api.add_resource(GetAllTrans, '/GetAllTrans')
-api.add_resource(Test, '/test')
-api.add_resource(ReturnResponse, '/testResponse')
+api.add_resource(loginHistory, '/loginHistory')
+api.add_resource(dashboardInfo, '/dashboardInfo')
 api.add_resource(newData, '/insertData')
 # api.add_resource(updateData, '/updateData')
 

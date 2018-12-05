@@ -1,0 +1,56 @@
+.green-sidebar.compact-sidebar{
+    background: #64C180;
+}
+
+
+.compact-sidebar>.side-navbar ul li.active img, .compact-sidebar>.side-navbar li ul li a.active{
+    color: #fff;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 15%;
+    border-radius: 100%;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+}
+.compact-sidebar>.side-navbar ul li.active img{
+    line-height: inherit;
+}
+.compact-sidebar>.side-navbar ul li img, .compact-sidebar>.side-navbar li ul li a{
+    padding: 10%;
+}
+.compact-sidebar>.side-navbar ul li img{
+    height: 60%;
+    width: 60%;
+}
+
+.compact-sidebar>.side-navbar ul li span{
+    color: #fff;
+}
+.compact-sidebar>.side-navbar ul li.active a:hover span{
+    bottom: -10px;
+}
+
+.compact-sidebar>.side-navbar a{
+    padding: 10px !important;
+}
+
+.loader-logo{
+    height: 50px;
+    width: 50px;
+}
+.navbar-header .logo-big{
+    width: 55px;
+    padding: 15px;
+}
+@media screen and (min-width: 767px){
+    header.header{
+        display: none;
+    }
+    .navbar-header .logo-big{
+        display: none
+    }
+}
+.navbar-header .logo-small {
+    width: 55px;
+    padding: 10px;
+}

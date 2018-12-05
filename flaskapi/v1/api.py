@@ -18,6 +18,15 @@ from flask_inputs.validators import JsonSchema
 from functions import fstack_json_schema
 import json
 import hashlib
+import netifaces
+# from urllib.parse import urlencode
+# from urllib.request import Request, urlopen
+import requests
+
+try:
+    from urllib.parse import urlparse
+except ImportError:
+    from urlparse import urlparse
 
 
 connection = config.connection()
@@ -30,9 +39,12 @@ handler = iohandler.Ioapi()
 api = Api(app)
 cursor = dbconn.cursor()
 
- 
+class Test(Resource):
+    def post(self):
+        return jsonify({'success': "working"})
+
 class logout(Resource):
-    def logout():
+    def post(self):
         session.pop('regno', None)
         session.pop('userid', None)
         return jsonify({'StatusCode' : '200', 'message':'logged Out'})
@@ -48,6 +60,8 @@ class Authenticate(Resource):
             __regno = req_data['regno']
             __password = req_data['password']
 
+            gws=netifaces.gateways()
+            loginLocation = gws['default'].values()[0][0]
 
             if __regno in session:
                 return jsonify({'StatusCode' : '200', 'message':'sessionActive'})
@@ -55,7 +69,8 @@ class Authenticate(Resource):
             cursor.execute("SELECT COUNT(1) FROM custormers WHERE regno = {};".format(__regno))
 
             if not cursor.fetchone()[0]:
-                raise Exception('Invalid username')
+                return jsonify({'StatusCode' : '201', 'message':'Invalid username'})
+
 
 
             cursor.execute("SELECT userid, password FROM custormers WHERE regno = {};".format(__regno))
@@ -66,14 +81,135 @@ class Authenticate(Resource):
                 if __password  == row[1]:
                     session['regno'] = __regno
                     session['userid'] = row[0]
+                    arrayVal = str([loginLocation,loginLocation,1])
+                    arrayTable = ['routerIp','userIp','loginStatus']
+                    query = handler.insertArr(arrayVal, arrayTable, 'TraceLogin')
+
                     return jsonify({'StatusCode' : '200', 'message':'successfull', 'sessionId':session['userid'], "sessionRegno":session['regno']})
 
-            raise Exception('Invalid password')
+                else:
+                    arrayVal = [loginLocation,loginLocation,0]
+                    arrayTable = ['routerIp','userIp','loginStatus']
+                    query = handler.insertArr(arrayVal, arrayTable, 'TraceLogin')
+
+                    return jsonify({'StatusCode':'201', 'message':'Invalid password'})
         
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
             return jsonify({'StatusCode' : '400', 'message':'Invalid json input'})
+
+        
+class Auth2(Resource):
+    def post(self):
+        try:
+            req_data = request.get_json(force=True)
+            expectedFields = ['regno','password']
+            missing = handler.checkJson(expectedFields,req_data)
+            if missing:
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
+            __regno = req_data['regno']
+            __password = req_data['password']
+
+            url = 'https://att.lmu.edu.ng/login/login' # Set destination URL here
+            data = {'username': __regno, 'password':__password}     # Set POST fields here
+            request = Request(url, urlencode(data).encode())
+            json = urlopen(request).read().decode()
+            # print(json)
+            if json.data == True:
+                session['regno'] = __regno
+                session['userid'] = json.userid
+                return jsonify({'StatusCode' : '200', 'message':json.message, 'sessionId':session['userid'], "sessionRegno":session['regno']})
+            else:
+                return jsonify({'StatusCode' : '201', 'message':json.message})
+                
+        except Exception as e:
+            return {'error': str(e)}
+        except TypeError:
+            return jsonify({'StatusCode' : '400', 'message':'Invalid json input'})
+
+
+class spendingHistory(Resource):
+    """docstring for depositHistory"""
+    def post(self):
+        try:
+            req_data = request.get_json(force=True)
+            expectedFields = ['regno']
+            missing = handler.checkJson(expectedFields,req_data)
+            if missing:
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
+            __regno = req_data['regno']
+
+            cursor.execute("SELECT locationId,amount,userId,merchantiD,dateCreated FROM spending WHERE userid = {};".format(__regno))
+            data = cursor.fetchall()
+
+            if not data:
+                return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
+
+
+            items=[];
+            for item in data:
+                i = {
+                    'locationId':item[0],
+                    'amount':item[1],
+                    'userId':item[2],
+                    'merchantiD':item[3],
+                    'dateCreated':item[4]
+                }
+                items.append(i)
+
+            # return {'StatusCode':'200','Items':items_list}
+            return jsonify({'StatusCode' : '200', 'Items':items})
+            
+
+            
+        
+        except Exception as e:
+            return {'error': str(e)}
+        except TypeError:
+            return jsonify({'status' : '400', 'message':'Invalid json input'})
+
+
+class transferHistory(Resource):
+    """docstring for depositHistory"""
+    def post(self):
+        try:
+            req_data = request.get_json(force=True)
+            expectedFields = ['regno']
+            missing = handler.checkJson(expectedFields,req_data)
+            if missing:
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
+            __regno = req_data['regno']
+
+            cursor.execute("SELECT amount,fromWho,toWho,isCrime,approved,dateTransferd FROM transfers WHERE userid = {};".format(__regno))
+            data = cursor.fetchall()
+
+            if not data:
+                return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
+
+
+            items=[];
+            for item in data:
+                i = {
+                    'amount':item[0],
+                    'fromWho':item[1],
+                    'toWho':item[2],
+                    'isCrime':item[3],
+                    'approved':item[4],
+                    'dateTransferd':item[5]
+                }
+                items.append(i)
+
+            # return {'StatusCode':'200','Items':items_list}
+            return jsonify({'StatusCode' : '200', 'Items':items})
+            
+
+            
+        
+        except Exception as e:
+            return {'error': str(e)}
+        except TypeError:
+            return jsonify({'status' : '400', 'message':'Invalid json input'})
 
 
 class depositHistory(Resource):
@@ -116,34 +252,125 @@ class depositHistory(Resource):
         except TypeError:
             return jsonify({'status' : '400', 'message':'Invalid json input'})
 
-
-        
-class GetAllTrans(Resource):
+class loginHistory(Resource):
+    """docstring for depositHistory"""
     def post(self):
-        try: 
+        try:
             req_data = request.get_json(force=True)
-            _userId = req_data['id']
+            expectedFields = ['regno']
+            missing = handler.checkJson(expectedFields,req_data)
+            if missing:
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
+            __regno = req_data['regno']
 
-            # conn = mysql.connect()
-            cursor = dbconn.cursor()
-            cursor.callproc('student',(_userId,))
+            cursor.execute("SELECT routerIp,userIp,loginStatus,ldate FROM TraceLogin WHERE userid = {};".format(__regno))
             data = cursor.fetchall()
 
-            items_list=[];
+            if not data:
+                return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
+
+
+            items=[];
             for item in data:
                 i = {
-                    'Id':item[0],
-                    'Item':item[1]
+                    'routerIp':item[0],
+                    'userIp':item[1],
+                    'loginStatus':item[2],
+                    'logindate':item[3]
                 }
-                items_list.append(i)
+                items.append(i)
 
-            # return {'StatusCode':'200','Items':items_list}
-            return jsonify({'StatusCode' : '200', 'Items':items_list})
-
+            return jsonify({'StatusCode' : '200', 'Items':items})
+        
         except Exception as e:
-            # return {'error': str(e)}
-            return jsonify({'error': str(e)})        
-                
+            return {'error': str(e)}
+        except TypeError:
+            return jsonify({'status' : '400', 'message':'Invalid json input'})
+
+
+class dashboardInfo(Resource):
+    """docstring for dashboardInfo"""
+    def post(self):
+        try:
+            req_data = request.get_json(force=True)
+            expectedFields = ['regno']
+            missing = handler.checkJson(expectedFields,req_data)
+            if missing:
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
+            __regno = req_data['regno']
+
+            cursor.execute("SELECT amount FROM deposit WHERE userid = {};".format(__regno))
+            Tdeposit = sum(sum(x) for x in cursor.fetchall())
+
+            cursor.execute("SELECT amount FROM spending WHERE userid = {};".format(__regno))
+            Tspent = 0 if not cursor.fetchall() else sum(sum(x) for x in cursor.fetchall())
+
+            cursor.execute("SELECT amount FROM transfers WHERE userid = {};".format(__regno))
+            Ttransfers = 0 if not cursor.fetchall() else sum(sum(x) for x in cursor.fetchall())
+
+            cursor.execute("SELECT activated FROM custormers WHERE regno = {};".format(__regno))
+            flag = cursor.fetchone()[0]
+
+            cursor.execute("SELECT amount,depositLocation,depositType,depositorName,dateDeposited FROM deposit WHERE userid = {} ORDER BY dateDeposited DESC LIMIT 1;".format(__regno))
+            lastDeposited = cursor.fetchone()
+
+            cursor.execute("SELECT amount,fromWho,toWho,approved,dateTransferd FROM transfers WHERE userid = {} ORDER BY dateTransferd DESC LIMIT 1;".format(__regno))
+            lastTransfer = "no lastTransfer record" if not cursor.fetchone() else cursor.fetchone()
+
+            cursor.execute("SELECT locationId,amount FROM spending WHERE userid = {} ORDER BY dateCreated DESC LIMIT 1;".format(__regno))
+            spending =  cursor.fetchone()
+
+            cursor.execute("SELECT routerIp,userIp,loginStatus,ldate FROM TraceLogin WHERE userid = {} ORDER BY ldate DESC LIMIT 1;".format(__regno))
+            lastLocation = "no lastTransfer record" if not cursor.fetchone() else cursor.fetchone()
+
+
+            if not Tdeposit:
+                return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
+            
+            Llocation = {
+                'routerIP': lastLocation[0],
+                'userIP': lastLocation[1],
+                'loginStatus': lastLocation[2],
+                'ldate': lastLocation[3]
+            }
+
+            Ldeposited = {
+                'amount': lastDeposited[0],
+                'location': lastDeposited[1],
+                'depositType': lastDeposited[2],
+                'depositorName': lastDeposited[3],
+                'dateDeposited': lastDeposited[4]
+            }
+
+            Ltransfer = {
+                'amount': lastTransfer[0],
+                'fromWho': lastTransfer[1],
+                'toWho': lastTransfer[2],
+                'approved': lastTransfer[3],
+                'dateTransferd': lastTransfer[4]
+            }
+
+            items=[];            
+            i = {
+                'currentBalance': (Tdeposit) + (Tspent+Ttransfers),
+                'flag':flag,
+                'lastDeposited': Ldeposited,
+                'lastTransfer':Ltransfer,
+                'lastLoginLocation':Llocation,
+                'lastTransactionLocation': spending[0],
+                'lastAmountSpent': spending[1]
+            }
+
+            items.append(i)
+
+            return jsonify({'StatusCode' : '200', 'data':items})
+        
+        except Exception as e:
+            return {'error': str(e)}
+        except TypeError:
+            return jsonify({'status' : '400', 'message':'Invalid json input'})
+        
+
 
 class CreateUser(Resource):
     def post(self):
@@ -174,27 +401,7 @@ class CreateUser(Resource):
             # return {'error': str(e)}
             return jsonify({'error': str(e)})
 
-class Test(Resource):
-    def post(self):
-        return jsonify({'success': "working"})
 
-class ReturnResponse(Resource):
-    def post(self):
-        # parser = reqparse.RequestParser()
-        # parser.add_argument('name', type=str, help='input your name')
-        # parser.add_argument('keyword', type=str, help='input your keyword')
-        # args = parser.parse_args()
-
-        # args is use to get from url search = request.args.get("search")
-        # email = request.form.get('email') form is use to get form input 
-
-        req_data = request.get_json(force=True)
-        # data = request.data     is already depreciated
-
-        __name = req_data['name']
-        __keyword = req_data['keyword']
-
-        return jsonify({'success' : 'true', 'name' : __name, 'keyword' : __keyword})
 
 class newData(Resource):
     def post(self):
