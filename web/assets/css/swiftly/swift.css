@@ -54,3 +54,14 @@
     width: 55px;
     padding: 10px;
 }
+.page{
+    background: none;
+}
+.page-header-title{
+    font-size: 40px !important;
+    margin-left: 40px;
+    margin-top: 24px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold !important;
+    color: #C1C2C5 !important;
+}
