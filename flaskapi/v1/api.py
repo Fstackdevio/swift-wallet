@@ -227,11 +227,8 @@ class depositHistory(Resource):
 
             cursor.execute("SELECT amount, depositLocation, depositType, depositorName, dateDeposited FROM deposit WHERE userid = {};".format(__regno))
             data = cursor.fetchall()
-
             if not data:
                 return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
-
-
             items=[];
             for item in data:
                 i = {
@@ -244,11 +241,7 @@ class depositHistory(Resource):
                 items.append(i)
 
             # return {'StatusCode':'200','Items':items_list}
-            return jsonify({'StatusCode' : '200', 'Items':items})
-            
-
-            
-        
+            return jsonify({'StatusCode' : '200', 'Items':items})            
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
@@ -271,7 +264,6 @@ class loginHistory(Resource):
             if not data:
                 return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
 
-
             items=[];
             for item in data:
                 i = {
@@ -281,14 +273,11 @@ class loginHistory(Resource):
                     'logindate':item[3]
                 }
                 items.append(i)
-
             return jsonify({'StatusCode' : '200', 'Items':items})
-        
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
             return jsonify({'status' : '400', 'message':'Invalid json input'})
-
 
 class dashboardInfo(Resource):
     """docstring for dashboardInfo"""
@@ -324,7 +313,6 @@ class dashboardInfo(Resource):
 
             cursor.execute("SELECT routerIp,userIp,loginStatus,ldate FROM TraceLogin WHERE userid = {} ORDER BY ldate DESC LIMIT 1;".format(__regno))
             lastLocation = "no lastTransfer record" if not cursor.fetchone() else cursor.fetchone()
-
 
             if not Tdeposit:
                 return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
@@ -364,16 +352,12 @@ class dashboardInfo(Resource):
             }
 
             items.append(i)
-
             return jsonify({'StatusCode' : '200', 'data':items})
-        
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
             return jsonify({'status' : '400', 'message':'Invalid json input'})
         
-
-
 class CreateUser(Resource):
     def post(self):
         try:
@@ -403,9 +387,7 @@ class CreateUser(Resource):
             # return {'error': str(e)}
             return jsonify({'error': str(e)})
 
-
-
-class makeDeposit(Resource):
+class makeDeposit1(Resource):
     def post(self):
         try:
             req_data = request.get_json(force=True)
@@ -415,8 +397,6 @@ class makeDeposit(Resource):
                 return jsonify({'StatusCode' : '200', 'Missing field': missing})
             __regno = req_data['regno']
             __amount = req_data['amount']
-            # cpd meaning cash point depositor
-            __cpd = req_data['cpd']
             __cpl = req_data['cpl']
 
             cursor.execute("SELECT amount FROM deposit WHERE userid = {};".format(__regno))
@@ -429,7 +409,7 @@ class makeDeposit(Resource):
             Ttransfers = 0 if not cursor.fetchall() else sum(sum(x) for x in cursor.fetchall())
 
             currentBalance = (Tdeposit) - (Tspent+Ttransfers)
-            incremented = currentBalance + __cpd
+            incremented = currentBalance + __amount
 
             arrayVal = str([__regno,__amount,__cpl,1,'cashpoint'])
             arrayTable = ['userid','amount','depositLocation','status','depositType']
