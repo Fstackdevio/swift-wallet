@@ -83,14 +83,16 @@ class Authenticate(Resource):
                     session['userid'] = row[0]
                     arrayVal = str([loginLocation,loginLocation,1])
                     arrayTable = ['routerIp','userIp','loginStatus']
-                    query = handler.insertArr(arrayVal, arrayTable, 'TraceLogin')
+                    valType = [%s,%s,%s]
+                    query = handler.insertArr(arrayVal, arrayTable, valType,'TraceLogin')
 
                     return jsonify({'StatusCode' : '200', 'message':'successfull', 'sessionId':session['userid'], "sessionRegno":session['regno']})
 
                 else:
                     arrayVal = [loginLocation,loginLocation,0]
                     arrayTable = ['routerIp','userIp','loginStatus']
-                    query = handler.insertArr(arrayVal, arrayTable, 'TraceLogin')
+                    valType = [%s,%s,%s]
+                    query = handler.insertArr(arrayVal, arrayTable, valType, 'TraceLogin')
 
                     return jsonify({'StatusCode':'201', 'message':'Invalid password'})
         
@@ -225,11 +227,8 @@ class depositHistory(Resource):
 
             cursor.execute("SELECT amount, depositLocation, depositType, depositorName, dateDeposited FROM deposit WHERE userid = {};".format(__regno))
             data = cursor.fetchall()
-
             if not data:
                 return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
-
-
             items=[];
             for item in data:
                 i = {
@@ -242,11 +241,7 @@ class depositHistory(Resource):
                 items.append(i)
 
             # return {'StatusCode':'200','Items':items_list}
-            return jsonify({'StatusCode' : '200', 'Items':items})
-            
-
-            
-        
+            return jsonify({'StatusCode' : '200', 'Items':items})            
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
@@ -269,7 +264,6 @@ class loginHistory(Resource):
             if not data:
                 return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
 
-
             items=[];
             for item in data:
                 i = {
@@ -279,14 +273,11 @@ class loginHistory(Resource):
                     'logindate':item[3]
                 }
                 items.append(i)
-
             return jsonify({'StatusCode' : '200', 'Items':items})
-        
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
             return jsonify({'status' : '400', 'message':'Invalid json input'})
-
 
 class dashboardInfo(Resource):
     """docstring for dashboardInfo"""
@@ -323,7 +314,6 @@ class dashboardInfo(Resource):
             cursor.execute("SELECT routerIp,userIp,loginStatus,ldate FROM TraceLogin WHERE userid = {} ORDER BY ldate DESC LIMIT 1;".format(__regno))
             lastLocation = "no lastTransfer record" if not cursor.fetchone() else cursor.fetchone()
 
-
             if not Tdeposit:
                 return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
             
@@ -352,7 +342,7 @@ class dashboardInfo(Resource):
 
             items=[];            
             i = {
-                'currentBalance': (Tdeposit) + (Tspent+Ttransfers),
+                'currentBalance': (Tdeposit) - (Tspent+Ttransfers),
                 'flag':flag,
                 'lastDeposited': Ldeposited,
                 'lastTransfer':Ltransfer,
@@ -362,16 +352,12 @@ class dashboardInfo(Resource):
             }
 
             items.append(i)
-
             return jsonify({'StatusCode' : '200', 'data':items})
-        
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
             return jsonify({'status' : '400', 'message':'Invalid json input'})
         
-
-
 class CreateUser(Resource):
     def post(self):
         try:
@@ -401,39 +387,40 @@ class CreateUser(Resource):
             # return {'error': str(e)}
             return jsonify({'error': str(e)})
 
-
-
-class newData(Resource):
+class makeDeposit1(Resource):
     def post(self):
-        req_data = request.get_json(force=True)
-        fn = req_data['firstName']
-        ln = req_data['lastName']
-        pn = req_data['phoneNumber']
-        nn = req_data['nickName']
+        try:
+            req_data = request.get_json(force=True)
+            expectedFields = ['regno']
+            missing = handler.checkJson(expectedFields,req_data)
+            if missing:
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
+            __regno = req_data['regno']
+            __amount = req_data['amount']
+            __cpl = req_data['cpl']
 
+            cursor.execute("SELECT amount FROM deposit WHERE userid = {};".format(__regno))
+            Tdeposit = sum(sum(x) for x in cursor.fetchall())
 
-        query = handler.insert('datas', fn, ln, pn, nn)
+            cursor.execute("SELECT amount FROM spending WHERE userid = {};".format(__regno))
+            Tspent = 0 if not cursor.fetchall() else sum(sum(x) for x in cursor.fetchall())
 
-        if (query == "success"):
-            return jsonify({'success' : 'true', 'message' : 'data inserted'})
-            # return query
-        else:
-            return jsonify({'success' : 'false', 'message' : 'data not inserted'})
-            # return "error inserting"
+            cursor.execute("SELECT amount FROM transfers WHERE userid = {};".format(__regno))
+            Ttransfers = 0 if not cursor.fetchall() else sum(sum(x) for x in cursor.fetchall())
 
-class newInsert(Resource):
-    def post(self):
-        req_data = request.get_json(force=true)
+            currentBalance = (Tdeposit) - (Tspent+Ttransfers)
+            incremented = currentBalance + __amount
 
-        query = handler.insertArr(arrayVal, arrayTable, 'datas')
-
-        if (query == "success"):
-            return jsonify({'success' : 'true', 'message' : 'data inserted'})
-            # return query
-        else:
-            return jsonify({'success' : 'false', 'message' : 'data not inserted'})
-            # return "error inserting"
-
+            arrayVal = str([__regno,__amount,__cpl,1,'cashpoint'])
+            arrayTable = ['userid','amount','depositLocation','status','depositType']
+            valType = [%s,%s,%s,%s,%s]
+            query = handler.insertArr(arrayVal, arrayTable, valType,'deposit')
+            if query == 'success':
+                return jsonify({'StatusCode' : '200', 'data':'success'})
+            else:
+                return jsonify({'StatusCode' : '201', 'data':'error'})            
         
-        
-        
+        except Exception as e:
+            return {'error': str(e)}
+        except TypeError:
+            return jsonify({'status' : '400', 'message':'Invalid json input'})
