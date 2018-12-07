@@ -41,15 +41,20 @@ class Ioapi():
 				return f
 
 	#INSERT ARRAY 
-	def insertArr(self, arrayVal, arrayTable, table):
+	def insertArr(self, arrayVal, arrayTable, valuetype table):
 		with self.db:
 			cur = self.db.cursor()
-    		sql = "INSERT INTO " + table + "(" + ','.join([(e) for e in arrayTable]) + ") " + "VALUES" + "(" + ','.join([(e) for e in arrayVal]) + ")"
-    		if(cur.execute(sql)):
-    			return "success"
-    		else:
-    			return "error"
+    		sql = "INSERT INTO " + table + "(" + ','.join([(e) for e in arrayTable]) + ") " + "VALUES" + "(" + ','.join([(e) for e in valuetype]) + ")"
+	        cur.execute(sql, arrayVal)
+	        if cur.lastrowid:
+	        	cur.commit()
+	        	cursor.close()
+	            return "success"
+	        else:
+	        	cur.commit()
+	            return "error"
 
+  
 	#INSERT ROW
 	def insert(self, table, fname, lname, pnum, nname):
 		with self.db:

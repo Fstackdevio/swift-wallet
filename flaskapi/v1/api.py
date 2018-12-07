@@ -83,14 +83,16 @@ class Authenticate(Resource):
                     session['userid'] = row[0]
                     arrayVal = str([loginLocation,loginLocation,1])
                     arrayTable = ['routerIp','userIp','loginStatus']
-                    query = handler.insertArr(arrayVal, arrayTable, 'TraceLogin')
+                    valType = [%s,%s,%s]
+                    query = handler.insertArr(arrayVal, arrayTable, valType,'TraceLogin')
 
                     return jsonify({'StatusCode' : '200', 'message':'successfull', 'sessionId':session['userid'], "sessionRegno":session['regno']})
 
                 else:
                     arrayVal = [loginLocation,loginLocation,0]
                     arrayTable = ['routerIp','userIp','loginStatus']
-                    query = handler.insertArr(arrayVal, arrayTable, 'TraceLogin')
+                    valType = [%s,%s,%s]
+                    query = handler.insertArr(arrayVal, arrayTable, valType, 'TraceLogin')
 
                     return jsonify({'StatusCode':'201', 'message':'Invalid password'})
         
@@ -352,7 +354,7 @@ class dashboardInfo(Resource):
 
             items=[];            
             i = {
-                'currentBalance': (Tdeposit) + (Tspent+Ttransfers),
+                'currentBalance': (Tdeposit) - (Tspent+Ttransfers),
                 'flag':flag,
                 'lastDeposited': Ldeposited,
                 'lastTransfer':Ltransfer,
@@ -403,37 +405,42 @@ class CreateUser(Resource):
 
 
 
-class newData(Resource):
+class makeDeposit(Resource):
     def post(self):
-        req_data = request.get_json(force=True)
-        fn = req_data['firstName']
-        ln = req_data['lastName']
-        pn = req_data['phoneNumber']
-        nn = req_data['nickName']
+        try:
+            req_data = request.get_json(force=True)
+            expectedFields = ['regno']
+            missing = handler.checkJson(expectedFields,req_data)
+            if missing:
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
+            __regno = req_data['regno']
+            __amount = req_data['amount']
+            # cpd meaning cash point depositor
+            __cpd = req_data['cpd']
+            __cpl = req_data['cpl']
 
+            cursor.execute("SELECT amount FROM deposit WHERE userid = {};".format(__regno))
+            Tdeposit = sum(sum(x) for x in cursor.fetchall())
 
-        query = handler.insert('datas', fn, ln, pn, nn)
+            cursor.execute("SELECT amount FROM spending WHERE userid = {};".format(__regno))
+            Tspent = 0 if not cursor.fetchall() else sum(sum(x) for x in cursor.fetchall())
 
-        if (query == "success"):
-            return jsonify({'success' : 'true', 'message' : 'data inserted'})
-            # return query
-        else:
-            return jsonify({'success' : 'false', 'message' : 'data not inserted'})
-            # return "error inserting"
+            cursor.execute("SELECT amount FROM transfers WHERE userid = {};".format(__regno))
+            Ttransfers = 0 if not cursor.fetchall() else sum(sum(x) for x in cursor.fetchall())
 
-class newInsert(Resource):
-    def post(self):
-        req_data = request.get_json(force=true)
+            currentBalance = (Tdeposit) - (Tspent+Ttransfers)
+            incremented = currentBalance + __cpd
 
-        query = handler.insertArr(arrayVal, arrayTable, 'datas')
-
-        if (query == "success"):
-            return jsonify({'success' : 'true', 'message' : 'data inserted'})
-            # return query
-        else:
-            return jsonify({'success' : 'false', 'message' : 'data not inserted'})
-            # return "error inserting"
-
+            arrayVal = str([__regno,__amount,__cpl,1,'cashpoint'])
+            arrayTable = ['userid','amount','depositLocation','status','depositType']
+            valType = [%s,%s,%s,%s,%s]
+            query = handler.insertArr(arrayVal, arrayTable, valType,'deposit')
+            if query == 'success':
+                return jsonify({'StatusCode' : '200', 'data':'success'})
+            else:
+                return jsonify({'StatusCode' : '201', 'data':'error'})            
         
-        
-        
+        except Exception as e:
+            return {'error': str(e)}
+        except TypeError:
+            return jsonify({'status' : '400', 'message':'Invalid json input'})

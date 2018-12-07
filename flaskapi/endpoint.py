@@ -10,7 +10,6 @@ sys.path.insert(0, parent_dir)
 
 from v1.api import *
 
-
 api.add_resource(Authenticate, '/Authenticate')
 api.add_resource(logout, '/logout')
 api.add_resource(spendingHistory, '/spendingHistory')
