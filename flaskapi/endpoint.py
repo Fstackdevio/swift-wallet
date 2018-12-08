@@ -11,16 +11,15 @@ sys.path.insert(0, parent_dir)
 from v1.api import *
 
 api.add_resource(Authenticate, '/Authenticate')
+api.add_resource(Auth2, '/Authv2')
 api.add_resource(logout, '/logout')
 api.add_resource(spendingHistory, '/spendingHistory')
 api.add_resource(transferHistory, '/transferHistory')
 api.add_resource(depositHistory, '/depositHistory')
 api.add_resource(loginHistory, '/loginHistory')
 api.add_resource(dashboardInfo, '/dashboardInfo')
-api.add_resource(newData, '/insertData')
+api.add_resource(makeDeposit1, '/makeDeposit1')
 # api.add_resource(updateData, '/updateData')
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-# This is to inform all parents/guardians that their ward in the department of mass communication would be participating  in a departmental workshop program which commences on Wednesday 5th November 2018 with the sum of #70,000 all payments should be made at the account office on or before Wednesday 5th November 2018, we apologize for the short notice and inconvenience this may have caused, God continue to bless and uphold you.

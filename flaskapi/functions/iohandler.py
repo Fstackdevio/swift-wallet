@@ -41,7 +41,7 @@ class Ioapi():
 				return f
 
 	#INSERT ARRAY 
-	def insertArr(self, arrayVal, arrayTable, valuetype table):
+	def insertArr(self, arrayVal, arrayTable, valuetype, table):
 		with self.db:
 			cur = self.db.cursor()
     		sql = "INSERT INTO " + table + "(" + ','.join([(e) for e in arrayTable]) + ") " + "VALUES" + "(" + ','.join([(e) for e in valuetype]) + ")"
@@ -49,10 +49,10 @@ class Ioapi():
 	        if cur.lastrowid:
 	        	cur.commit()
 	        	cursor.close()
-	            return "success"
+	        	return "success"
 	        else:
 	        	cur.commit()
-	            return "error"
+	        	return "error"
 
   
 	#INSERT ROW
@@ -66,11 +66,11 @@ class Ioapi():
 				return "error"
 
 	#UPDATE SINGLE ROW
-	def update(self, table, fname, lname, pnum, nname, idd):
+	def lockAccount(self, table, regno):
 		with self.db:
 			cur = self.db.cursor()
-			sql = 'UPDATE table SET fn=%s, ln=%s, pn=%s, nn=%s WHERE id=%s'
-			if (cur.execute(sql, (fname, lname, pnum, nname, idd))):
+			sql = 'UPDATE table SET disabled=%s WHERE regno=%s'
+			if (cur.execute(sql, (1,regno))):
 				return "success",  cur.rowcount
 			else:
 				return "error"

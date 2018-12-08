@@ -83,7 +83,7 @@ class Authenticate(Resource):
                     session['userid'] = row[0]
                     arrayVal = str([loginLocation,loginLocation,1])
                     arrayTable = ['routerIp','userIp','loginStatus']
-                    valType = [%s,%s,%s]
+                    valType = ["%s","%s","%s"]
                     query = handler.insertArr(arrayVal, arrayTable, valType,'TraceLogin')
 
                     return jsonify({'StatusCode' : '200', 'message':'successfull', 'sessionId':session['userid'], "sessionRegno":session['regno']})
@@ -91,7 +91,7 @@ class Authenticate(Resource):
                 else:
                     arrayVal = [loginLocation,loginLocation,0]
                     arrayTable = ['routerIp','userIp','loginStatus']
-                    valType = [%s,%s,%s]
+                    valType = ["%s","%s","%s"]
                     query = handler.insertArr(arrayVal, arrayTable, valType, 'TraceLogin')
 
                     return jsonify({'StatusCode':'201', 'message':'Invalid password'})
@@ -391,12 +391,13 @@ class makeDeposit1(Resource):
     def post(self):
         try:
             req_data = request.get_json(force=True)
-            expectedFields = ['regno']
+            expectedFields = ['regno', 'amount', ]
             missing = handler.checkJson(expectedFields,req_data)
             if missing:
                 return jsonify({'StatusCode' : '200', 'Missing field': missing})
             __regno = req_data['regno']
             __amount = req_data['amount']
+            # cpl means cashpoint location
             __cpl = req_data['cpl']
 
             cursor.execute("SELECT amount FROM deposit WHERE userid = {};".format(__regno))
@@ -413,13 +414,57 @@ class makeDeposit1(Resource):
 
             arrayVal = str([__regno,__amount,__cpl,1,'cashpoint'])
             arrayTable = ['userid','amount','depositLocation','status','depositType']
-            valType = [%s,%s,%s,%s,%s]
+            valType = ["%s","%s","%s","%s","%s"]
             query = handler.insertArr(arrayVal, arrayTable, valType,'deposit')
             if query == 'success':
                 return jsonify({'StatusCode' : '200', 'data':'success'})
             else:
                 return jsonify({'StatusCode' : '201', 'data':'error'})            
         
+        except Exception as e:
+            return {'error': str(e)}
+        except TypeError:
+            return jsonify({'status' : '400', 'message':'Invalid json input'})
+
+class makeTransfer(Resource):
+    def post(self):
+        try:
+            req_data = request.get_json(force=True)
+            expectedFields = ['Sid', 'Rid', 'amount', 'pin']
+            missing = handler.checkJson(expectedFields,req_data)
+            if missing:
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
+            __sender = req_data['Sid']
+            __receiver = req_data['Rid']
+            __amount = req_data['amount']
+            __pin = req_data['pin']
+
+            cursor.execute("SELECT pin FROM custormers WHERE regno = {};".format(__sender))
+
+            if cursor.fetchone()[0] == __pin:
+                arrayVal = str([__sender,__amount,__sender,__receiver,0,1])
+                arrayTable = ['userid','amount','fromWho','toWho','isCrime','approved']
+                valType = ["%s","%s","%s","%s","%s","%s"]
+                query = handler.insertArr(arrayVal, arrayTable, valType,'transfers')
+                if query == 'success':
+                    return jsonify({'StatusCode' : '200', 'data':'success'})
+                else:
+                    return jsonify({'StatusCode' : '201', 'data':'error'})
+            else:
+                cursor.execute("SELECT COUNT(1) FROM transfers WHERE regno = {} and approved = 0;".format(__regno))
+                count = cursor.fetchone()[0]
+                if count%3 == 0:
+                    lock = handler.lockAccount('custormers', __sender)
+                arrayVal = str([__sender,__amount,__sender,__receiver,0,0])
+                arrayTable = ['userid','amount','fromWho','toWho','isCrime','approved']
+                valType = ["%s","%s","%s","%s","%s","%s"]
+                query = handler.insertArr(arrayVal, arrayTable, valType,'transfers')
+                if query == 'success':
+                    return jsonify({'StatusCode' : '200', 'data':'success'})
+                else:
+                    return jsonify({'StatusCode' : '201', 'data':'error'})
+
+            return jsonify({'StatusCode' : '201', 'message':'Invalid username'})           
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
