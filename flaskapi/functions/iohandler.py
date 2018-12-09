@@ -75,6 +75,15 @@ class Ioapi():
 			else:
 				return "error"
 
+	def unLockAccount(self, table, regno):
+		with self.db:
+			cur = self.db.cursor()
+			sql = 'UPDATE table SET disabled=%s WHERE regno=%s'
+			if (cur.execute(sql, (0,regno))):
+				return "success",  cur.rowcount
+			else:
+				return "error"
+
 	#GET SINGLE ROW
 	def getSingle(self, table, idd):
 		with self.db:
