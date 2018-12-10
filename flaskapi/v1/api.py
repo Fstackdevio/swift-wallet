@@ -61,41 +61,49 @@ class Authenticate(Resource):
             __password = req_data['password']
 
             gws=netifaces.gateways()
-            loginLocation = gws['default'].values()[0][0]
+            loginLocation = str(gws['default'].values()[0][0])
+            userip = str("192.168.7.1")
 
             if __regno in session:
                 return jsonify({'StatusCode' : '200', 'message':'sessionActive'})
 
-            cursor.execute("SELECT COUNT(1) FROM custormers WHERE regno = {};".format(__regno))
+            cursor.execute("SELECT COUNT(1) FROM customers WHERE regno = {};".format(__regno))
 
             if not cursor.fetchone()[0]:
                 return jsonify({'StatusCode' : '201', 'message':'Invalid username'})
 
-
-
-            cursor.execute("SELECT userid, password FROM custormers WHERE regno = {};".format(__regno))
-            
+            cursor.execute("SELECT userid,password,disabled,regno FROM customers WHERE regno = {};".format(__regno))
 
             for row in cursor.fetchall():
                 # if hashlib.md5(__password).hexdigest()  == row[1]:
-                if __password  == row[1]:
-                    session['regno'] = __regno
-                    session['userid'] = row[0]
-                    arrayVal = str([loginLocation,loginLocation,1])
-                    arrayTable = ['routerIp','userIp','loginStatus']
-                    valType = ["%s","%s","%s"]
-                    query = handler.insertArr(arrayVal, arrayTable, valType,'TraceLogin')
-
-                    return jsonify({'StatusCode' : '200', 'message':'successfull', 'sessionId':session['userid'], "sessionRegno":session['regno']})
-
+                # print(row[2])
+                if row[2] == 0:
+                    if __password  == row[1]:
+                        session['regno'] = __regno
+                        session['userid'] = row[0]
+                        arrayVal = (row[3],loginLocation,userip,1)
+                        arrayTable = ('userid','routerIp','userIp','loginStatus')
+                        sql = 'INSERT INTO TraceLogin (userid,routerIp,userIp,loginStatus) VALUES(%s,%s,%s,%s)'
+                        query = handler.insertv2(sql, arrayVal)
+                        return jsonify({'StatusCode' : '200', 'message':'successfull', 'sessionId':session['userid'], "sessionRegno":session['regno']})
+                    else:
+                        arrayVal = (row[3],loginLocation,userip,0)
+                        arrayTable = ('userid','routerIp','userIp','loginStatus')
+                        sql = 'INSERT INTO TraceLogin (userid,routerIp,userIp,loginStatus) VALUES(%s,%s,%s,%s)'
+                        query = handler.insertv2(sql, arrayVal)
+                        cursor.execute("SELECT COUNT(*) FROM TraceLogin WHERE userid = {} and loginStatus = 0 ORDER BY userid DESC;".format(__regno))
+                        count = cursor.fetchone()[0]
+                        if int(count)%3 == 0:
+                            lock = handler.lockAccount('customers',row[3],1)
+                            return jsonify({'StatusCode':'201', 'message':'Account blocked'})
+                        return jsonify({'StatusCode':'201', 'message':'Invalid password', 'data':count})
+                elif row[2] == 1:
+                    return jsonify({'StatusCode':'201', 'message':'account blocked for several Invalid login trial'})
+                elif row[2] == 2:
+                    return jsonify({'StatusCode':'201', 'message':'account blocked for several transfer trial'})
                 else:
-                    arrayVal = [loginLocation,loginLocation,0]
-                    arrayTable = ['routerIp','userIp','loginStatus']
-                    valType = ["%s","%s","%s"]
-                    query = handler.insertArr(arrayVal, arrayTable, valType, 'TraceLogin')
+                    return jsonify({'StatusCode':'201', 'message':'suspisious transaction on account'})
 
-                    return jsonify({'StatusCode':'201', 'message':'Invalid password'})
-        
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
@@ -299,7 +307,7 @@ class dashboardInfo(Resource):
             cursor.execute("SELECT amount FROM transfers WHERE userid = {};".format(__regno))
             Ttransfers = 0 if not cursor.fetchall() else sum(sum(x) for x in cursor.fetchall())
 
-            cursor.execute("SELECT activated FROM custormers WHERE regno = {};".format(__regno))
+            cursor.execute("SELECT activated FROM customers WHERE regno = {};".format(__regno))
             flag = cursor.fetchone()[0]
 
             cursor.execute("SELECT amount,depositLocation,depositType,depositorName,dateDeposited FROM deposit WHERE userid = {} ORDER BY dateDeposited DESC LIMIT 1;".format(__regno))
@@ -439,27 +447,28 @@ class makeTransfer(Resource):
             __amount = req_data['amount']
             __pin = req_data['pin']
 
-            cursor.execute("SELECT pin FROM custormers WHERE regno = {};".format(__sender))
+            cursor.execute("SELECT pin FROM customers WHERE regno = {};".format(__sender))
 
             if cursor.fetchone()[0] == __pin:
-                arrayVal = str([__sender,__amount,__sender,__receiver,0,1])
-                arrayTable = ['userid','amount','fromWho','toWho','isCrime','approved']
-                valType = ["%s","%s","%s","%s","%s","%s"]
-                query = handler.insertArr(arrayVal, arrayTable, valType,'transfers')
+                arrayVal = (__sender,__amount,__sender,__receiver,0,1)
+                sql = 'INSERT INTO transfers (userid,amount,fromWho,toWho,isCrime,approved) VALUES(%s,%s,%s,%s,%s,%s)'
+                query = handler.insertv2(sql, arrayVal)
+
                 if query == 'success':
                     return jsonify({'StatusCode' : '200', 'data':'success'})
                 else:
                     return jsonify({'StatusCode' : '201', 'data':'error'})
             else:
+                arrayVal = (__sender,__amount,__sender,__receiver,0,1)
+                sql = 'INSERT INTO transfers (userid,amount,fromWho,toWho,isCrime,approved) VALUES(%s,%s,%s,%s,%s,%s)'
+                query = handler.insertv2(sql, arrayVal)
                 cursor.execute("SELECT COUNT(1) FROM transfers WHERE regno = {} and approved = 0;".format(__regno))
                 count = cursor.fetchone()[0]
                 if count%3 == 0:
-                    lock = handler.lockAccount('custormers', __sender)
-                arrayVal = str([__sender,__amount,__sender,__receiver,0,0])
-                arrayTable = ['userid','amount','fromWho','toWho','isCrime','approved']
-                valType = ["%s","%s","%s","%s","%s","%s"]
-                query = handler.insertArr(arrayVal, arrayTable, valType,'transfers')
-                if query == 'success':
+                    lock = handler.lockAccount('customers', __sender,2)
+                    return jsonify({'StatusCode':'201', 'message':'Account blocked'})
+
+                if query != '':
                     return jsonify({'StatusCode' : '200', 'data':'success'})
                 else:
                     return jsonify({'StatusCode' : '201', 'data':'error'})
