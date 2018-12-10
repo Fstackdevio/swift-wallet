@@ -19,6 +19,7 @@ api.add_resource(depositHistory, '/depositHistory')
 api.add_resource(loginHistory, '/loginHistory')
 api.add_resource(dashboardInfo, '/dashboardInfo')
 api.add_resource(makeDeposit1, '/makeDeposit1')
+api.add_resource(makeTransfer, '/makeTransfer')
 # api.add_resource(updateData, '/updateData')
 
 if __name__ == '__main__':

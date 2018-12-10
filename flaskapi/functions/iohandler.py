@@ -44,7 +44,7 @@ class Ioapi():
 	def insertArr(self, arrayVal, arrayTable, valuetype, table):
 		with self.db:
 			cur = self.db.cursor()
-    		sql = "INSERT INTO " + table + "(" + ','.join([(e) for e in arrayTable]) + ") " + "VALUES" + "(" + ','.join([(e) for e in valuetype]) + ")"
+    		sql = "INSERT INTO " + table + '(' + ','.join([(e) for e in arrayTable]) + ') ' + "VALUES" + '(' + ','.join([(e) for e in valuetype]) + ')'
 	        cur.execute(sql, arrayVal)
 	        if cur.lastrowid:
 	        	cur.commit()
@@ -54,24 +54,47 @@ class Ioapi():
 	        	cur.commit()
 	        	return "error"
 
-  
+  	def insert(self, table, fields=(), values=()):
+		# g.db is the database connection
+		cur = self.db.cursor()
+		query = '''INSERT INTO %s (%s) VALUES (%s)''' % (
+			table,
+			', '.join(fields),
+			', '.join(['?'] * len(values))
+		)
+		cur.execute(query, values)
+		g.db.commit()
+		lid = cur.lastrowid
+		cur.close()
+		return lid
+
+	def insertv2(self, query, values):
+		# g.r is the database connection
+		cur = self.db.cursor()
+		cur.execute(query, values)
+		self.db.commit()
+		lid = cur.lastrowid
+		cur.close()
+		return lid
+
 	#INSERT ROW
-	def insert(self, table, fname, lname, pnum, nname):
+	def insertin(self, table, fname, lname, pnum, nname):
 		with self.db:
 			cur = self.db.cursor()
-			sql = 'INSERT INTO table(fn, ln, pn, nn) VALUES(%s, %s, %s, %s)'
+			sql = '''INSERT INTO table(fn, ln, pn, nn) VALUES(%s, %s, %s, %s)'''
 			if (cur.execute(sql, (fname, lname, pnum, nname))):
 				return "success"
 			else:
 				return "error"
 
 	#UPDATE SINGLE ROW
-	def lockAccount(self, table, regno):
+	def lockAccount(self, table, regno, locktype):
 		with self.db:
 			cur = self.db.cursor()
-			sql = 'UPDATE table SET disabled=%s WHERE regno=%s'
-			if (cur.execute(sql, (1,regno))):
-				return "success",  cur.rowcount
+			sql = 'UPDATE customers SET disabled=%s WHERE regno=%s'
+			if (cur.execute(sql, (locktype,regno))):
+				self.db.commit()
+				return "success"
 			else:
 				return "error"
 
