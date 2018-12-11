@@ -487,9 +487,9 @@ class changePin(Resource):
         missing = handler.checkJson(expectedFields,req_data)
         if missing:
             return jsonify({'StatusCode' : '200', 'Missing field': missing})
-        __regno = req_data['regno']
-        __oldpin = req_data['oldpin']
-        __newpin = req_data['newpin']
+        __regno = req_data['regno'].strip()
+        __oldpin = req_data['oldpin'].strip()
+        __newpin = req_data['newpin'].strip()
 
 
         
