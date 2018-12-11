@@ -536,7 +536,87 @@ class changePin(Resource):
                     return jsonify({'StatusCode' : '201', 'message':message})
 
 
+class disableLocation(Resource):
+    """docstring for disableLocation"""
+    def post(self):
+        req_data = request.get_json(force=True)
+        expectedFields = ['regno','pin']
+        missing = handler.checkJson(expectedFields,req_data)
+        if missing:
+            return jsonify({'StatusCode' : '200', 'Missing field': missing})
+        __sender = req_data['regno'].strip()
+        __pin = req_data['pin'].strip()
 
+        cursor.execute("SELECT userid,regno,pin FROM customers WHERE regno = {};".format(__regno))
+        useripad = "192.168.7.1"
+        for row in cursor.fetchall():
+            if row[2] == __pin
+                values = (__newpin,__regno)
+                sql = 'UPDATE customers SET loginLoc=%d WHERE regno=%s'
+                lock = handler.updateQ('customers',0,2)
+                return jsonify({'StatusCode' : '200', 'message': 'successfull'})
+
+class enableLocation(Resource):
+    """docstring for disableLocation"""
+    def post(self):
+        req_data = request.get_json(force=True)
+        expectedFields = ['regno','pin']
+        missing = handler.checkJson(expectedFields,req_data)
+        if missing:
+            return jsonify({'StatusCode' : '200', 'Missing field': missing})
+        __sender = req_data['regno'].strip()
+        __pin = req_data['pin'].strip()
+
+        cursor.execute("SELECT userid,regno,pin FROM customers WHERE regno = {};".format(__regno))
+        useripad = "192.168.7.1"
+        for row in cursor.fetchall():
+            if row[2] == __pin
+                values = (__newpin,__regno)
+                sql = 'UPDATE customers SET loginLoc=%d WHERE regno=%s'
+                lock = handler.updateQ('customers',1,2)
+                return jsonify({'StatusCode' : '200', 'message': 'successfull'})
+
+
+class disableDevice(Resource):
+    """docstring for disableLocation"""
+    def post(self):
+        req_data = request.get_json(force=True)
+        expectedFields = ['regno','pin']
+        missing = handler.checkJson(expectedFields,req_data)
+        if missing:
+            return jsonify({'StatusCode' : '200', 'Missing field': missing})
+        __sender = req_data['regno'].strip()
+        __pin = req_data['pin'].strip()
+
+        cursor.execute("SELECT userid,regno,pin FROM customers WHERE regno = {};".format(__regno))
+        useripad = "192.168.7.1"
+        for row in cursor.fetchall():
+            if row[2] == __pin
+                values = (__newpin,__regno)
+                sql = 'UPDATE customers SET LoginDevice=%d WHERE regno=%s'
+                lock = handler.updateQ('customers',0,2)
+                return jsonify({'StatusCode' : '200', 'message': 'successfull'})
+
+
+class enableDevice(Resource):
+    """docstring for disableLocation"""
+    def post(self):
+        req_data = request.get_json(force=True)
+        expectedFields = ['regno','pin']
+        missing = handler.checkJson(expectedFields,req_data)
+        if missing:
+            return jsonify({'StatusCode' : '200', 'Missing field': missing})
+        __sender = req_data['regno'].strip()
+        __pin = req_data['pin'].strip()
+
+        cursor.execute("SELECT userid,regno,pin FROM customers WHERE regno = {};".format(__regno))
+        useripad = "192.168.7.1"
+        for row in cursor.fetchall():
+            if row[2] == __pin
+                values = (__newpin,__regno)
+                sql = 'UPDATE customers SET LoginDevice=%d WHERE regno=%s'
+                lock = handler.updateQ('customers',1,2)
+                return jsonify({'StatusCode' : '200', 'message': 'successfull'})
 
 
         
