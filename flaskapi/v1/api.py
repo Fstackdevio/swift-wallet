@@ -399,7 +399,7 @@ class makeDeposit1(Resource):
     def post(self):
         try:
             req_data = request.get_json(force=True)
-            expectedFields = ['regno', 'amount', ]
+            expectedFields = ['regno', 'amount']
             missing = handler.checkJson(expectedFields,req_data)
             if missing:
                 return jsonify({'StatusCode' : '200', 'Missing field': missing})
@@ -482,6 +482,14 @@ class makeTransfer(Resource):
 class changePin(Resource):
     """docstring for changePin"""
     def post(self):
-        
+        req_data = request.get_json(force=True)
+        expectedFields = ['regno', 'oldpin', 'newpin']
+        missing = handler.checkJson(expectedFields,req_data)
+        if missing:
+            return jsonify({'StatusCode' : '200', 'Missing field': missing})
+        __regno = req_data['regno']
+        __oldpin = req_data['oldpin']
+        __newpin = req_data['newpin']
+
 
         
