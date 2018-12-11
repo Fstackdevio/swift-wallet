@@ -20,7 +20,12 @@ api.add_resource(loginHistory, '/loginHistory')
 api.add_resource(dashboardInfo, '/dashboardInfo')
 api.add_resource(makeDeposit1, '/makeDeposit1')
 api.add_resource(makeTransfer, '/makeTransfer')
-# api.add_resource(updateData, '/updateData')
+api.add_resource(changePin, '/changePin')
+api.add_resource(disableLocation, '/disableLocation')
+api.add_resource(enableLocation, '/enableLocation')
+api.add_resource(disableDevice, '/disableDevice')
+api.add_resource(enableDevice, '/enableDevice')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
