@@ -478,3 +478,10 @@ class makeTransfer(Resource):
             return {'error': str(e)}
         except TypeError:
             return jsonify({'status' : '400', 'message':'Invalid json input'})
+
+class changePin(Resource):
+    """docstring for changePin"""
+    def post(self):
+        
+
+        
