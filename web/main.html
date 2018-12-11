@@ -19,8 +19,8 @@
         </script>
 
         <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/swiftly/fsd.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/swiftly/fsd.png">
         <link rel="stylesheet" href="assets/vendors/css/base/bootstrap.min.css">
         <link rel="stylesheet" href="assets/vendors/css/base/elisyam-1.5.min.css">
         <link rel="stylesheet" href="assets/css/datatables/datatables.min.css">
@@ -116,7 +116,7 @@
 
             <!-- This is where the main content started from -->
 
-            <div class="content-inner">
+            <div class="content-inner swift-content">
                 <div class="container-fluid">
     
                     <div class="row">
@@ -129,18 +129,18 @@
     
                     <div class="row">
                         <div class="col-xl-4 col-md-6 col-sm-6">
-                            <div class="widget widget-12 has-shadow">
+                            <div class="widget widget-12 has-shadow" style="border-left:8px solid #90bae1; border-radius: 9px;">
                                 <div class="widget-body">
                                     <div class="media">
                                         <div class="media-body align-self-center">
-                                            <div class="title ">Total Purchases</div>
-                                            <div class="number">
-                                                <h2>&#8358; 76, 594.09</h2><br>
-                                                <h6>Jan 2018 - Nov 2018</h6>
+                                            <div class="dash-title">Total Purchases</div>
+                                            <div class="number dash-h3">
+                                                <h3 style="color:#90bae1;">&#8358; 76, 594.09</h3><br>
+                                                <h6 style="color: #b9b9b9;">Jan 2018 - Nov 2018</h6>
                                             </div>
                                         </div>
                                         <div class="align-self-center ml-5 mr-5">
-                                            <img src="web/assets/icons/swiftly/transaction.svg"/>
+                                            <img src="./assets/icons/swiftly/purchases.svg" style="width: 55px;"/>
                                         </div>
                                     </div>
                                 </div>
@@ -148,18 +148,18 @@
                         </div>
     
                         <div class="col-xl-4 col-md-6 col-sm-6">
-                            <div class="widget widget-12 has-shadow">
+                            <div class="widget widget-12 has-shadow" style="border-left:8px solid #75cac3; border-radius: 9px;">
                                 <div class="widget-body">
                                     <div class="media">
                                         <div class="media-body align-self-center">
-                                            <div class="title ">Total Transfers</div>
-                                            <div class="number">
-                                                <h2>&#8358; 4,320.00</h2><br>
-                                                <h6>Jan 2018 - Nov 2018</h6>
+                                            <div class="dash-title">Total Transfers</div>
+                                            <div class="number dash-h3">
+                                                <h3 style="color:#75cac3;">&#8358; 4,320.00</h3><br>
+                                                <h6 style="color: #b9b9b9;">Jan 2018 - Nov 2018</h6>
                                             </div>
                                         </div>
                                         <div class="align-self-center ml-5 mr-5">
-                                            <img src="web/assets/icons/swiftly/transfer.svg"/>
+                                            <img src="./assets/icons/swiftly/transfer.svg" style="width: 75px;"/>
                                         </div>
                                     </div>
                                 </div>
@@ -168,15 +168,11 @@
     
                         <div class="col-xl-4 col-md-6 col-sm-6">
     
-                            <div class="widget widget-09 has-shadow" style="height:150%; width:250px;">
-    
-                                <div class="widget-header d-flex align-items-center">
-                                    <h5>NGN 17,259.63</h5>
-                                    <div class="widget-options">
-                                        <button type="button" class="btn btn-shadow">Deposit</button>
-                                    </div>
-                                </div>
-    
+                            <div class="widget widget-09 has-shadow" style="height:413px; width:274px; border-radius: 9px;">
+                                    <h2 class="dash-3-h2">NGN 17,259.63</h2>
+                                    <h6 style="color:#90bae1; text-align:center;">Available Balance  <span style="color:#75cac3;"> +3.2%</span></h6>
+                                    <button type="button" class="btn btn-shadow dash-3-button">Deposit</button>
+                                <hr>
                                 <div class="widget-body">
                                     <div class="row">
                                         <div class="col-xl-12 col-12 no-padding">
@@ -184,14 +180,16 @@
                                                 <canvas id="orders"></canvas>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>      
                                 </div>
+                                <hr>
+                                <h4 style="color:#90bae1; text-align:center; font-weight: bold;">1500205 - Adegoke David</h4>
                             </div>
                         </div>
                     </div>   
                                 <!-- This is where the transaction table started from -->
 
-                <div class="row" style="width:69%;">
+                <div class="row" style="width:69%; margin-top:-150px;">
                         <div class="col-xl-12">
                             <div class="widget has-shadow">
                                 <div class="widget-header bordered no-actions d-flex align-items-center">
@@ -201,7 +199,7 @@
                                     <div class="table-responsive">
                                         <table id="export-table" class="table mb-0">
                                             <thead>
-                                                <tr>
+                                                <tr class="dash-tr">
                                                     <th></th>
                                                     <th>Transaction Type</th>
                                                     <th>Date</th>
@@ -212,7 +210,7 @@
                                             </thead>
                                             
                                             <tbody>
-                                                <tr>
+                                                <tr class="dash-tr">
                                                     <td><span class="text-primary"></span></td>
                                                     <td>Purchase</td>
                                                     <td>10/12/2018</td>
@@ -222,7 +220,7 @@
                                                     </td>  
                                                 </tr>
 
-                                                <tr>
+                                                <tr class="dash-tr">
                                                     <td><span class="text-primary"></span></td>
                                                     <td>Purchase</td>
                                                     <td>10/12/2018</td>
