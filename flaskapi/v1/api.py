@@ -524,6 +524,10 @@ class changePin(Resource):
                         message = 'Invalid old pin'
                 else:
                     message = 'Your account is disabled so you should not be here'
+                    arrayVal = (__regno,1,0,useripad)
+                    sql = 'INSERT INTO settinghistory (userid,action,status,userip) VALUES(%s,%s,%s,%s)'
+                    query = handler.insertv2(sql, arrayVal)
+                    message = 'pin reset successfull'
                 return jsonify({'StatusCode' : '201', 'message':message})
 
 
