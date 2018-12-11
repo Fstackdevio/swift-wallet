@@ -135,7 +135,7 @@
 .swift-card-subtitle{
     font-family: Poppins;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 0.02em;
     text-align: left;
     color: #c9c9c9;
@@ -178,3 +178,67 @@
     align-self: center;
     line-height: 30px;
 }
+.swiftly-bordered{
+    max-width: 100%;
+}
+.swiftly-bordered>thead{
+    background: none !important;
+}
+.swiftly-bordered td{
+    border: none;
+    border-top: .07rem solid #eee;
+    border-bottom: .07rem solid #eee;
+}
+.swiftly-bordered td:first-of-type{
+    border-left: .07rem solid #eee;
+}
+.swiftly-bordered td:last-of-type{
+    border-right: .07rem solid #eee;
+}
+.no-padding{
+    padding: 0;
+}
+
+/* Toggle Styles */
+input.swift-toggle[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  label.swift-toggle-label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    /* background: grey; */
+    background: #C1C2C5;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+  
+  label.swift-toggle-label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.4s;
+  }
+  
+  input.swift-toggle:checked + label {
+    background: #8FD2A3;
+  }
+  
+  input.swift-toggle:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  
+  label.swift-toggle-label:active:after {
+    width: 25px;
+  }
