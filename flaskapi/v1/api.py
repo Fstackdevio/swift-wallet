@@ -492,6 +492,24 @@ class changePin(Resource):
         __newpin = req_data['newpin'].strip()
         __password = req_data['password'].strip()
 
+        if __regno not in session:
+            return jsonify({'StatusCode' : '201', 'message':'you should not be here'})
+
+            cursor.execute("SELECT COUNT(1) FROM customers WHERE regno = {};".format(__regno))
+
+            if not cursor.fetchone()[0]:
+                return jsonify({'StatusCode' : '201', 'message':'Invalid username'})
+
+            cursor.execute("SELECT userid,password,disabled,regno FROM customers WHERE regno = {};".format(__regno))
+
+            for row in cursor.fetchall():
+                # if hashlib.md5(__password).hexdigest()  == row[1]:
+                # print(row[2])
+                if row[2] == 0:
+                    if __password  == row[1]:
+
+
+
 
 
 
