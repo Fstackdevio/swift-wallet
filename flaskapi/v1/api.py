@@ -492,6 +492,8 @@ class changePin(Resource):
         __newpin = req_data['newpin'].strip()
         __password = req_data['password'].strip()
 
+        if __oldpin == __newpin:
+            return jsonify({'StatusCode' : '201', 'message':'old pin and new pin should not be the same'})
         if __regno not in session:
             return jsonify({'StatusCode' : '201', 'message':'you should not be here'})
 
@@ -500,18 +502,23 @@ class changePin(Resource):
             if not cursor.fetchone()[0]:
                 return jsonify({'StatusCode' : '201', 'message':'Invalid username'})
 
-            cursor.execute("SELECT userid,password,disabled,regno FROM customers WHERE regno = {};".format(__regno))
+            cursor.execute("SELECT userid,password,disabled,regno,pin FROM customers WHERE regno = {};".format(__regno))
 
             for row in cursor.fetchall():
                 if row[2] == 0:
-                    if __password  == row[1]:
-                        values = (__newpin,__regno)
-                        sql = 'UPDATE customers SET pin=%d WHERE regno=%s'
-                        setpin = handler.updateQ(sql, values)
-                        if setpin == "success":
-                            return jsonify({'StatusCode' : '200', 'message':'pin reset successfull'})
+                    if row[4] == __oldpin:
+                        if __password  == row[1]:
+                            values = (__newpin,__regno)
+                            sql = 'UPDATE customers SET pin=%d WHERE regno=%s'
+                            setpin = handler.updateQ(sql, values)
+                            if setpin == "success":
+                                return jsonify({'StatusCode' : '200', 'message':'pin reset successfull'})
+                            else:
+                                return jsonify({'StatusCode' : '201', 'message':'pin reset was not successfull'})
                         else:
-                            return jsonify({'StatusCode' : '201', 'message':'pin reset was not successfull'})
+                            return jsonify({'StatusCode' : '201', 'message':'Invalid password'})
+                    else:
+                        return jsonify({'StatusCode' : '201', 'message':'Invalid old pin'})
                 else:
                     return jsonify({'StatusCode' : '201', 'message':'Your account is disabled so you should not be here'})
 
