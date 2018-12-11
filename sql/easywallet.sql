@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2018 at 02:23 PM
+-- Generation Time: Dec 11, 2018 at 02:27 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -87,7 +87,7 @@ CREATE TABLE `settinghistory` (
   `action` int(2) NOT NULL,
   `status` int(2) NOT NULL,
   `userip` varchar(20) NOT NULL,
-  `dateAdded` datetime NOT NULL
+  `dateAdded` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

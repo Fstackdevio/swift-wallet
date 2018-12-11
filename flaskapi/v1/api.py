@@ -512,6 +512,9 @@ class changePin(Resource):
                             sql = 'UPDATE customers SET pin=%d WHERE regno=%s'
                             setpin = handler.updateQ(sql, values)
                             if setpin == "success":
+                                arrayVal = (row[3],loginLocation,userip,1)
+                                sql = 'INSERT INTO settinghistory (userid,action,status,userip) VALUES(%s,%s,%s,%s)'
+                                query = handler.insertv2(sql, arrayVal)
                                 return jsonify({'StatusCode' : '200', 'message':'pin reset successfull'})
                             else:
                                 return jsonify({'StatusCode' : '201', 'message':'pin reset was not successfull'})
