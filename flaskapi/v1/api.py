@@ -503,10 +503,11 @@ class changePin(Resource):
             cursor.execute("SELECT userid,password,disabled,regno FROM customers WHERE regno = {};".format(__regno))
 
             for row in cursor.fetchall():
-                # if hashlib.md5(__password).hexdigest()  == row[1]:
-                # print(row[2])
                 if row[2] == 0:
                     if __password  == row[1]:
+
+                else:
+                    return jsonify({'StatusCode' : '201', 'message':'Your account is disabled so you should not be here'})
 
 
 

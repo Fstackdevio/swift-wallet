@@ -98,6 +98,23 @@ class Ioapi():
 			else:
 				return "error"
 
+	def updateQ(self, query, values):
+		cur = self.db.cursor()
+		cur.execute(query, values)
+		self.db.commit()
+		cur.close()
+		return "success"
+
+	def updateQ(self, table, regno, locktype):
+		with self.db:
+			cur = self.db.cursor()
+			sql = 'UPDATE customers SET disabled=%s WHERE regno=%s'
+			if (cur.execute(sql, (locktype,regno))):
+				self.db.commit()
+				return "success"
+			else:
+				return "error"
+
 	def unLockAccount(self, table, regno):
 		with self.db:
 			cur = self.db.cursor()
