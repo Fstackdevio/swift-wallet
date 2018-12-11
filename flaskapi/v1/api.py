@@ -505,7 +505,13 @@ class changePin(Resource):
             for row in cursor.fetchall():
                 if row[2] == 0:
                     if __password  == row[1]:
-
+                        values = (__newpin,__regno)
+                        sql = 'UPDATE customers SET pin=%d WHERE regno=%s'
+                        setpin = handler.updateQ(sql, values)
+                        if setpin == "success":
+                            return jsonify({'StatusCode' : '200', 'message':'pin reset successfull'})
+                        else:
+                            return jsonify({'StatusCode' : '201', 'message':'pin reset was not successfull'})
                 else:
                     return jsonify({'StatusCode' : '201', 'message':'Your account is disabled so you should not be here'})
 
