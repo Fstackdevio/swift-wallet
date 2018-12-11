@@ -533,7 +533,7 @@ class changePin(Resource):
                     sql = 'INSERT INTO settinghistory (userid,action,status,userip) VALUES(%s,%s,%s,%s)'
                     query = handler.insertv2(sql, arrayVal)
                     message = 'pin reset successfull'
-                return jsonify({'StatusCode' : '201', 'message':message})
+                    return jsonify({'StatusCode' : '201', 'message':message})
 
 
 
