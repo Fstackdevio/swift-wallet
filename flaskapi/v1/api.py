@@ -503,7 +503,7 @@ class changePin(Resource):
                 return jsonify({'StatusCode' : '201', 'message':'Invalid username'})
 
             cursor.execute("SELECT userid,password,disabled,regno,pin FROM customers WHERE regno = {};".format(__regno))
-
+            useripad = "192.168.7.1"
             for row in cursor.fetchall():
                 if row[2] == 0:
                     if row[4] == __oldpin:
@@ -512,19 +512,19 @@ class changePin(Resource):
                             sql = 'UPDATE customers SET pin=%d WHERE regno=%s'
                             setpin = handler.updateQ(sql, values)
                             if setpin == "success":
-                                arrayVal = (row[3],loginLocation,userip,1)
+                                arrayVal = (__regno,1,1,useripad)
                                 sql = 'INSERT INTO settinghistory (userid,action,status,userip) VALUES(%s,%s,%s,%s)'
                                 query = handler.insertv2(sql, arrayVal)
-                                return jsonify({'StatusCode' : '200', 'message':'pin reset successfull'})
+                                message = 'pin reset successfull'
                             else:
-                                return jsonify({'StatusCode' : '201', 'message':'pin reset was not successfull'})
+                                message = 'pin reset was not successfull'
                         else:
-                            return jsonify({'StatusCode' : '201', 'message':'Invalid password'})
+                           message = 'Invalid password'
                     else:
-                        return jsonify({'StatusCode' : '201', 'message':'Invalid old pin'})
+                        message = 'Invalid old pin'
                 else:
-                    return jsonify({'StatusCode' : '201', 'message':'Your account is disabled so you should not be here'})
-
+                    message = 'Your account is disabled so you should not be here'
+                return jsonify({'StatusCode' : '201', 'message':message})
 
 
 
