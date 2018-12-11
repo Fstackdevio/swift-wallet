@@ -81,3 +81,27 @@
     font-weight: bold;
     margin-bottom: 10px;
 }
+
+.dash-3-button{
+    top:11px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    width:157px; 
+    height:45px; 
+    background:#90e1ae;
+    color: #fff;
+}
+
+.dash-3-h2{
+    text-align: center;
+    bottom: 100px;
+    padding-top:50px;
+    color:#5e83a5 !important;
+    font-size:25px;
+
+}
+hr{
+    bottom:200px;
+}
