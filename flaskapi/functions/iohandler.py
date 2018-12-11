@@ -98,18 +98,17 @@ class Ioapi():
 			else:
 				return "error"
 
-	def updateQ(self, query, values):
+	def tempupdateQ(self, query, values):
 		cur = self.db.cursor()
 		cur.execute(query, values)
 		self.db.commit()
 		cur.close()
 		return "success"
 
-	def tempupdate(self, table, regno, locktype):
+	def updateQ(self, sql, values=()):
 		with self.db:
 			cur = self.db.cursor()
-			sql = 'UPDATE customers SET disabled=%s WHERE regno=%s'
-			if (cur.execute(sql, (locktype,regno))):
+			if (cur.execute(sql, values)):
 				self.db.commit()
 				return "success"
 			else:
