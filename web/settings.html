@@ -113,16 +113,6 @@
                                     <img src="assets/img/avatar/avatar-01.jpg" alt="profile-image" class="rounded-circle" style="width: 55px">
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a href="javascript:void(0);">
-                                    <i class="ti ti-stats-up"></i><span>Statistics</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="db-default.html">
-                                    <i class="la la-angle-left"></i><span>Go Back</span>
-                                </a>
-                            </li> -->
                         </ul>
                     </nav>
                 </div>
@@ -157,11 +147,11 @@
                                                                         <div class="row row-little-gutter">
                                                                             <div class="col-lg-4">
                                                                                 <label for="">Secret Pin</label>
-                                                                                <input type="text" placeholder="" class="form-control swift-input">
+                                                                                <input type="text" placeholder="" class="form-control swift-input" maxlength="4">
                                                                             </div>
                                                                             <div class="col-lg-4">
                                                                                 <label for="">New Secret Pin</label>
-                                                                                <input type="text" placeholder="" class="form-control swift-input">
+                                                                                <input type="text" placeholder="" class="form-control swift-input" maxlength="4">
                                                                             </div>
                                                                             <div class="col-lg-4">
                                                                                 <button type="button" class="btn btn-outline-info mr-1 mb-2 btn-clear" style="margin-top: 30px">Update Pin</button>
@@ -200,31 +190,165 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4 col-xl-4">
-                                        <div class="widget has-shadow padding-20">
+                                        <div class="widget has-shadow padding-20 swift-card">
                                             <div class="widget-body">
                                                 <img src="./assets/icons/swiftly/2fa.svg" class="center" width="220px" style="margin: -50px auto 0px auto; display: absolute" alt="">
-                                                <p class="text-center">
+                                                <p class="text-center" style="font-size: 13px; margin-top: -10px; margin-bottom: 20px;">
                                                     Add extra security to your swift-wallet: each time you login, a token would be sent to your webmail and required for a secure access to your wallet and funds.
                                                 </p>
                                                 <div>
-                                                    <button type="button" class="btn btn-outline-info green-button">Change</button>
+                                                    <button type="button" class="btn btn-outline-info green-button">
+                                                        Get Started
+                                                        <span id="button-icon">
+                                                                <i class="la la-arrow-right" style="font-weight: bold; font-size: 15px;"></i>
+                                                        </span>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row" >
-                                    <div class="col-7">
-                                        <div class="widget has-shadow">
+                                    <div class="col-12 col-md-7 col-lg-7 col-xl-7">
+                                        <div class="widget has-shadow swift-card">
                                             <div class="widget-body">
-                                                
+                                                <div class="swift-card-header">
+                                                    <h3 class="swift-card-title">Notification Settings</h3>
+                                                    <p class="swift-card-subtitle">
+                                                        Manage settings of how notifcations about your account are delivered to you
+                                                    </p>
+                                                </div>
+                                                <div class="card-body no-padding">
+                                                    <!-- <div class="container"> -->
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered swiftly-bordered">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Notification Type</th>
+                                                                        <th>Dashboard</th>
+                                                                        <th>Email Notification</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><span class="text-gray">Maintenance alerts</span></td>
+                                                                        <td>
+                                                                            <input type="checkbox" id="dashboard-maintenance" class="swift-toggle" checked/><label class="swift-toggle-label" for="dashboard-maintenance">Toggle</label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="checkbox" id="email-maintenance" class="swift-toggle" /><label class="swift-toggle-label" for="email-maintenance">Toggle</label>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><span class="text-gray">Location logging</span></td>
+                                                                        <td>
+                                                                            <input type="checkbox" id="dashboard-location" class="swift-toggle" checked/><label class="swift-toggle-label" for="dashboard-location">Toggle</label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="checkbox" id="email-location" class="swift-toggle" checked/><label class="swift-toggle-label" for="email-location">Toggle</label>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><span class="text-gray">Deposits notification</span></td>
+                                                                        <td>
+                                                                            <input type="checkbox" id="dashboard-deposits" class="swift-toggle" checked/><label class="swift-toggle-label" for="dashboard-deposits">Toggle</label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="checkbox" id="email-deposits" class="swift-toggle" /><label class="swift-toggle-label" for="email-deposits">Toggle</label>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    <!-- </div> -->
+                                                </div>
+                                                <p style="font-size: 12px; font-family: poppins; color: #c9c9c9; font-weight: 400; margin-top: 25px;">
+                                                    In addition to these notifications, we may also send you alerts about special offers or other information
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-5">
-                                        <div class="widget has-shadow">
+                                    <div class="col-12 col-md-5 col-lg-5 col-xl-5">
+                                        <div class="widget has-shadow swift-card widget-11" style="max-height: 515px;">
                                             <div class="widget-body">
+                                                <div class="swift-card-header">
+                                                    <h3 class="swift-card-title">Login History</h3>
+                                                    <p class="swift-card-subtitle">
+                                                        Overview of your recent login history
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <!-- Widget INner -->                                                    
+                                                    <div class="widget-body no-padding  widget-scroll" style="max-height:375px;">
                                                 
+                                                        <div class="timeline violet">
+                                                            <div class="timeline-content d-flex align-items-center">
+                                                                <div class="d-flex flex-column mr-auto">
+                                                                    <div class="title">
+                                                                        <span class="font-weight-bold text-muted">Multipurpose Hall &lt; iPad mini 3 &gt;</span>
+                                                                    </div>
+                                                                    <div class="time">4 min ago</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                
+                                                        <div class="timeline red">
+                                                            <div class="timeline-content d-flex align-items-center">
+                                                                <div class="d-flex flex-column mr-auto">
+                                                                    <div class="title">
+                                                                        <span class="text-muted font-weight-bold">Cafeteria 1 &lt; MacBook Pro &gt;</span>
+                                                                    </div>
+                                                                    <div class="time">10 min ago</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="timeline blue">
+                                                            <div class="timeline-content d-flex align-items-center">
+                                                                <div class="d-flex flex-column mr-auto">
+                                                                    <div class="title">
+                                                                            <span class="text-muted font-weight-bold">Isaac Hall &lt; iPod Touch &gt;</span>
+                                                                    </div>
+                                                                    <div class="time">11 hours ago</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                
+                                                        <div class="timeline violet">
+                                                            <div class="timeline-content d-flex align-items-center">
+                                                                <div class="d-flex flex-column mr-auto">
+                                                                    <div class="title">
+                                                                            <span class="text-muted font-weight-bold">CSIS Lab 1 (Old College Building)</span>
+                                                                    </div>
+                                                                    <div class="time">5d ago</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                
+                                                        <div class="timeline violet">
+                                                            <div class="timeline-content d-flex align-items-center">
+                                                                <div class="d-flex flex-column mr-auto">
+                                                                    <div class="title">
+                                                                            <span class="text-muted font-weight-bold">Dorcas Hall &lt; Windows 10 Laptop &gt;</span>
+                                                                    </div>
+                                                                    <div class="time">2w ago</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                
+                                                        <div class="timeline blue">
+                                                            <div class="timeline-content d-flex align-items-center">
+                                                                <div class="d-flex flex-column mr-auto">
+                                                                    <div class="title">
+                                                                            <span class="text-muted font-weight-bold">Dorcas Hall &lt; Windows 10 Laptop &gt;</span>
+                                                                    </div>
+                                                                    <div class="time">1y ago</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Widget INner -->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

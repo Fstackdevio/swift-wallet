@@ -153,7 +153,7 @@
 .swift-card-subtitle{
     font-family: Poppins;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 0.02em;
     text-align: left;
     color: #c9c9c9;
@@ -170,15 +170,93 @@
     padding: 18px;
 }
 .green-button{
-    min-width: 157px;
-    min-height: 40px;
+    min-width: 180px;
+    justify-content: center;
+    min-height: 50px;
     padding: 5px;
     color: #fff;
     border: none;
-    border-radius: 25px;
+    border-radius: 50px;
+    font-size: 14px;
     display: block;
     margin: 0px auto;
     background: #90e1ae;
     box-shadow: 0px 8px 20px rgba(54, 54, 54, 0.11);
-
 }
+#button-icon{
+    margin-left: 20px; 
+    height: 30px; 
+    width: 30px;
+    text-align: center;
+    border-radius: 50px; 
+    background: rgba(0, 0, 0, 0.15);
+}
+#button-icon > i{
+    /* display: inline-block; */
+    align-self: center;
+    line-height: 30px;
+}
+.swiftly-bordered{
+    max-width: 100%;
+}
+.swiftly-bordered>thead{
+    background: none !important;
+}
+.swiftly-bordered td{
+    border: none;
+    border-top: .07rem solid #eee;
+    border-bottom: .07rem solid #eee;
+}
+.swiftly-bordered td:first-of-type{
+    border-left: .07rem solid #eee;
+}
+.swiftly-bordered td:last-of-type{
+    border-right: .07rem solid #eee;
+}
+.no-padding{
+    padding: 0;
+}
+
+/* Toggle Styles */
+input.swift-toggle[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  label.swift-toggle-label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    /* background: grey; */
+    background: #C1C2C5;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+  
+  label.swift-toggle-label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.4s;
+  }
+  
+  input.swift-toggle:checked + label {
+    background: #8FD2A3;
+  }
+  
+  input.swift-toggle:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  
+  label.swift-toggle-label:active:after {
+    width: 25px;
+  }
