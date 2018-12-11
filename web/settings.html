@@ -157,11 +157,11 @@
                                                                         <div class="row row-little-gutter">
                                                                             <div class="col-lg-4">
                                                                                 <label for="">Secret Pin</label>
-                                                                                <input type="text" placeholder="" class="form-control swift-input">
+                                                                                <input type="text" placeholder="" class="form-control swift-input" maxlength="4">
                                                                             </div>
                                                                             <div class="col-lg-4">
                                                                                 <label for="">New Secret Pin</label>
-                                                                                <input type="text" placeholder="" class="form-control swift-input">
+                                                                                <input type="text" placeholder="" class="form-control swift-input" maxlength="4">
                                                                             </div>
                                                                             <div class="col-lg-4">
                                                                                 <button type="button" class="btn btn-outline-info mr-1 mb-2 btn-clear" style="margin-top: 30px">Update Pin</button>
@@ -200,14 +200,19 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4 col-xl-4">
-                                        <div class="widget has-shadow padding-20">
+                                        <div class="widget has-shadow padding-20 swift-card">
                                             <div class="widget-body">
                                                 <img src="./assets/icons/swiftly/2fa.svg" class="center" width="220px" style="margin: -50px auto 0px auto; display: absolute" alt="">
-                                                <p class="text-center">
+                                                <p class="text-center" style="font-size: 13px; margin-top: -10px; margin-bottom: 20px;">
                                                     Add extra security to your swift-wallet: each time you login, a token would be sent to your webmail and required for a secure access to your wallet and funds.
                                                 </p>
                                                 <div>
-                                                    <button type="button" class="btn btn-outline-info green-button">Change</button>
+                                                    <button type="button" class="btn btn-outline-info green-button">
+                                                        Get Started
+                                                        <span id="button-icon">
+                                                                <i class="la la-arrow-right" style="font-weight: bold; font-size: 15px;"></i>
+                                                        </span>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
