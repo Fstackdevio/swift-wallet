@@ -399,7 +399,7 @@ class makeDeposit1(Resource):
     def post(self):
         try:
             req_data = request.get_json(force=True)
-            expectedFields = ['regno', 'amount', ]
+            expectedFields = ['regno', 'amount']
             missing = handler.checkJson(expectedFields,req_data)
             if missing:
                 return jsonify({'StatusCode' : '200', 'Missing field': missing})
@@ -478,3 +478,65 @@ class makeTransfer(Resource):
             return {'error': str(e)}
         except TypeError:
             return jsonify({'status' : '400', 'message':'Invalid json input'})
+
+class changePin(Resource):
+    """docstring for changePin"""
+    def post(self):
+        req_data = request.get_json(force=True)
+        expectedFields = ['regno', 'oldpin', 'newpin', 'password']
+        missing = handler.checkJson(expectedFields,req_data)
+        if missing:
+            return jsonify({'StatusCode' : '200', 'Missing field': missing})
+        __regno = req_data['regno'].strip()
+        __oldpin = req_data['oldpin'].strip()
+        __newpin = req_data['newpin'].strip()
+        __password = req_data['password'].strip()
+
+        if __oldpin == __newpin:
+            return jsonify({'StatusCode' : '201', 'message':'old pin and new pin should not be the same'})
+        if __regno not in session:
+            return jsonify({'StatusCode' : '201', 'message':'you should not be here'})
+
+            cursor.execute("SELECT COUNT(1) FROM customers WHERE regno = {};".format(__regno))
+
+            if not cursor.fetchone()[0]:
+                return jsonify({'StatusCode' : '201', 'message':'Invalid username'})
+
+            cursor.execute("SELECT userid,password,disabled,regno,pin FROM customers WHERE regno = {};".format(__regno))
+            useripad = "192.168.7.1"
+            for row in cursor.fetchall():
+                if row[2] == 0:
+                    if row[4] == __oldpin:
+                        if __password  == row[1]:
+                            values = (__newpin,__regno)
+                            sql = 'UPDATE customers SET pin=%d WHERE regno=%s'
+                            setpin = handler.updateQ(sql, values)
+                            if setpin == "success":
+                                arrayVal = (__regno,1,1,useripad)
+                                sql = 'INSERT INTO settinghistory (userid,action,status,userip) VALUES(%s,%s,%s,%s)'
+                                query = handler.insertv2(sql, arrayVal)
+                                message = 'pin reset successfull'
+                            else:
+                                cursor.execute("SELECT COUNT(*) FROM settinghistory WHERE userid = {} and status = 0 ORDER BY userid DESC;".format(__regno))
+                                count = cursor.fetchone()[0]
+                                if int(count)%3 == 0:
+                                    lock = handler.lockAccount('customers',row[3],2)
+                                    return jsonify({'StatusCode':'201', 'message':'Account blocked'})
+                                message = 'pin reset was not successfull'
+                        else:
+                           message = 'Invalid password'
+                    else:
+                        message = 'Invalid old pin'
+                else:
+                    message = 'Your account is disabled so you should not be here'
+                    arrayVal = (__regno,1,0,useripad)
+                    sql = 'INSERT INTO settinghistory (userid,action,status,userip) VALUES(%s,%s,%s,%s)'
+                    query = handler.insertv2(sql, arrayVal)
+                    message = 'pin reset successfull'
+                    return jsonify({'StatusCode' : '201', 'message':message})
+
+
+
+
+
+        

@@ -98,6 +98,22 @@ class Ioapi():
 			else:
 				return "error"
 
+	def tempupdateQ(self, query, values):
+		cur = self.db.cursor()
+		cur.execute(query, values)
+		self.db.commit()
+		cur.close()
+		return "success"
+
+	def updateQ(self, sql, values=()):
+		with self.db:
+			cur = self.db.cursor()
+			if (cur.execute(sql, values)):
+				self.db.commit()
+				return "success"
+			else:
+				return "error"
+
 	def unLockAccount(self, table, regno):
 		with self.db:
 			cur = self.db.cursor()
