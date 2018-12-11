@@ -517,6 +517,11 @@ class changePin(Resource):
                                 query = handler.insertv2(sql, arrayVal)
                                 message = 'pin reset successfull'
                             else:
+                                cursor.execute("SELECT COUNT(*) FROM settinghistory WHERE userid = {} and status = 0 ORDER BY userid DESC;".format(__regno))
+                                count = cursor.fetchone()[0]
+                                if int(count)%3 == 0:
+                                    lock = handler.lockAccount('customers',row[3],2)
+                                    return jsonify({'StatusCode':'201', 'message':'Account blocked'})
                                 message = 'pin reset was not successfull'
                         else:
                            message = 'Invalid password'
