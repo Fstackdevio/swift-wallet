@@ -105,7 +105,7 @@ class Ioapi():
 		cur.close()
 		return "success"
 
-	def updateQ(self, table, regno, locktype):
+	def tempupdate(self, table, regno, locktype):
 		with self.db:
 			cur = self.db.cursor()
 			sql = 'UPDATE customers SET disabled=%s WHERE regno=%s'
