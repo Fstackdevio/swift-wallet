@@ -2,6 +2,8 @@ from inspect import getsourcefile
 import os.path
 import sys
 import socket
+import fcntl
+import struct
 
 current_path = os.path.abspath(getsourcefile(lambda:0))
 current_dir = os.path.dirname(current_path)
@@ -110,6 +112,15 @@ class Ioapi():
 	    finally:
 	        s.close()
 	    return IP
+
+	def get_ip_address(ifname):
+	    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+	    return socket.inet_ntoa(fcntl.ioctl(
+	        s.fileno(),
+	        0x8915,  # SIOCGIFADDR
+	        struct.pack('256s', ifname[:15])
+	    )[20:24])
+	   	#  get_ip_address('eth0')
 
 	def tempupdateQ(self, query, values):
 		cur = self.db.cursor()

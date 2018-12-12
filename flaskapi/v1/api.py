@@ -66,7 +66,7 @@ class Authenticate(Resource):
             userip = str(socket.gethostbyname(socket.gethostname()))
 
             if __regno in session:
-                return jsonify({'StatusCode' : '200', 'message':'sessionActive'})
+                return jsonify({'StatusCode' : '201', 'message':'sessionActive'})
 
             cursor.execute("SELECT COUNT(1) FROM customers WHERE regno = {};".format(__regno))
 
