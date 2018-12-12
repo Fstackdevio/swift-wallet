@@ -22,6 +22,7 @@ import netifaces
 # from urllib.parse import urlencode
 # from urllib.request import Request, urlopen
 import requests
+import socket
 
 try:
     from urllib.parse import urlparse
@@ -62,7 +63,7 @@ class Authenticate(Resource):
 
             gws=netifaces.gateways()
             loginLocation = str(gws['default'].values()[0][0])
-            userip = str("192.168.7.1")
+            userip = str(socket.gethostbyname(socket.gethostname()))
 
             if __regno in session:
                 return jsonify({'StatusCode' : '200', 'message':'sessionActive'})
@@ -550,11 +551,13 @@ class disableLocation(Resource):
         cursor.execute("SELECT userid,regno,pin FROM customers WHERE regno = {};".format(__regno))
         useripad = "192.168.7.1"
         for row in cursor.fetchall():
-            if row[2] == __pin
+            if row[2] == __pin:
                 values = (__newpin,__regno)
                 sql = 'UPDATE customers SET loginLoc=%d WHERE regno=%s'
                 lock = handler.updateQ('customers',0,2)
                 return jsonify({'StatusCode' : '200', 'message': 'successfull'})
+            else:
+                return jsonify({'StatusCode' : '200', 'message': 'error disableing location'})
 
 class enableLocation(Resource):
     """docstring for disableLocation"""
@@ -570,7 +573,7 @@ class enableLocation(Resource):
         cursor.execute("SELECT userid,regno,pin FROM customers WHERE regno = {};".format(__regno))
         useripad = "192.168.7.1"
         for row in cursor.fetchall():
-            if row[2] == __pin
+            if row[2] == __pin:
                 values = (__newpin,__regno)
                 sql = 'UPDATE customers SET loginLoc=%d WHERE regno=%s'
                 lock = handler.updateQ('customers',1,2)
@@ -591,7 +594,7 @@ class disableDevice(Resource):
         cursor.execute("SELECT userid,regno,pin FROM customers WHERE regno = {};".format(__regno))
         useripad = "192.168.7.1"
         for row in cursor.fetchall():
-            if row[2] == __pin
+            if row[2] == __pin:
                 values = (__newpin,__regno)
                 sql = 'UPDATE customers SET LoginDevice=%d WHERE regno=%s'
                 lock = handler.updateQ('customers',0,2)
@@ -612,7 +615,7 @@ class enableDevice(Resource):
         cursor.execute("SELECT userid,regno,pin FROM customers WHERE regno = {};".format(__regno))
         useripad = "192.168.7.1"
         for row in cursor.fetchall():
-            if row[2] == __pin
+            if row[2] == __pin:
                 values = (__newpin,__regno)
                 sql = 'UPDATE customers SET LoginDevice=%d WHERE regno=%s'
                 lock = handler.updateQ('customers',1,2)
