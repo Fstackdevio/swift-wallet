@@ -19,8 +19,6 @@ from functions import fstack_json_schema
 import json
 import hashlib
 import netifaces
-# from urllib.parse import urlencode
-# from urllib.request import Request, urlopen
 import requests
 import socket
 
@@ -104,7 +102,6 @@ class Authenticate(Resource):
                     return jsonify({'StatusCode':'201', 'message':'account blocked for several transfer trial'})
                 else:
                     return jsonify({'StatusCode':'201', 'message':'suspisious transaction on account'})
-
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
@@ -157,7 +154,6 @@ class spendingHistory(Resource):
             if not data:
                 return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
 
-
             items=[];
             for item in data:
                 i = {
@@ -170,11 +166,7 @@ class spendingHistory(Resource):
                 items.append(i)
 
             # return {'StatusCode':'200','Items':items_list}
-            return jsonify({'StatusCode' : '200', 'Items':items})
-            
-
-            
-        
+            return jsonify({'StatusCode' : '200', 'Items':items})        
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
@@ -198,7 +190,6 @@ class transferHistory(Resource):
             if not data:
                 return jsonify({'StatusCode' : '200', 'message':'NO record for this user'})
 
-
             items=[];
             for item in data:
                 i = {
@@ -210,13 +201,8 @@ class transferHistory(Resource):
                     'dateTransferd':item[5]
                 }
                 items.append(i)
-
             # return {'StatusCode':'200','Items':items_list}
             return jsonify({'StatusCode' : '200', 'Items':items})
-            
-
-            
-        
         except Exception as e:
             return {'error': str(e)}
         except TypeError:
@@ -599,6 +585,8 @@ class disableDevice(Resource):
                 sql = 'UPDATE customers SET LoginDevice=%d WHERE regno=%s'
                 lock = handler.updateQ('customers',0,2)
                 return jsonify({'StatusCode' : '200', 'message': 'successfull'})
+            else:
+                return jsonify({'StatusCode' : '201', 'message': 'invalid pin'})
 
 
 class enableDevice(Resource):
@@ -620,6 +608,9 @@ class enableDevice(Resource):
                 sql = 'UPDATE customers SET LoginDevice=%d WHERE regno=%s'
                 lock = handler.updateQ('customers',1,2)
                 return jsonify({'StatusCode' : '200', 'message': 'successfull'})
+            else:
+                return jsonify({'StatusCode' : '201', 'message': 'invalid pin'})
+
 
 
         
