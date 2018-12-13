@@ -286,7 +286,7 @@ input.swift-toggle[type=checkbox] {
 .swiftly-bordered-alt > tbody > tr > td:first-of-type{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    padding-left: 15px;
+    padding-left: 20px;
 }
 .swiftly-bordered-alt > tbody > tr > td:last-of-type{
     border-top-right-radius: 5px;
@@ -307,11 +307,31 @@ padding: 10px 12px;
 }
 
 .swift-badge.success{
-    background: #64C180;
+    background: #90e1ae;
 }
 .swift-badge.danger{
-    background: #d14954;
+    background: #FF8484;
 }
 .swift-badge.warning{
-    background: #e49834;
+    background: #FFDE84;
+}
+
+.swift-badge{
+    width: 100px;
+    line-height: 32px;
+    height: 35px;
+    border-radius: 4px;
+}
+
+.swift-card .widget-header{
+    background: none;
+    padding: none;
+}
+.swift-table-button{
+    height: 50px;
+    width: 50px;
+}
+.swift-table-button:hover{
+    border: none;
+    box-shadow: 0px 5px 20px rgba(55, 72, 59, 0.15);
 }

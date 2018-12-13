@@ -187,18 +187,28 @@
 
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <div class="widget has-shadow swift-card no-bg">
-                                            <div class="widget-body">
+                                        <div class="widget has-shadow swift-card no-bg no-padding" style="padding-top: 20px;">
+                                            <div class="widget-header d-flex align-items-center" style="margin-top: 20px;">
                                                 <div class="swift-card-header">
                                                     <h3 class="swift-card-title">Recent Transactions</h3>
                                                 </div>
+                                                <div class="widget-options pull-right" style="right: 40px !important;position: absolute;">
+                                                    <button type="button" class="btn btn-danger mr-4 mb-2 swift-table-button" style="background: #5E83A5;">
+                                                        <img src="./assets/icons/swiftly/calendar.svg" width="30px" style="position: absolute;top: 7px;left: 8px;">
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger mb-2 swift-table-button" style="background: #F3D516;">
+                                                        <img src="./assets/icons/swiftly/search.svg" width="20px" style="position: absolute;top: 12px;left: 12px;">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="widget-body no-padding" style="margin-top: 20px;">
                                                 <div class="card-body no-padding">
                                                     <!-- <div class="container"> -->
                                                         <div class="table-responsive">
                                                             <table class="table table-bordered swiftly-bordered-alt">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>Type</th>
+                                                                        <th style="padding-left: 20px;">Type</th>
                                                                         <th>Date</th>
                                                                         <th>Value</th>
                                                                         <th>Location</th>
@@ -230,7 +240,7 @@
                                                                         <td>4,900</td>
                                                                         <td>Main Cafeteria</td>
                                                                         <td>
-                                                                            <span style="width:100px;"><span class="badge-text badge-text-small swift-badge warning">Pending</span>
+                                                                            <span style="width:100px;"><span class="badge-text badge-text-small swift-badge success">Successful</span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -239,7 +249,7 @@
                                                                         <td>4,900</td>
                                                                         <td>Main Cafeteria</td>
                                                                         <td>
-                                                                            <span style="width:100px;"><span class="badge-text badge-text-small swift-badge warning">Pending</span>
+                                                                            <span style="width:100px;"><span class="badge-text badge-text-small swift-badge success">Successful</span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
