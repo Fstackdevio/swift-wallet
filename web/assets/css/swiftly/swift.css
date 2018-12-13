@@ -326,6 +326,7 @@ padding: 10px 12px;
 .swift-card .widget-header{
     background: none;
     padding: none;
+    font-family: 'Nunito', sans-serif;
 }
 .swift-table-button{
     height: 50px;
