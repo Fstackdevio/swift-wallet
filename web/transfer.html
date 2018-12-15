@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Swift-wallet - Social Dashboard</title>
+        <title>Swift-wallet - Transfer</title>
         <meta name="description" content="Swift-wallet is a Web App and Admin Dashboard Template built with Bootstrap 4">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,9 +27,6 @@
         <link rel="stylesheet" href="assets/vendors/css/base/elisyam-1.5.min.css">
         <link rel="stylesheet" href="assets/css/swiftly/swift.css">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     </head>
     <body id="page-top">
 
@@ -133,9 +130,41 @@
                     <div class="row">
                         <div class="page-header">
                             <div class="d-flex align-items-center">
-                                <h2 class="page-header-title">Dashboard</h2>
-                                <div>
-
+                                <h2 class="page-header-title">Transfer Funds</h2>
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="widget-body">
+                                            <div class="row flex-row justify-content-center">
+                                                <div class="col-xl-10">
+                                                    <div id="rootwizard">
+                                                        <div class="step-container">
+                                                             <div class="step-wizard">
+                                                                <div class="progress">
+                                                                    <div class="progressbar"></div>
+                                                                </div>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <a href="#tab1" data-toggle="tab">
+                                                                                <span class="step">1</span>
+                                                                                <span class="title">Step 1</span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="#tab2" data-toggle="tab">
+                                                                                <span class="step">2</span>
+                                                                                <span class="title">Step 2</span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="#tab3" data-toggle="tab">
+                                                                                <span class="step">3</span>
+                                                                                <span class="title">Step 3</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -144,12 +173,14 @@
             </div>
         </div>
 
-        <script src="assets/vendors/js/base/jquery.min.js" type="2d75f506ccd1bd22dff98281-text/javascript"></script>
-        <script src="assets/vendors/js/base/core.min.js" type="2d75f506ccd1bd22dff98281-text/javascript"></script>
+        <script src="assets/vendors/js/base/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/vendors/js/base/core.min.js" type="text/javascript"></script>
 
-        <script src="assets/vendors/js/nicescroll/nicescroll.min.js" type="2d75f506ccd1bd22dff98281-text/javascript"></script>
-        <script src="assets/vendors/js/app/app.min.js" type="2d75f506ccd1bd22dff98281-text/javascript"></script>
+        <script src="assets/vendors/js/nicescroll/nicescroll.min.js" type="text/javascript"></script>
+        <script src="assets/vendors/js/bootstrap-wizard/bootstrap.wizard.min.js" type="text/javascript"></script>
+        <script src="assets/vendors/js/app/app.min.js" type="text/javascript"></script>
 
-        <script src="./assets/js/common/rocket-loader.min.js" data-cf-nonce="2d75f506ccd1bd22dff98281-" defer=""></script>
+        <script src="assets/js/components/wizard/form-wizard.min.js" type="text/javascript"></script>
+        <script src="./assets/js/common/rocket-loader.min.js" data-cf-nonce="" defer=""></script>
     </body>
 </html>
