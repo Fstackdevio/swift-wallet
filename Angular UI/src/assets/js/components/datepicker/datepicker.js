@@ -1,0 +1,1 @@
+(function($){'use strict';$(function(){$('#daterange').daterangepicker({autoApply:true});$('#datetime').daterangepicker({timePicker:true,timePickerIncrement:30,locale:{format:'MM/DD/YYYY h:mm A'}});$('#date').daterangepicker({singleDatePicker:true,});});})(jQuery);
