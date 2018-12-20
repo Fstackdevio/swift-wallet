@@ -27,7 +27,6 @@ try:
 except ImportError:
     from urlparse import urlparse
 
-
 connection = config.connection()
 mysql = MySQL()
 app = Flask(__name__)
@@ -171,7 +170,6 @@ class spendingHistory(Resource):
             return {'error': str(e)}
         except TypeError:
             return jsonify({'status' : '400', 'message':'Invalid json input'})
-
 
 class transferHistory(Resource):
     """docstring for depositHistory"""
