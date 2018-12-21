@@ -338,7 +338,7 @@ padding: 10px 12px;
     box-shadow: 0px 5px 20px rgba(55, 72, 59, 0.15);
 }
 .dash-4-button{
-    background: rgb(10, 0, 0);
+    background: #fff;
     text-align: center;
     margin: 0 auto;
     width:300px;
@@ -346,4 +346,5 @@ padding: 10px 12px;
     top: 10px;
     right: 50px;
     left: 55px;
+    border: none;
 }
