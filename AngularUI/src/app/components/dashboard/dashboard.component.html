@@ -1,0 +1,274 @@
+
+  <!--The content below is only a placeholder and can be replaced.-->
+  <body id="page-top">
+    <style>
+        @media (max-width: 576px){
+            .swift-content{
+                margin-left: 0px !important;
+            }
+        }
+    </style>
+     <!-- <div  id="preloader">
+        <div class="canvas">
+            <img src="assets/img/swiftly/fsd.png" alt="logo" class="loader-logo">
+            <div class="spinner"></div>
+        </div>
+    </div> -->
+    <div class="page db-social">
+        <header class="header">
+            <nav class="navbar fixed-top">
+                <div class="navbar-holder d-flex align-items-center align-middle justify-content-between">
+
+                    <div class="navbar-header">
+                        <a href="main.html" class="navbar-brand">
+                            <div class="brand-image brand-big">
+                                <img src="assets/img/swiftly/fsd.png" alt="logo" class="logo-big">
+                            </div>
+                            <div class="brand-image brand-small">
+                                <img src="assets/img/swiftly/fsd.png" alt="logo" class="logo-small">
+                            </div>
+                        </a>
+
+                        <a id="toggle-btn" href="#" class="menu-btn active">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="page-content d-flex align-items-stretch">
+            <!-- <div class="compact-sidebar light-sidebar has-shadow"> -->
+            <div class="compact-sidebar green-sidebar has-shadow">
+                <nav class="side-navbar">
+                    <div class="brand-image brand-big">
+                        <img src="assets/img/swiftly/origami.svg" alt="logo" class="logo-big" style="width: 50px; position: absolute; top: 15px; left: 20px;">
+                    </div>
+                    <ul class="list-unstyled">
+                        <li class="active">
+                            <a  [routerLink] ="['/dashboard']">
+                                <!-- <i class="ti ti-receipt"></i><span>Newsfeed</span> -->
+                                <img src="./assets/icons/swiftly/bar-chart.svg" /><span>Dashboard</span>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./assets/icons/swiftly/transaction.svg" /><span>Transactions</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./assets/icons/swiftly/cube.svg" /><span>Deposits</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a   [routerLink] ="['/transfer']">
+                                <img src="./assets/icons/swiftly/gift.svg" /><span>Transfer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink] ="['/settings']">
+                                <img src="./assets/icons/swiftly/cog.svg" /><span>Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img src="./assets/icons/swiftly/help.svg" /><span>Support</span>
+                            </a>
+                        </li>
+                        <li style="margin-top: 25px;">
+                            <a href="pages-albums.html">
+                                <img src="./assets/icons/swiftly/notification-stroke.svg" /><span>Notifications</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages-videos.html">
+                                <img src="assets/img/avatar/avatar-01.jpg" alt="profile-image" class="rounded-circle" style="width: 55px">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="content-inner swift-content">
+            <div class="container">
+                <div class="row">
+                    <div class="page-header">
+                        <div class="d-flex align-items-center">
+                            <h2 class="page-header-title">Dashboard</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-8 col-md-8 col-xl-8 col-sm-12">   
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-xl-6 col-md-6 col-sm-12">
+                                        <div class="widget widget-12 has-shadow" style="border-left:8px solid #90bae1; border-radius: 9px;">
+                                            <div class="widget-body">
+                                                <div class="media">
+                                                    <div class="media-body align-self-center">
+                                                        <div class="dash-title">Total Purchases</div>
+                                                        <div class="number dash-h3">
+                                                            <h3 style="color:#90bae1;">&#8358; 76, 594.09</h3>
+                                                            <br>
+                                                            <h6 style="color: #b9b9b9;">Jan 2018 - Nov 2018</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="align-self-center ml-5 mr-5">
+                                                        <img src="./assets/icons/swiftly/purchases.svg" style="width: 55px;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 col-sm-6">
+                                        <div class="widget widget-12 has-shadow" style="border-left:8px solid #75cac3; border-radius: 9px;">
+                                            <div class="widget-body">
+                                                <div class="media">
+                                                    <div class="media-body align-self-center">
+                                                        <div class="dash-title">Total Transfers</div>
+                                                        <div class="number dash-h3">
+                                                            <h3 style="color:#75cac3;">&#8358; 4,320.00</h3>
+                                                            <br>
+                                                            <h6 style="color: #b9b9b9;">Jan 2018 - Nov 2018</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="align-self-center ml-5 mr-5">
+                                                        <img src="./assets/icons/swiftly/transfer.svg" style="width: 75px;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-12">
+                                <!-- This is where the transaction table started from -->
+
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="widget has-shadow swift-card no-bg no-padding" style="padding-top: 20px;">
+                                            <div class="widget-header d-flex align-items-center" style="margin-top: 20px;">
+                                                <div class="swift-card-header">
+                                                    <h3 class="swift-card-title">Recent Transactions</h3>
+                                                </div>
+                                                <div class="widget-options pull-right" style="right: 40px !important;position: absolute;">
+                                                    <button type="button" class="btn btn-danger mr-4 mb-2 swift-table-button" style="background: #5E83A5;">
+                                                        <img src="./assets/icons/swiftly/calendar.svg" width="30px" style="position: absolute;top: 7px;left: 8px;">
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger mb-2 swift-table-button" style="background: #F3D516;">
+                                                        <img src="./assets/icons/swiftly/search.svg" width="20px" style="position: absolute;top: 12px;left: 12px;">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="widget-body no-padding" style="margin-top: 20px;">
+                                                <div class="card-body no-padding">
+                                                    <!-- <div class="container"> -->
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered swiftly-bordered-alt">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="padding-left: 20px;">Type</th>
+                                                                        <th>Date</th>
+                                                                        <th>Value</th>
+                                                                        <th>Location</th>
+                                                                        <th>Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Deposit</td>
+                                                                        <td>12-12-2018</td>
+                                                                        <td>5,000</td>
+                                                                        <td>NCB Cash Point</td>
+                                                                        <td>
+                                                                            <span style="width:100px;"></span><span class="badge-text badge-text-small swift-badge success">Successful</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Purchase</td>
+                                                                        <td>13-12-2018</td>
+                                                                        <td>1,200</td>
+                                                                        <td>OCB Cafeteria</td>
+                                                                        <td>
+                                                                            <span style="width:100px;"></span><span class="badge-text badge-text-small swift-badge danger">Failed</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Purchase</td>
+                                                                        <td>14-12-2018</td>
+                                                                        <td>4,900</td>
+                                                                        <td>Main Cafeteria</td>
+                                                                        <td>
+                                                                            <span style="width:100px;"></span><span class="badge-text badge-text-small swift-badge success">Successful</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Purchase</td>
+                                                                        <td>14-12-2018</td>
+                                                                        <td>4,900</td>
+                                                                        <td>Main Cafeteria</td>
+                                                                        <td>
+                                                                            <span style="width:100px;"></span><span class="badge-text badge-text-small swift-badge success">Successful</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Purchase</td>
+                                                                        <td>14-12-2018</td>
+                                                                        <td>4,900</td>
+                                                                        <td>Main Cafeteria</td>
+                                                                        <td>
+                                                                            <span style="width:100px;"></span><span class="badge-text badge-text-small swift-badge warning">Pending</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    <!-- </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of transaction table -->
+                            </div>
+
+  </div>
+                      </div> 
+                      <div class="col-12 col-lg-4 col-md-4 col-xl-4 col-sm-12 is-hidden-mobile">
+                          <div class="widget widget-09 has-shadow swift-card">
+                              <h2 class="dash-3-h2">NGN 17,259.63</h2>
+                              <h6 style="color:#90bae1; text-align:center;">Available Balance  <span style="color:#75cac3;"> +3.2%</span></h6>
+                              <button type="button" class="btn btn-shadow dash-3-button">Deposit</button>
+                              <hr>
+                              <div class="widget-body">
+                                  <div class="row">
+                                      <div class="col-xl-12 col-12 no-padding">
+                                          <div>
+                                              <canvas id="orders"></canvas>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <hr>
+                              <h4 style="color:#90bae1; text-align:center; font-weight: bold;">1500205 - Adegoke David</h4>
+                          </div>
+                          <div class="widget widget-09 has-shadow swift-card" style="padding: 0px 10px !important; max-height: 50px;">
+                              <div class="widget-body">
+                                  <p class="text-center" >
+                                      Powered By  <a style="color: rgb(243, 105, 105) !important;" href="https://fstackdev.net" target="_blank">FStackDev</a>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      </div>     
+              </div>
+              </div>
+    </div>
+</body>
+

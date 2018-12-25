@@ -66,7 +66,6 @@ class Authenticate(Resource):
                 return jsonify({'StatusCode' : '201', 'message':'sessionActive'})
 
             cursor.execute("SELECT COUNT(1) FROM customers WHERE regno = {};".format(__regno))
-
             if not cursor.fetchone()[0]:
                 return jsonify({'StatusCode' : '201', 'message':'Invalid username'})
 
@@ -126,7 +125,11 @@ class Auth2(Resource):
             if json.data == True:
                 session['regno'] = __regno
                 session['userid'] = json.userid
-                return jsonify({'StatusCode' : '200', 'message':json.message, 'sessionId':session['userid'], "sessionRegno":session['regno']})
+                arrayVal = (row[3],loginLocation,userip,1)
+                arrayTable = ('userid','routerIp','userIp','loginStatus')
+                sql = 'INSERT INTO TraceLogin (userid,routerIp,userIp,loginStatus) VALUES(%s,%s,%s,%s)'
+                query = handler.insertv2(sql, arrayVal)
+                return jsonify({'StatusCode' : '200', 'message':'successfull', 'sessionId':session['userid'], "sessionRegno":session['regno']})
             else:
                 return jsonify({'StatusCode' : '201', 'message':json.message})
                 

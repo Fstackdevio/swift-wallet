@@ -1,0 +1,350 @@
+.green-sidebar.compact-sidebar{
+    background: #64C180;
+}
+
+
+.compact-sidebar>.side-navbar ul li.active img, .compact-sidebar>.side-navbar li ul li a.active{
+    color: #fff;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 15%;
+    border-radius: 100%;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+}
+.compact-sidebar>.side-navbar ul li.active img{
+    line-height: inherit;
+}
+.compact-sidebar>.side-navbar ul li img, .compact-sidebar>.side-navbar li ul li a{
+    padding: 10%;
+}
+.compact-sidebar>.side-navbar ul li img{
+    height: 60%;
+    width: 60%;
+}
+
+.compact-sidebar>.side-navbar ul li span{
+    color: #fff;
+}
+.compact-sidebar>.side-navbar ul li.active a:hover span{
+    bottom: -10px;
+}
+
+.compact-sidebar>.side-navbar a{
+    padding: 10px !important;
+}
+
+.loader-logo{
+    height: 50px;
+    width: 50px;
+}
+.navbar-header .logo-big{
+    width: 55px;
+    padding: 15px;
+}
+@media screen and (min-width: 767px){
+    header.header{
+        display: none;
+    }
+    .navbar-header .logo-big{
+        display: none
+    }
+}
+.navbar-header .logo-small {
+    width: 55px;
+    padding: 10px;
+}
+.page{
+    background: none;
+}
+.page-header-title{
+    font-size: 40px !important;
+    margin-left: 40px;
+    margin-top: 24px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold !important;
+    color: #C1C2C5 !important;
+}
+
+.swift-content{
+    margin-left: 150px !important;
+}
+
+.dash-h3 > h3{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.dash-title{
+    font-size: 14px;
+    color: black !important;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dash-3-button{
+    background: #64C180;
+    margin: 0 auto;
+    width:157px;
+    height: 34px;
+    top: 10px;
+    right: 50px;
+    left: 55px;
+}
+
+.dash-3-h2{
+    text-align:center;
+    padding-top: 20px;
+    color: #509cff !important;   
+}
+
+.dash-tr{
+    border:10px;
+}
+.swift-card{
+    border-radius: 5px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0px 15px 20px rgba(55, 72, 59, 0.03);
+}
+.btn-clear{
+    background: transparent !important;
+    border: none;
+}
+.btn-clear:hover{
+    color: initial;
+}
+.btn-gradient{
+    width: 60%;
+    height: 80%;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    background: linear-gradient(to right, #b0f0c1 0%, #509cff 100%);
+
+}
+
+.btn-changepass{
+    margin-top: 28px;
+    max-height: 40px;
+}
+@media screen and (min-width: 768px){
+    .row-little-gutter>[class*=col] {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+.form-control.swift-input{
+    border: 0.5px solid #E9E9E9;
+    background: #F8F9FC;
+    min-height: 40px;
+    /* border-radius: 3px; */
+}
+.mt-30{
+    margin-top: 30px;
+}
+
+.swift-card-title{
+    font-family: Nunito;
+    font-weight: bold;
+    font-size: 27px;
+    text-align: left;
+    color: #4d4f53;
+}
+.swift-card-subtitle{
+    font-family: Poppins;
+    font-weight: normal;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: #c9c9c9;
+
+}
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 220px;
+    margin-bottom: 50px;
+}
+.padding-20{
+    padding: 18px;
+}
+.green-button{
+    min-width: 180px;
+    justify-content: center;
+    min-height: 50px;
+    padding: 5px;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    display: block;
+    margin: 0px auto;
+    background: #90e1ae;
+    box-shadow: 0px 8px 20px rgba(54, 54, 54, 0.11);
+}
+#button-icon{
+    margin-left: 20px; 
+    height: 30px; 
+    width: 30px;
+    text-align: center;
+    border-radius: 50px; 
+    background: rgba(0, 0, 0, 0.15);
+}
+#button-icon > i{
+    /* display: inline-block; */
+    align-self: center;
+    line-height: 30px;
+}
+.swiftly-bordered{
+    max-width: 100%;
+}
+.swiftly-bordered>thead{
+    background: none !important;
+}
+.swiftly-bordered td{
+    border: none;
+    border-top: .07rem solid #eee;
+    border-bottom: .07rem solid #eee;
+}
+.swiftly-bordered td:first-of-type{
+    border-left: .07rem solid #eee;
+}
+.swiftly-bordered td:last-of-type{
+    border-right: .07rem solid #eee;
+}
+.no-padding{
+    padding: 0;
+}
+
+/* Toggle Styles */
+input.swift-toggle[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  label.swift-toggle-label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    /* background: grey; */
+    background: #C1C2C5;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+  
+  label.swift-toggle-label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.4s;
+  }
+  
+  input.swift-toggle:checked + label {
+    background: #8FD2A3;
+  }
+  
+  input.swift-toggle:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  
+  label.swift-toggle-label:active:after {
+    width: 25px;
+  }
+
+  @media(max-width: 567px){
+      .is-hidden-mobile{
+          display: none;
+      }
+  }
+
+  .swift-card.no-bg{
+      background: none;
+      box-shadow: unset;
+  }
+
+  .swiftly-bordered-alt > tbody > tr{
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 5px 20px rgba(55, 72, 59, 0.03);
+  }
+.swiftly-bordered-alt > tbody > tr > td{
+    border: none;
+    margin-top: 5px;
+    height: 70px;  
+}
+
+.swiftly-bordered-alt > tbody > tr > td:first-of-type{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 20px;
+}
+.swiftly-bordered-alt > tbody > tr > td:last-of-type{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+table.swiftly-bordered-alt{
+    border-collapse: separate;
+    border-spacing: 0px 15px;
+}
+
+.swiftly-bordered-alt thead{
+    background: none;
+    max-height: 30px;
+}
+.swiftly-bordered-alt thead tr th{
+padding: 10px 12px;
+}
+
+.swift-badge.success{
+    background: #90e1ae;
+}
+.swift-badge.danger{
+    background: #FF8484;
+}
+.swift-badge.warning{
+    background: #FFDE84;
+}
+
+.swift-badge{
+    width: 100px;
+    line-height: 32px;
+    height: 35px;
+    border-radius: 4px;
+}
+
+.swift-card .widget-header{
+    background: none;
+    padding: none;
+    font-family: 'Nunito', sans-serif;
+}
+.swift-table-button{
+    height: 50px;
+    width: 50px;
+}
+.swift-table-button:hover{
+    border: none;
+    box-shadow: 0px 5px 20px rgba(55, 72, 59, 0.15);
+}
+.dash-4-button{
+    background: #fff;
+    text-align: center;
+    margin: 0 auto;
+    width:300px;
+    height: 34px;
+    top: 10px;
+    right: 50px;
+    left: 55px;
+    border: none;
+}

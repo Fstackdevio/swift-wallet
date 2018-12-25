@@ -1,0 +1,182 @@
+<body id="page-top">
+
+  <!-- <div id="preloader">
+      <div class="canvas">
+          <img src="assets/img/swiftly/fsd.png" alt="logo" class="loader-logo">
+          <div class="spinner"></div>
+      </div>
+  </div> -->
+
+  <div class="page db-social">
+      <header class="header">
+          <nav class="navbar fixed-top">
+              <div class="navbar-holder d-flex align-items-center align-middle justify-content-between">
+
+                  <div class="navbar-header">
+                      <a href="db-default.html" class="navbar-brand">
+                          <div class="brand-image brand-big">
+                              <img src="assets/img/swiftly/fsd.png" alt="logo" class="logo-big">
+                          </div>
+                          <div class="brand-image brand-small">
+                              <img src="assets/img/swiftly/fsd.png" alt="logo" class="logo-small">
+                          </div>
+                      </a>
+
+                      <a id="toggle-btn" href="#" class="menu-btn active">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </a>
+                  </div>
+              </div>
+          </nav>
+      </header>
+
+      <div class="page-content d-flex align-items-stretch">
+          <!-- <div class="compact-sidebar light-sidebar has-shadow"> -->
+          <div class="compact-sidebar green-sidebar has-shadow">
+              <nav class="side-navbar">
+                  <div class="brand-image brand-big">
+                      <img src="assets/img/swiftly/origami.svg" alt="logo" class="logo-big" style="width: 50px; position: absolute; top: 15px; left: 20px;">
+                  </div>
+                  <ul class="list-unstyled">
+                      
+                          <a [routerLink] ="['/dashboard']">
+                              <!-- <i class="ti ti-receipt"></i><span>Newsfeed</span> -->
+                              <img src="./assets/icons/swiftly/bar-chart.svg" /><span>Dashboard</span>
+
+                          </a>
+                      
+                      <li>
+                          <a href="#">
+                              <img src="./assets/icons/swiftly/transaction.svg" /><span>Transactions</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#">
+                              <img src="./assets/icons/swiftly/cube.svg" /><span>Deposits</span>
+                          </a>
+                      </li>
+                      <li class="active">
+                          
+                          <a [routerLink] ="['/transfer']">
+                              <img src="./assets/icons/swiftly/gift.svg" /><span>Transfer</span>
+                          </a>
+                          
+                      </li>
+                      <li>
+                          <a [routerLink] ="['/settings']">
+                              <img src="./assets/icons/swiftly/cog.svg" /><span>Settings</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="javascript:void(0);">
+                              <img src="./assets/icons/swiftly/help.svg" /><span>Support</span>
+                          </a>
+                      </li>
+                      <li style="margin-top: 25px;">
+                          <a href="pages-albums.html">
+                              <img src="./assets/icons/swiftly/notification-stroke.svg" /><span>Notifications</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="pages-videos.html">
+                              <img src="assets/img/avatar/avatar-01.jpg" alt="profile-image" class="rounded-circle" style="width: 55px">
+                          </a>
+                      </li>
+                      <!-- <li>
+                              <a href="javascript:void(0);">
+                                  <i class="ti ti-stats-up"></i><span>Statistics</span>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="db-default.html">
+                                  <i class="la la-angle-left"></i><span>Go Back</span>
+                              </a>
+                          </li> -->
+                  </ul>
+              </nav>
+          </div>
+      </div>
+      <div class="content-inner compact">
+          <div class="container-fluid">
+
+              <div class="row flex-row">
+                  <div class="page-header">
+                      <div class="d-flex align-items-center">
+                          <h2 class="page-header-title">Transfer Funds</h2>
+                      </div>
+
+                      <div class="col-xl-12">
+                          <div class="widget-body">
+                              <div class="row flex-row justify-content-center">
+                                  <div class="col-xl-10">
+                                      <div id="rootwizard">
+                                          <div class="step-container">
+                                              <div class="step-wizard">
+                                                  <div class="progress">
+                                                      <div class="progressbar"></div>
+                                                  </div>
+                                                  <ul>
+                                                      <li>
+                                                          <a href="#tab1" data-toggle="tab">
+                                                              <span class="step">1</span>
+                                                          </a>
+                                                      </li>
+                                                      <li>
+                                                          <a href="#tab2" data-toggle="tab">
+                                                              <span class="step">2</span>
+                                                          </a>
+                                                      </li>
+                                                      <li>
+                                                          <a href="#tab3" data-toggle="tab">
+                                                              <span class="step">3</span>
+                                                          </a>
+                                                      </li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                          <div class="tab-content">
+                                                  <div class="tab-pane" id="tab1">
+                                                      <div class="section-title mt-5 mb-5" style="text-align:center;">
+                                                          <h2>Who would you like to transfer </h2> 
+                                                              <h2>funds to?</h2>
+                                                      </div>
+                                                      <div class="form" style="margin: 0 auto; width: 20%; ">
+                                                              <input type="text" style="text-align: center;" value="1500123" class="form-control">
+                                                      </div> 
+                                                      <div class="section-title mt-5 mb-5" style="text-align:center;">
+                                                          <h4 >OR</h4>
+                                                      </div>
+                                                      <div class="swift-card" style="width: 50%; align-content:center; margin: 0 auto;" >
+
+                                              
+                                                          <div class="table-responsive">
+                                                                  <table class="table table-bordered swiftly-bordered-alt" style="width:50%; margin: 0 auto;">
+                                                                      <tbody style="text-align:center;">
+                                                                          <h5 style="text-align:center;">Select one of your frequent transfer receipts</h5>
+                                                                         <tr>
+                                                                          <td><span></span><button type="button" class="dash-4-button">Ogbuji Bright  - 1501234</button><span></span></td>
+                                                                          </tr>
+                                                                          <tr>
+                                                                          <td><span></span><button type="button" class="dash-4-button">Ogbuji Bright  - 1501234</button><span></span></td>
+                                                                          </tr>
+                                                                      </tbody>
+                                                                  </table>
+                                                          </div>
+                                                              
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+  </div>
+</body>
