@@ -66,7 +66,6 @@ class Authenticate(Resource):
                 return jsonify({'StatusCode' : '201', 'message':'sessionActive'})
 
             cursor.execute("SELECT COUNT(1) FROM customers WHERE regno = {};".format(__regno))
-
             if not cursor.fetchone()[0]:
                 return jsonify({'StatusCode' : '201', 'message':'Invalid username'})
 
