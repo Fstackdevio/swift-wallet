@@ -375,17 +375,15 @@ padding: 10px 12px;
 }
 
 .support-items{
-    border: 1px solid #509cff;
     padding: 30px;
 }
 .support-items .row{
-    /* border: 1px solid red; */
     margin: 0px auto;
     max-width: 80%;
 }
 
 .support-items .row .col-4{
-    /* border: 1px dotted violet; */
+
 }
 .support-card{
     transition: .15s ease-out;
@@ -400,14 +398,14 @@ padding: 10px 12px;
 }
 
 .support-card-icon{
-    width: 85px;
+    width: 70px;
     margin: 0px auto;
 }
 .support-icon{
-    height: 85px;
-    width: 85px;
+    height: 70px;
+    width: 70px;
 }
 
 .support-text{
-    margin-top: 35px;
+    margin-top: 30px;
 }
