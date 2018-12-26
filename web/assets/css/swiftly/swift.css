@@ -1,7 +1,9 @@
 .green-sidebar.compact-sidebar{
     background: #64C180;
 }
-
+.blue-sidebar.compact-sidebar{
+    background: #64BEC1;
+}
 
 .compact-sidebar>.side-navbar ul li.active img, .compact-sidebar>.side-navbar li ul li a.active{
     color: #fff;
@@ -347,4 +349,65 @@ padding: 10px 12px;
     right: 50px;
     left: 55px;
     border: none;
+}
+
+/** Margins **/
+.mt-10{
+    margin-top: 10px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.mt-25{
+    margin-top: 25px;
+}
+.mt-50{
+    margin-top: 50px;
+}
+
+.wave-banner{
+    /* background-image: url(../../img/swiftly/deposit-banner.svg);
+    background-size: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat; */
+    /* background-position-y: ; */
+    border: 1px solid tomato;
+}
+
+.support-items{
+    border: 1px solid #509cff;
+    padding: 30px;
+}
+.support-items .row{
+    /* border: 1px solid red; */
+    margin: 0px auto;
+    max-width: 80%;
+}
+
+.support-items .row .col-4{
+    /* border: 1px dotted violet; */
+}
+.support-card{
+    transition: .15s ease-out;
+    padding: 40px 45px;
+}
+.support-card:hover{
+    background: #FFFFFF;
+    color: #50ABFF;
+    box-shadow: 0px 20px 70px rgba(36, 43, 57, .04);
+    transition: .15s ease-in;
+    border-radius: 3px;
+}
+
+.support-card-icon{
+    width: 85px;
+    margin: 0px auto;
+}
+.support-icon{
+    height: 85px;
+    width: 85px;
+}
+
+.support-text{
+    margin-top: 35px;
 }
