@@ -573,10 +573,16 @@ font-weight: medium; */
     margin-left: -215px;
   }
 
-  .test-box{
-    margin: 10px;
-    border: 1px solid #000;
-    height: 355px;
+  .d-box{
+    margin: 10px;   
+    height: 375px;
     width:386.59px;
     
+  }
+  .d-d-box{
+    margin: 40px;
+    border: 1px solid #000;
+    height: 335px;
+    width:346.59px;
+
   }
