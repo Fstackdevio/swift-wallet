@@ -1,15 +1,20 @@
+body{
+    /* background: #F8FCFF; */
+}
 .green-sidebar.compact-sidebar{
     background: #64C180;
 }
-
+.blue-sidebar.compact-sidebar{
+    background: #64BEC1;
+}
 
 .compact-sidebar>.side-navbar ul li.active img, .compact-sidebar>.side-navbar li ul li a.active{
     color: #fff;
     background: rgba(0, 0, 0, 0.1);
-    padding: 15%;
+    padding: 10%;
     border-radius: 100%;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     text-align: center;
 }
 .compact-sidebar>.side-navbar ul li.active img{
@@ -58,7 +63,8 @@
     background: none;
 }
 .page-header-title{
-    font-size: 40px !important;
+    /* font-size: 40px !important; */
+    font-size: 30px !important;
     margin-left: 40px;
     margin-top: 24px;
     font-family: 'Nunito', sans-serif;
@@ -147,7 +153,7 @@
 .swift-card-title{
     font-family: Nunito;
     font-weight: bold;
-    font-size: 27px;
+    font-size: 24px;
     text-align: left;
     color: #4d4f53;
 }
@@ -218,6 +224,11 @@
     padding: 0;
 }
 
+.no-padding-sides{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
 /* Toggle Styles */
 input.swift-toggle[type=checkbox] {
     height: 0;
@@ -278,33 +289,38 @@ input.swift-toggle[type=checkbox] {
       border-radius: 5px;
       box-shadow: 0px 5px 20px rgba(55, 72, 59, 0.03);
   }
-.swiftly-bordered-alt > tbody > tr > td{
+.swiftly-bordered-alt > tbody > tr > td, .swiftly-bordered-alt > tbody > tr > td{
     border: none;
     margin-top: 5px;
     height: 70px;  
 }
 
-.swiftly-bordered-alt > tbody > tr > td:first-of-type{
+.swiftly-bordered-alt > tbody > tr > td:first-of-type, .swiftly-bordered-alt-gray > tbody > tr > td:first-of-type{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     padding-left: 20px;
 }
-.swiftly-bordered-alt > tbody > tr > td:last-of-type{
+.swiftly-bordered-alt > tbody > tr > td:last-of-, .swiftly-bordered-alt-gray > tbody > tr > td:last-of-type{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-table.swiftly-bordered-alt{
+table.swiftly-bordered-alt, table.swiftly-bordered-alt-gray{
     border-collapse: separate;
     border-spacing: 0px 15px;
 }
 
-.swiftly-bordered-alt thead{
+.swiftly-bordered-alt thead, .swiftly-bordered-alt-gray thead{
     background: none;
     max-height: 30px;
 }
-.swiftly-bordered-alt thead tr th{
+.swiftly-bordered-alt thead tr th, .swiftly-bordered-alt-gray thead tr th{
 padding: 10px 12px;
+color: rgb(173, 181, 187);
+text-transform: uppercase;
+font-weight: 600;
+/* font-family: Poppins;
+font-weight: medium; */
 }
 
 .swift-badge.success{
@@ -330,8 +346,8 @@ padding: 10px 12px;
     font-family: 'Nunito', sans-serif;
 }
 .swift-table-button{
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
 }
 .swift-table-button:hover{
     border: none;
@@ -349,31 +365,201 @@ padding: 10px 12px;
     border: none;
 }
 
-.swiftly-bordered-alt-2 > tbody > tr{
+/** Margins **/
+.mt-10{
+    margin-top: 10px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.mt-25{
+    margin-top: 25px;
+}
+.mt-50{
+    margin-top: 50px;
+}
+
+.wave-banner{
+    /* background-image: url(../../img/swiftly/deposit-banner.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: -55px;
+    background-position-y: -55px; */
+    /*background-size: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat; */
+    /* background-position-y: ; */
+    background: #DFF1FE;
+}
+
+.support-items{
+    padding: 30px;
+}
+.support-items .row{
+    margin: 0px auto;
+    max-width: 80%;
+}
+
+.support-items .row .col-4{
+
+}
+.support-card{
+    transition: .15s ease-out;
+    padding: 40px 45px;
+}
+.support-card:hover{
+    background: #FFFFFF;
+    color: #50ABFF;
+    box-shadow: 0px 20px 70px rgba(36, 43, 57, .06);
+    transition: .15s ease-in;
+    border-radius: 3px;
+}
+
+.support-card-icon{
+    width: 70px;
+    margin: 0px auto;
+}
+.support-icon{
+    height: 70px;
+    width: 70px;
+}
+
+.support-text{
+    margin-top: 30px;
+}
+
+.support-hero-content{
+    max-width: 80%;
+    margin: 0px auto;
+}
+.support-hero-content .support-hero-title{
+    font-family: Nunito;
+    color: #5E83A5;
+    font-weight: bold;
+    font-size: 40px;
+}
+.support-hero-content .support-hero-subtitle{
+    font-family: Nunito;
+    color: #5E83A5;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.support-hero-content .support-search{
+    background: none;
+}
+.support-search .support-search-input, .support-search .support-search-input:focus{
     background: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 5px 20px rgba(55, 72, 59, 0.03);
-}
-.swiftly-bordered-alt-2 > tbody > tr > td{
-  border: none;
-  margin-top: 5px;
-  height: 40px;  
-}
-
-.swiftly-bordered-alt-2 > tbody > tr > td:first-of-type{
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  padding-left: 20px;
-}
-.swiftly-bordered-alt-2 > tbody > tr > td:last-of-type{
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+    border: none;
+    padding: 20px 35px;
+    border-radius: 6px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: -100px;
+    box-shadow: 0px 5px 19px rgba(36, 43, 57, .04);
 }
 
-.swiftly-bordered-alt-2 thead{
-  background: none;
-  max-height: 10px;
+.support-search .support-search-input::placeholder{
+    color: #C1E4FF;
+    font-size: 14px;
+    font-family: Poppins;
 }
-.swiftly-bordered-alt-2 thead tr th{
-padding: 10px 12px;
+.nav-tabs {
+    border-bottom: 2px solid #eee !important;
 }
+
+.nav-tabs .nav-item{
+    margin-right: 40px;
+    font-family: Poppins;
+}
+.nav-tabs .nav-item a:not(.active){
+    color: #CCD4DB !important;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-item .nav-link {
+    padding-left: 0px;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+.nav-tabs .nav-item:hover{
+    border-bottom-color: #FF9E80 !important;
+}
+
+.nav-tabs .nav-item .active{
+    color: #000;
+    border-bottom:  2px solid #eee !important;
+}
+
+.nav-tabs .nav-item .active:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0px;
+    height: 1px;
+    width: 60%;
+    border-radius: 25px;
+    border-bottom: 2px solid #FF9E80;
+    margin-top: 44px;
+  }
+  .swift-table-button-circle{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 18px;
+  }
+  .swiftly-bordered-alt-gray > tbody > tr{
+    background: #FAFAFA;
+    font-family: Nunito;
+    color: #CCD4DB;
+    font-weight: bold !important;
+  }
+  .swiftly-bordered-alt-gray tr{
+      text-align: center;
+  }
+  .purchase-transaction{
+      color: #FF9E80;
+  }
+  .transaction-status{
+      height: 35px;
+      width: 35px;
+      padding: .6em .6em;
+      border-radius: 50%;
+      color: #fff;
+  }
+  .transaction-status i {
+      font-weight: 900;
+  }
+
+  .transaction-status.success{
+      background: #A5EEB8 !important;
+  }
+  .transaction-status.pending{
+      background: #FFE88D;
+  }
+
+  .transaction-status.failed{
+      background: #FF9E80 !important;
+  }
+
+  .trans-details .desc{
+      color: #000;
+      font-weight: 600;
+      /* font-size: 16px; */
+  }
+  .trans-details .tid{
+    font-weight: 500;
+  }
+  .text-white{
+      color: #fff !important;
+  }
+  .add-funds-card{
+    color: #fff;
+    background: #1CD8D2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      
+  }
