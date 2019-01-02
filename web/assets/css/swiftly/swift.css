@@ -348,3 +348,32 @@ padding: 10px 12px;
     left: 55px;
     border: none;
 }
+
+.swiftly-bordered-alt-2 > tbody > tr{
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px rgba(55, 72, 59, 0.03);
+}
+.swiftly-bordered-alt-2 > tbody > tr > td{
+  border: none;
+  margin-top: 5px;
+  height: 40px;  
+}
+
+.swiftly-bordered-alt-2 > tbody > tr > td:first-of-type{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 20px;
+}
+.swiftly-bordered-alt-2 > tbody > tr > td:last-of-type{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.swiftly-bordered-alt-2 thead{
+  background: none;
+  max-height: 10px;
+}
+.swiftly-bordered-alt-2 thead tr th{
+padding: 10px 12px;
+}
