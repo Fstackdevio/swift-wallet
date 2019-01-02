@@ -563,3 +563,20 @@ font-weight: medium; */
     background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       
   }
+    
+  .deposit-funds-card{
+    width: 469.49px;
+    height: 446.5px;
+    text-align: center;
+    position:absolute;
+    left: 50%;
+    margin-left: -215px;
+  }
+
+  .test-box{
+    margin: 10px;
+    border: 1px solid #000;
+    height: 355px;
+    width:386.59px;
+    
+  }
