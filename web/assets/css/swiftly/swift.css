@@ -289,33 +289,38 @@ input.swift-toggle[type=checkbox] {
       border-radius: 5px;
       box-shadow: 0px 5px 20px rgba(55, 72, 59, 0.03);
   }
-.swiftly-bordered-alt > tbody > tr > td{
+.swiftly-bordered-alt > tbody > tr > td, .swiftly-bordered-alt > tbody > tr > td{
     border: none;
     margin-top: 5px;
     height: 70px;  
 }
 
-.swiftly-bordered-alt > tbody > tr > td:first-of-type{
+.swiftly-bordered-alt > tbody > tr > td:first-of-type, .swiftly-bordered-alt-gray > tbody > tr > td:first-of-type{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     padding-left: 20px;
 }
-.swiftly-bordered-alt > tbody > tr > td:last-of-type{
+.swiftly-bordered-alt > tbody > tr > td:last-of-, .swiftly-bordered-alt-gray > tbody > tr > td:last-of-type{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-table.swiftly-bordered-alt{
+table.swiftly-bordered-alt, table.swiftly-bordered-alt-gray{
     border-collapse: separate;
     border-spacing: 0px 15px;
 }
 
-.swiftly-bordered-alt thead{
+.swiftly-bordered-alt thead, .swiftly-bordered-alt-gray thead{
     background: none;
     max-height: 30px;
 }
-.swiftly-bordered-alt thead tr th{
+.swiftly-bordered-alt thead tr th, .swiftly-bordered-alt-gray thead tr th{
 padding: 10px 12px;
+color: rgb(173, 181, 187);
+text-transform: uppercase;
+font-weight: 600;
+/* font-family: Poppins;
+font-weight: medium; */
 }
 
 .swift-badge.success{
@@ -505,4 +510,46 @@ padding: 10px 12px;
       height: 50px;
       border-radius: 50%;
       font-size: 18px;
+  }
+  .swiftly-bordered-alt-gray > tbody > tr{
+    background: #FAFAFA;
+    font-family: Nunito;
+    color: #CCD4DB;
+    font-weight: bold !important;
+  }
+  .swiftly-bordered-alt-gray tr{
+      text-align: center;
+  }
+  .purchase-transaction{
+      color: #FF9E80;
+  }
+  .transaction-status{
+      height: 35px;
+      width: 35px;
+      padding: .6em .6em;
+      border-radius: 50%;
+      color: #fff;
+  }
+  .transaction-status i {
+      font-weight: 900;
+  }
+
+  .transaction-status.success{
+      background: #A5EEB8 !important;
+  }
+  .transaction-status.pending{
+      background: #FFE88D;
+  }
+
+  .transaction-status.failed{
+      background: #FF9E80 !important;
+  }
+
+  .trans-details .desc{
+      color: #000;
+      font-weight: 600;
+      /* font-size: 16px; */
+  }
+  .trans-details .tid{
+    font-weight: 500;
   }
