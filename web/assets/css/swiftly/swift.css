@@ -2,7 +2,7 @@ body{
     /* background: #F8FCFF; */
 }
 .green-sidebar.compact-sidebar{
-    background: #64C180;
+    background: #64BEC1;
 }
 .blue-sidebar.compact-sidebar{
     background: #64BEC1;
@@ -574,15 +574,26 @@ font-weight: medium; */
   }
 
   .d-box{
-    margin: 10px;   
+    margin: 10px;  
+    border: 1px solid #000; 
     height: 375px;
-    width:386.59px;
-    
+    width:386.59px; 
   }
+
   .d-d-box{
     margin: 40px;
+    margin-top: 20px;
     border: 1px solid #000;
-    height: 335px;
+    height: 355px;
     width:346.59px;
-
   }
+
+  .small-box{
+      width: 151px;
+      height: 133.54px;
+      border: 1px solid #000;
+      margin: 0 auto;
+  }
+
+  .small-box > h4{
+      color: #63B4FF;
