@@ -11,10 +11,10 @@ body{
 .compact-sidebar>.side-navbar ul li.active img, .compact-sidebar>.side-navbar li ul li a.active{
     color: #fff;
     background: rgba(0, 0, 0, 0.1);
-    padding: 15%;
+    padding: 10%;
     border-radius: 100%;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     text-align: center;
 }
 .compact-sidebar>.side-navbar ul li.active img{
@@ -63,7 +63,8 @@ body{
     background: none;
 }
 .page-header-title{
-    font-size: 40px !important;
+    /* font-size: 40px !important; */
+    font-size: 30px !important;
     margin-left: 40px;
     margin-top: 24px;
     font-family: 'Nunito', sans-serif;
@@ -152,7 +153,7 @@ body{
 .swift-card-title{
     font-family: Nunito;
     font-weight: bold;
-    font-size: 27px;
+    font-size: 24px;
     text-align: left;
     color: #4d4f53;
 }
@@ -221,6 +222,11 @@ body{
 }
 .no-padding{
     padding: 0;
+}
+
+.no-padding-sides{
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* Toggle Styles */
@@ -335,8 +341,8 @@ padding: 10px 12px;
     font-family: 'Nunito', sans-serif;
 }
 .swift-table-button{
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
 }
 .swift-table-button:hover{
     border: none;
@@ -454,3 +460,49 @@ padding: 10px 12px;
     font-size: 14px;
     font-family: Poppins;
 }
+.nav-tabs {
+    border-bottom: 2px solid #eee !important;
+}
+
+.nav-tabs .nav-item{
+    margin-right: 40px;
+    font-family: Poppins;
+}
+.nav-tabs .nav-item a:not(.active){
+    color: #CCD4DB !important;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-item .nav-link {
+    padding-left: 0px;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+.nav-tabs .nav-item:hover{
+    border-bottom-color: #FF9E80 !important;
+}
+
+.nav-tabs .nav-item .active{
+    color: #000;
+    border-bottom:  2px solid #eee !important;
+}
+
+.nav-tabs .nav-item .active:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0px;
+    height: 1px;
+    width: 60%;
+    border-radius: 25px;
+    border-bottom: 2px solid #FF9E80;
+    margin-top: 44px;
+  }
+  .swift-table-button-circle{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 18px;
+  }
