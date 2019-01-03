@@ -139,25 +139,30 @@
                         </div>
                     </div>
                 </div>
-                
-                <div id="switch-box">
-                    <button class="switch-box-button fbutton active-b"><a href="#deposit">Deposit</a></button>
-                    <button class="switch-box-button sbutton"><a href="#history">History</a></button>
+                <div class="f-box">
+                    <div id="switch-box">
+                        <button class="switch-box-button fbutton active-b"><a href="#deposit">Deposit</a></button>
+                        <button class="switch-box-button sbutton"><a href="#history">History</a></button>
+                    </div>
+                    <div class="sl-text-box">
+                        <h2 style="color:#63B4FF">Hurray! time to add some cash.</h2>
+                        <h5 style="color:#707070;">In order to fully utilize your swift wallet on campus to purchase various goods and services across various 
+                        media and outlets (and even loan money), you need to have some cash in your account. Don't worry, we 
+                        don't charge any fees for most transactions; so you literally almost get what you deposit.</h5>
+                    </div>
                 </div>
-
                 <script>
                     // Add active class to the current button (highlight it)
                     var header = document.getElementById("switch-box");
                     var btns = header.getElementsByClassName("switch-box-button");
                     for (var i = 0; i < btns.length; i++) {
-                      btns[i].addEventListener("click", function() {
-                      var current = document.getElementsByClassName("active-b");
-                      current[0].className = current[0].className.replace(" active-b", "");
-                      this.className += " active-b";
-                      });
+                        btns[i].addEventListener("click", function() {
+                            var current = document.getElementsByClassName("active-b");
+                            current[0].className = current[0].className.replace(" active-b", "");
+                            this.className += " active-b";
+                        });
                     }
                 </script>
-
 
                 <div class="row " id="deposit">
                     <div class="swift-card deposit-funds-card" style="display:none">
@@ -169,13 +174,11 @@
                                     <h4>Deposit Summary</h4>
                                 </div>
 
-
                                 <script type="text/javascript">
-                                    document.getElementById("left-button").onclick = function () {
+                                    document.getElementById("left-button").onclick = function() {
                                         location.href = "file:///C:/xampp/htdocs/Swift-wallet/web/deposit.html";
                                     };
                                 </script>
-
 
                                 <h4 style="float:left; color: #BFBFBF;">Deposit Method</h4>
                                 <img src="./assets/icons/swiftly/debit-card.svg" style="width: 24.17px; height:24.17px; margin: 0 auto; display: absolute; float: center;" alt="">

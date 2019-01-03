@@ -640,7 +640,7 @@ font-weight: medium; */
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         margin-right:0px;
-        margin-left: 40px;
+    
 }
 .sbutton{
         border-top-right-radius: 10px;
@@ -652,4 +652,17 @@ font-weight: medium; */
     background: #63B4FF;
     color: #fff;
 }
-.donot-display{}
+
+.f-box{
+    margin: 10px;
+    height:579.09px;
+    width: 797px;
+    border: 1px solid black;
+    margin-left: 40px;
+  }
+.sl-text-box{
+    height:131px;
+    width: 797px;
+    border: 1px solid black;
+    padding-top: 10px; 
+}
