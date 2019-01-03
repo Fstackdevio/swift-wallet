@@ -575,7 +575,7 @@ font-weight: medium; */
 
   .d-box{
     margin: 10px;  
-    /* border: 1px solid #000;  */
+    border: 1px solid #000; 
     height: 375px;
     width:386.59px; 
   }
@@ -583,7 +583,7 @@ font-weight: medium; */
   .d-d-box{
     margin: 40px;
     margin-top: 20px;
-    /* border: 1px solid #000; */
+    border: 1px solid #000;
     height: 355px;
     width:346.59px;
   }
@@ -591,9 +591,19 @@ font-weight: medium; */
   .small-box{
       width: 151px;
       height: 133.54px;
-      /* border: 1px solid #000; */
+      border: 1px solid #000;
       margin: 0 auto;
   }
 
   .small-box > h4{
       color: #63B4FF;
+  }
+
+  .d-btn-gradient{
+    width: 101.84px;
+    height: 30.63px;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    background: linear-gradient(to right, #FF9E80 0%, #FFDE84 100%);
+}
