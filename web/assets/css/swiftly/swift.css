@@ -743,10 +743,24 @@ font-weight: medium; */
     width: 797px;
     border: 1px solid black;
     padding-top: 10px;
+    margin-top: 40px;
 }
 
 .tl-3-boxes {
     height: 182px;
     width: 541px;
     border: 1px solid black;
+    margin-top:10px;
+}
+.tl-3-boxes-inner{
+    height: 182px;
+    width: 57px;
+    border: 1px solid black;
+}
+.tl-4-boxes-inner{
+    height: 182px;
+    width: 480px;
+    border: 1px solid black;
+    margin-left:57px;
+    display: inline-block;
 }
