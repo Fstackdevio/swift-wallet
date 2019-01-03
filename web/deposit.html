@@ -135,16 +135,32 @@
                 <div class="row">
                     <div class="page-header">
                         <div class="d-flex align-items-center">
-                            <h2 class="page-header-title">Deposit</h2>
+                            <h2 class="page-header-title">Deposit Funds</h2>
                         </div>
                     </div>
                 </div>
-                <div class="switch-box">
-                    <button class="switch-box-button">Deposit</button>
-                    <button class="switch-box-button-2">History</button>
+                
+                <div id="switch-box">
+                    <button class="switch-box-button fbutton active-b"><a href="#deposit">Deposit</a></button>
+                    <button class="switch-box-button sbutton"><a href="#history">History</a></button>
                 </div>
-                <div class="row">
-                    <div class="swift-card deposit-funds-card">
+
+                <script>
+                    // Add active class to the current button (highlight it)
+                    var header = document.getElementById("switch-box");
+                    var btns = header.getElementsByClassName("switch-box-button");
+                    for (var i = 0; i < btns.length; i++) {
+                      btns[i].addEventListener("click", function() {
+                      var current = document.getElementsByClassName("active-b");
+                      current[0].className = current[0].className.replace(" active-b", "");
+                      this.className += " active-b";
+                      });
+                    }
+                </script>
+
+
+                <div class="row " id="deposit">
+                    <div class="swift-card deposit-funds-card" style="display:none">
                         <div class="d-box">
                             <input name="" type="image" id="left-button" src="./assets/icons/swiftly/back-button-arrow.svg" />
                             <div class="d-d-box">
@@ -152,9 +168,19 @@
                                     <img src="./assets/icons/swiftly/deposit.svg" class="center" style="width: 123.38px; height:96.5px; margin: 0 auto; display: absolute" alt="">
                                     <h4>Deposit Summary</h4>
                                 </div>
+
+
+                                <script type="text/javascript">
+                                    document.getElementById("left-button").onclick = function () {
+                                        location.href = "file:///C:/xampp/htdocs/Swift-wallet/web/deposit.html";
+                                    };
+                                </script>
+
+
                                 <h4 style="float:left; color: #BFBFBF;">Deposit Method</h4>
+                                <img src="./assets/icons/swiftly/debit-card.svg" style="width: 24.17px; height:24.17px; margin: 0 auto; display: absolute; float: center;" alt="">
                                 <h4 style="float:right; color:#BFBFBF;">Online Deposit</h4>
-                                <hr style="margin-top: 30px; width: 50%;">
+                                <hr style="margin-top: 10px; width: 50%;">
                                 <h6 style="float:center; color:#BFBFBF !important;">Instant</h6>
                                 <h4 style="float:left; color: #BFBFBF;">Deposit Amount</h4>
                                 <h4 style="float:right; color:#BFBFBF;">NGN 7,500.00</h4>
@@ -169,6 +195,10 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+
+                <div class="row" id="history">
 
                 </div>
             </div>
