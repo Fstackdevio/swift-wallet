@@ -615,6 +615,29 @@ font-weight: medium; */
     margin-right: auto;
     width:29.7px; 
     height:29.7px;
-    
+}
+#left-btton:hover{
+        background-color: #FF9E80;
+      }
+}
 
+.switch-box-button{
+        width: 80px;
+        height: 30px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border: 3px solid#63B4FF; 
+        background: #63B4FF;
+        color: #fff;
+    }
+.switch-box-button-2{
+        width: 80px;
+        height: 30px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border: 3px solid#63B4FF; 
+        display: inline-block;
+        position: absolute;
+        color: #63B4FF;
+        background: #fff;
 }
