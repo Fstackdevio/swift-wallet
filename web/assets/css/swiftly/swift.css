@@ -575,7 +575,7 @@ font-weight: medium; */
 
   .d-box{
     margin: 10px;  
-    border: 1px solid #000; 
+    /* border: 1px solid #000;  */
     height: 375px;
     width:386.59px; 
   }
@@ -583,7 +583,7 @@ font-weight: medium; */
   .d-d-box{
     margin: 40px;
     margin-top: 20px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     height: 355px;
     width:346.59px;
   }
@@ -591,7 +591,7 @@ font-weight: medium; */
   .small-box{
       width: 151px;
       height: 133.54px;
-      border: 1px solid #000;
+      /* border: 1px solid #000; */
       margin: 0 auto;
   }
 
