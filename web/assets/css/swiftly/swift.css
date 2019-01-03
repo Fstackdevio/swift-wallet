@@ -574,8 +574,7 @@ font-weight: medium; */
   }
 
   .d-box{
-    margin: 10px;  
-    border: 1px solid #000; 
+    margin: 10px;
     height: 415px;
     width:386.59px; 
   }
@@ -583,7 +582,6 @@ font-weight: medium; */
   .d-d-box{
     margin: 40px;
     margin-top: -10px;
-    border: 1px solid #000;
     height: 395px;
     width:346.59px;
   }
@@ -591,8 +589,7 @@ font-weight: medium; */
   .small-box{
       width: 151px;
       height: 133.54px;
-      border: 1px solid #000;
-      margin: 0 auto;     
+      margin: 0 auto;  
   }
 
   .small-box > h4{
@@ -614,7 +611,7 @@ font-weight: medium; */
 
 #left-button{
     display: block;
-    margin-left: 10px;
+    margin-left: 2px;
     margin-right: auto;
     width:29.7px; 
     height:29.7px;
