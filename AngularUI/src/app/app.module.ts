@@ -9,12 +9,16 @@ import { LoginComponent } from './components/login/login.component';
 import { componentFactoryName } from '@angular/compiler';
 import { SettingsComponent } from './components/settings/settings.component';
 import { TransferComponent } from './components/transfer/transfer.component';
+import { SupportComponent } from './components/support/support.component';
+import { TransactionsComponent } from './components/transactions/transactions.component';
 const approutes:Routes = [
 {path:'',pathMatch:'full',redirectTo:'login'},
 {path:"dashboard",component:DashboardComponent},
 {path:'login',component:LoginComponent},
 {path:'settings',component:SettingsComponent},
-{path:'transfer',component:TransferComponent}
+{path:'transfer',component:TransferComponent},
+{path:'support',component:SupportComponent},
+{path:'transactions',component:TransactionsComponent}
 ]
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ const approutes:Routes = [
     DashboardComponent,
     LoginComponent,
     TransferComponent,
-    SettingsComponent
+    SettingsComponent,
+    SupportComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
