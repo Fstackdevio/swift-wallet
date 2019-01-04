@@ -106,6 +106,28 @@ class Authenticate(Resource):
             return jsonify({'StatusCode' : '400', 'message':'Invalid json input'})
 
         
+class sessDetails(Resource):
+    def post(self):
+        try:
+            req_data = request.get_json(force=True)
+            expectedFields = ['sessid']
+            missing = handler.checkJson(expectedFields,req_data)
+            if missing:
+                return jsonify({'StatusCode' : '200', 'Missing field': missing})
+            __regno = req_data['sessid']
+
+            sess = []
+            if __regno in session:
+                for i in range(len(session)):
+                    sess.append(session[i])
+                return jsonify({'StatusCode' : '201', 'data':sess})
+
+        except Exception as e:
+           return {'error': str(e)}
+        except TypeError:
+            return jsonify({'StatusCode' : '400', 'message':'Invalid json input'})
+
+
 class Auth2(Resource):
     def post(self):
         try:
