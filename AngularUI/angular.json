@@ -28,7 +28,8 @@
               "src/assets/vendors/css/base/elisyam-1.5.min.css",
               "src/assets/css/animate/animate.min.css",
               "src/assets/css/datatables/datatables.min.css",
-              "src/assets/css/swiftly/swift.css"
+              "src/assets/css/swiftly/swift.css",
+              "node_modules/ngx-toastr/toastr.css"
 
             ],
             "scripts": [
