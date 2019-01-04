@@ -38,31 +38,25 @@
   <h3>Sign In To Swift-wallet</h3>
   <form>
   <div class="group material-input">
-  <input type="text" required>
+  <input type="number" required [(ngModel)]="regno" name="regno">
   <span class="highlight"></span>
   <span class="bar"></span>
-  <label>Email</label>
+  <label>RegNo</label>
   </div>
   <div class="group material-input">
-  <input type="password" required>
+  <input type="password"  [(ngModel)]="password" name="password" required>
   <span class="highlight"></span>
   <span class="bar"></span>
   <label>Password</label>
   </div>
   </form>
   <div class="row">
-  <div class="col text-left">
-  <div class="styled-checkbox">
-  <input type="checkbox" name="checkbox" id="remeber">
-  <label for="remeber">Remember me</label>
-  </div>
-  </div>
   <div class="col text-right">
   <a href="pages-forgot-password.html">Forgot Password ?</a>
   </div>
   </div>
   <div class="sign-btn text-center">
-  <a [routerLink]="['/dashboard']" class="btn btn-lg btn-gradient-01">
+  <a (click)="login()" class="btn btn-lg btn-gradient-01">
   Sign In
   </a>
   </div>
