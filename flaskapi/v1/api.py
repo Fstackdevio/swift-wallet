@@ -366,7 +366,9 @@ class dashboardInfo(Resource):
                 'lastTransfer':Ltransfer,
                 'lastLoginLocation':Llocation,
                 'lastTransactionLocation': spending[0],
-                'lastAmountSpent': spending[1]
+                'lastAmountSpent': spending[1],
+                'totalpurchase': 5000,
+                'totaltransfer': 10000
             }
 
             items.append(i)
