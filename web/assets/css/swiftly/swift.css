@@ -745,6 +745,12 @@ font-weight: medium; */
     padding-top: 10px;
     margin-top: 40px;
 }
+.sl-text-box2{
+    height: 73px;
+    width: 797px;
+    border: 1px solid black;
+    margin-top: 24px; 
+}
 
 .tl-3-boxes {
     height: 182px;
@@ -756,11 +762,20 @@ font-weight: medium; */
     height: 182px;
     width: 57px;
     border: 1px solid black;
+    margin-right:0px; 
 }
 .tl-4-boxes-inner{
     height: 182px;
-    width: 480px;
+    width: 484px;
     border: 1px solid black;
     margin-left:57px;
+    margin-bottom: 182px;
     display: inline-block;
+    position: absolute;
 }
+
+/* @media (min-width: 576px){
+    .f-box{
+        width: 320px;
+    }
+} */
