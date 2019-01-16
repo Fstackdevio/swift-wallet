@@ -120,7 +120,9 @@ class sessDetails(Resource):
             if __regno in session:
                 for i in range(len(session)):
                     sess.append(session[i])
-                return jsonify({'StatusCode' : '201', 'data':sess})
+                return jsonify({'StatusCode' : '200', 'data':sess})
+            else:
+                return jsonify({'StatusCode' : '201', 'data':''})
 
         except Exception as e:
            return {'error': str(e)}
