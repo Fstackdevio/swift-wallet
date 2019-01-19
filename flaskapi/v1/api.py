@@ -109,6 +109,7 @@ class Authenticate(Resource):
 class sessDetails(Resource):
     def post(self):
         try:
+            sess = []
             req_data = request.get_json(force=True)
             expectedFields = ['sessid']
             missing = handler.checkJson(expectedFields,req_data)
@@ -116,11 +117,12 @@ class sessDetails(Resource):
                 return jsonify({'StatusCode' : '200', 'Missing field': missing})
             __regno = req_data['sessid']
 
-            sess = []
             if __regno in session:
                 for i in range(len(session)):
                     sess.append(session[i])
-                return jsonify({'StatusCode' : '201', 'data':sess})
+                return jsonify({'StatusCode' : '200', 'data':sess})
+            else:
+                return jsonify({'StatusCode' : '201', 'data':''})
 
         except Exception as e:
            return {'error': str(e)}
