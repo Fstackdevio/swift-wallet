@@ -156,6 +156,18 @@ body {
         padding-left: 5px;
         padding-right: 5px;
     }
+   .deposit-option-card{
+       padding: 2em 1.5rem !important;
+        height: 150px;
+        width: 200px;
+    }
+    .deposit-option-card p, .deposit-option-card small{
+        display: block;
+    }
+
+    .deposit-option-card img{
+         width: 60px;
+    }
 }
 
 .form-control.swift-input {
@@ -734,40 +746,40 @@ font-weight: medium; */
     margin: 10px;
     height: 579.09px;
     width: 797px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-left: 40px;
 }
 
 .sl-text-box {
     height: 131px;
     width: 797px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding-top: 10px;
     margin-top: 40px;
 }
 .sl-text-box2{
     height: 73px;
     width: 797px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-top: 24px; 
 }
 
 .tl-3-boxes {
     height: 182px;
     width: 541px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-top:10px;
 }
 .tl-3-boxes-inner{
     height: 182px;
     width: 57px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-right:0px; 
 }
 .tl-4-boxes-inner{
     height: 182px;
     width: 484px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-left:57px;
     margin-bottom: 250px;
     display: inline-block;
@@ -779,3 +791,20 @@ font-weight: medium; */
         width: 320px;
     }
 } */
+.deposit-option-number{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #64BEC1;
+    text-align: center;
+    line-height: 30px;
+    font-size: 1.4em;
+    color: #fff;
+    font-family: Nunito;
+}
+.deposit-option-pane h4{
+    color: #63B4FF;
+    font-size: 1.7em;
+    font-weight: bold;
+
+}
