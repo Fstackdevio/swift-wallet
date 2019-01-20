@@ -488,7 +488,7 @@
 }
 
 body {
-    /* background: #F8FCFF; */
+    background: #F8FCFF;
 }
 
 .green-sidebar.compact-sidebar {
@@ -665,6 +665,11 @@ body {
     background: #F8F9FC;
     min-height: 40px;
     /* border-radius: 3px; */
+}
+
+.form-control{
+    background: none;
+    border: none;
 }
 
 .mt-30 {
@@ -1305,10 +1310,10 @@ font-weight: medium; */
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background: #64BEC1;
+    background: #64B8BB;
     text-align: center;
     line-height: 30px;
-    font-size: 1.4em;
+    font-size: 1.2em;
     color: #fff;
     font-family: Nunito;
 }
@@ -1316,7 +1321,36 @@ font-weight: medium; */
     margin-top: 30px;
 }
 .deposit-option-pane h4{
-    color: #63B4FF;
+    color: rgba(99, 180, 255, 0.7);
     font-size: 1.7em;
+    /* opacity: 0.9; */
     font-weight: bold;
+}
+.content-inner.compact .container-fluid:first-child{
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+.swift-input-box{
+    background: white;
+    border: none;
+    padding: 15px 24px;
+    height: 40px;
+}
+.swift-input-box::placeholder{
+    font-family: Nunito;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: #e2e2e2;
+    
+}
+.swift-input-box:focus{
+    border: 1px solid rgba(99, 180, 255, 0.7)
+}
+.swift-input-box.w-shadow{
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: -2px 1px 50px rgba(36, 43, 57, 0.04);
+
 }
