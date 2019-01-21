@@ -79,7 +79,7 @@
     padding-top: 30px;
 }
 
-.pt-35 {
+.pt-35 { 
     padding-top: 35px;
 }
 
@@ -1249,17 +1249,16 @@ font-weight: medium; */
     background-color: #FF9E80;
 }
 
-/*.d-btn-gradient-2 {
-    width: 101.84px;
-    height: 30.63px;
+.d-btn-gradient-2 {
+    width: 120px;
+    height: 42px;
     color: #fff;
     border-radius: 3px;
     border: none;
-    background: linear-gradient(to right, #FF9E80 0%, #FFDE84 100%);
-    top: 100px;
-    left: 60px;
+    background: linear-gradient(to right, #a8e9c5 0%, #6bb4ed 100%);
+    font-size: 1.2rem;
 }
-*/
+
 
 #left-button {
     display: block;
