@@ -92,6 +92,7 @@ body {
 .dash-h3 > h3 {
     font-size: 24px;
     font-weight: bold;
+    color: #898db1;
 }
 
 .dash-title {
@@ -162,8 +163,10 @@ body {
     border: 0.5px solid #E9E9E9;
     background: #F8F9FC;
     min-height: 40px;
+
     /* border-radius: 3px; */
 }
+
 
 .mt-30 {
     margin-top: 30px;
@@ -409,8 +412,62 @@ font-weight: medium; */
     right: 50px;
     left: 55px;
     border: none;
+    box-shadow: 
 }
 
+ /*radio style */
+.dash-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  transition: all 0.15s ease-out 0.1s;
+  background: transparent;
+  border: 3px solid #9ed0fe;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  z-index: 1000;
+  border-radius: 50%;
+}
+.dash-radio:hover {
+  background: #9ed0fe;
+}
+.dash-radio:checked {
+  background: #9ed0fe;
+  border: none;
+  transition: all 0.15s ease-out 0.1s;
+}
+.dash-radio:checked::before {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 21px;
+  text-align: center;
+  line-height: 30px;
+  margin: 0 4px;
+}
+.dash-radio:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #9ed0fe;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
 
 /** Margins **/
 
@@ -679,6 +736,18 @@ font-weight: medium; */
 .d-btn-gradient:hover {
     background-color: #FF9E80;
 }
+
+/*.d-btn-gradient-2 {
+    width: 101.84px;
+    height: 30.63px;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    background: linear-gradient(to right, #FF9E80 0%, #FFDE84 100%);
+    top: 100px;
+    left: 60px;
+}
+*/
 
 #left-button {
     display: block;
