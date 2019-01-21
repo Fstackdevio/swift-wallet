@@ -1,4 +1,7 @@
 $(document).ready(()=>{
+
+    // $('.scrollbar-dynamic').scrollbar();
+
     function showSlidebar(){
         $('.right-slidebar').removeClass('animated slideOutRight');
         $('.right-slidebar').css('right', '0px');
@@ -21,4 +24,6 @@ $(document).ready(()=>{
         e.preventDefault();
         hideSlidebar();
     })
+
+    $('.right-slidebar').each('div', new SimpleBar);
 })
