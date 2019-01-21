@@ -565,7 +565,6 @@ body {
 }
 
 .page-header-title {
-    /* font-size: 40px !important; */
     font-size: 30px !important;
     margin-left: 40px;
     margin-top: 24px;
@@ -649,7 +648,6 @@ body {
        padding: 2em 1.5rem !important;
         height: 150px;
         width: 200px;
-        /* box-shadow: 0px 2px 60px rgba(36, 43, 57, 0.05) !important; */
     }
     .deposit-option-card p, .deposit-option-card small{
         display: block;
@@ -664,7 +662,6 @@ body {
     border: 0.5px solid #E9E9E9;
     background: #F8F9FC;
     min-height: 40px;
-    /* border-radius: 3px; */
 }
 
 .form-control{
@@ -733,7 +730,6 @@ mt-35{
 }
 
 #button-icon > i {
-    /* display: inline-block; */
     align-self: center;
     line-height: 30px;
 }
@@ -783,7 +779,6 @@ label.swift-toggle-label {
     text-indent: -9999px;
     width: 50px;
     height: 25px;
-    /* background: grey; */
     background: #C1C2C5;
     display: block;
     border-radius: 100px;
@@ -975,6 +970,7 @@ font-weight: medium; */
     box-shadow: 0px 20px 70px rgba(36, 43, 57, .06);
     transition: .15s ease-in;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .support-card-icon {
@@ -1367,15 +1363,14 @@ font-weight: medium; */
 
 .right-slidebar{
     box-shadow: -5px 0px 30px rgba(0, 0, 0, 0.03);
-    /* overflow-y: scroll; */
     background: #fff;
     padding: 25px;
-    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
     width: 60vh;
     position: fixed;
-    right: 0px;
+    right: -60vh;
     top: 0px;
-    display: block;
     z-index: 999;
 }
 
@@ -1413,6 +1408,61 @@ font-weight: medium; */
     color: rgba(158, 158, 158, 0.51);
 }
 
-.slidebar-body .support-accordions{
-    border: 1px solid rebeccapurple;
+.slidebar-body .support-accordions #accordion-icon-left .widget .slidebar-accordion-item{
+    margin: 20px 0px;
+    width: 300px;
+    border-radius: 7px;
+    background: #fff;
+    box-shadow: 0px 2px 17px rgba(36, 43, 57, 0.06);
+}
+
+.accordion-icon.icon-01 .card-header.collapsed:before, .accordion-icon.icon-01 .card-header:before{
+    all: unset;
+}
+
+.accordion-icon.icon-01 .card-header.collapsed:after{
+    content: "\f110";
+}
+
+.accordion-icon.icon-01 .card-header::after{
+    font-family: 'lineAwesome';
+    content: "\f113";
+    display: inline-block;
+    font-size: 1.2rem;
+    vertical-align: middle;
+    right: 20px;
+    position: absolute;
+    font-weight: bold;
+}
+
+.slidebar-body .support-accordions #accordion-icon-left .widget .slidebar-accordion-item .card-title{
+    color: #CBCBCB;
+    font-size: 14px;
+}
+.slidebar-body .support-accordions #accordion-icon-left .widget .slidebar-accordion-item .card-header{
+    max-width: 90%;
+}
+
+.slidebar-body .support-accordions #accordion-icon-left .widget .slidebar-accordion-item .card-header[aria-expanded="true"] .card-title, .slidebar-body .support-accordions #accordion-icon-left .widget .slidebar-accordion-item .card-header[aria-expanded="true"]{
+    color: rgba(80, 171, 255, 0.75)
+}
+
+.with-line{
+    width: 100%;
+    text-transform: uppercase;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #cbcbcb;
+}
+
+.with-line::before{
+    border-top: 3px solid #ccc;
+    min-height: 10px;
+    width: 100%;
+    background: transparent;
+    border: 2px solid rgba(100, 190, 193, 0.3);
+
 }
