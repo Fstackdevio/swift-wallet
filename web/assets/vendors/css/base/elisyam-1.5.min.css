@@ -3063,7 +3063,7 @@ textarea {
 }
 
 .form-control {
-    font-size: 1rem;
+    font-size: 1.3rem;
     line-height: 1.25;
     color: #2c304d;
     border: 1px solid #eee;
@@ -3072,24 +3072,24 @@ textarea {
 }
 
 .form-control::-moz-placeholder {
-    font-size: .85rem;
+    font-size: 1.3rem;
     font-weight: 400;
     font-family: "Montserrat", sans-serif;
-    color: #94a4b0
+    color: #47509b
 }
 
 .form-control::-webkit-input-placeholder {
-    font-size: .85rem;
+    font-size: 1.3rem;
     font-weight: 400;
     font-family: "Montserrat", sans-serif;
-    color: #94a4b0
+    color: #47509b
 }
 
 .form-control:-ms-input-placeholder {
-    font-size: .85rem;
+    font-size: 1.3rem;
     font-weight: 400;
     font-family: "Montserrat", sans-serif;
-    color: #94a4b0
+    color: #47509b
 }
 
 select.form-control:not([size]):not([multiple]) {
@@ -3609,7 +3609,7 @@ section.forms form small {
 
 .step-wizard .progressbar {
     position: absolute;
-    background-color: #509cff;
+    background-color: #94cbfe;
     height: 8px;
     border: 0 none;
     width: 0%;
@@ -3632,28 +3632,29 @@ section.forms form small {
 .step-wizard li .step {
     position: absolute;
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     line-height: 42px;
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    border: 6px solid;
+    border: 3px solid;
     background: #fff;
-    transition: background-color 0.6s ease, border-color 0.6s ease
+    transition: background-color 0.6s ease, border-color 0.6s ease;
+
 }
 
 .step-wizard li .title {
     position: absolute;
     width: 100%;
     left: 28px;
-    padding-top: 60px;
+    padding-top: 80px;
     color: rgba(52, 40, 104, .4);
     transition: color 0.6s ease
 }
 
 .step-wizard .active .step {
     color: #fff;
-    background-color: #509cff;
+    background-color: #94cbfe;
     border-color: #fff;
 }
 
@@ -3665,7 +3666,7 @@ section.forms form small {
 .step-wizard li>a {
     display: block;
     width: 100%;
-    color: #979797;
+    color: #efefef;
     position: relative;
     text-align: center
 }
