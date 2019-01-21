@@ -1364,3 +1364,10 @@ font-weight: medium; */
     background: #95C7F8;
     text-align: center;
 }
+.worldwide-img{
+    position: fixed;
+    right: -150px;
+    bottom: -180px;  
+    z-index: -1;
+    opacity: 0.5; 
+  }
