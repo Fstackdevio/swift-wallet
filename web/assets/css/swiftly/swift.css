@@ -922,7 +922,7 @@ font-weight: medium; */
   -o-appearance: none;
   appearance: none;
   position: relative;
-  top: 13.33333px;
+  top: 5px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -941,12 +941,12 @@ font-weight: medium; */
 .dash-radio:hover {
   background: #9ed0fe;
 }
-.dash-radio:checked {
+.dash-radio:focus {
   background: #9ed0fe;
   border: none;
   transition: all 0.15s ease-out 0.1s;
 }
-.dash-radio:checked::before {
+.dash-radio:focus::before {
   height: 20px;
   width: 20px;
   position: absolute;
@@ -957,10 +957,10 @@ font-weight: medium; */
   line-height: 30px;
   margin: 0 4px;
 }
-.dash-radio:checked::after {
-  -webkit-animation: click-wave 0.65s;
-  -moz-animation: click-wave 0.65s;
-  animation: click-wave 0.65s;
+.dash-radio:focus::after {
+  -webkit-animation: click-wave 0.75s;
+  -moz-animation: click-wave 0.75s;
+  animation: click-wave 0.75s;
   background: #9ed0fe;
   content: '';
   display: block;
@@ -968,6 +968,34 @@ font-weight: medium; */
   z-index: 100;
 }
 
+.rad-icon{
+    font-size: 25px;
+    color:  #ff8484;
+}
+
+@keyframes click-wave {
+  0% {
+    height: 40px;
+    width: 40px;
+    opacity: 0.35;
+    position: relative;
+
+  }
+  100% {
+    height: 140px;
+    width: 140px;
+    margin-left: -80px;
+    margin-top: -80px;
+    opacity: 0;
+  }
+}
+
+.dash-radio::before {
+    border-radius: 50% !important;
+  }
+  .dash-radio::after {
+    border-radius: 50% !important;
+  }
 /** Margins **/
 
 .mt-10 {
@@ -1246,7 +1274,21 @@ font-weight: medium; */
     background: linear-gradient(to right, #a8e9c5 0%, #6bb4ed 100%);
     font-size: 1.2rem;
 }
+.d-btn-gradient-2:hover {
+     background: linear-gradient(to right,#6bb4ed  0%,  #a8e9c5 100%); 
+}
+ 
+.trans-input{
+     margin: 0 auto;  
+     text-align: center;
+     border:2px solid #e3e6e9;
+     height:60px; 
+     width: 31%;
+}
 
+.trans-input:focus{
+    border:2px solid #e3e6e9;
+}
 
 #left-button {
     display: block;
@@ -1550,8 +1592,18 @@ font-weight: medium; */
     background: #FCFCFC !important;
     border: 1px solid rgba(162, 162, 162, 0.3) !important;
     border-radius: 4px;
+    font-size: 14px;
 }
 
+.slidebar-message textarea::placeholder{
+    font-family: Nunito;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    letter-spacing: 0.02em !important;
+    text-align: left !important;
+    color: #cbcbcb !important;
+
+}
 .slidebar-button{
     font-family: Poppins;
     font-weight: 600;
@@ -1579,4 +1631,11 @@ font-weight: medium; */
     bottom: -180px;  
     z-index: -1;
     opacity: 0.5; 
+}
+
+.trans-box{
+    border: 1px  solid black;
+    margin-top: 5px;
+    height: 70px;
+
 }
