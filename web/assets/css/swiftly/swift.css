@@ -811,6 +811,15 @@ label.swift-toggle-label:active:after {
     .is-hidden-mobile {
         display: none;
     }
+    .page-header-title{
+        margin-left: 0px;
+    }
+}
+
+@media screen and (min-width: 567px){
+    .is-hidden-desktop{
+        display: none;
+    }
 }
 
 .swift-card.no-bg {
