@@ -486,6 +486,12 @@
 .ml-50 {
     margin-left: 50px;
 }
+.fl-right{
+    float: right;
+}
+.fl-left{
+    float: left;
+}
 
 body {
     background: #F8FCFF;
@@ -578,9 +584,11 @@ body {
 }
 
 .dash-h3 > h3 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     color: #898db1;
+    text-align: center;
+    margin-top: 15px;
 }
 
 .dash-title {
@@ -616,6 +624,13 @@ body {
     padding: 20px;
     box-shadow: 0px 15px 20px rgba(55, 72, 59, 0.03);
 }
+.price-card {
+    border-radius: 5px;
+    background: #fff;
+    padding: 2px;
+    box-shadow: 0px 15px 20px rgba(55, 72, 59, 0.03);
+}
+
 
 .btn-clear {
     background: transparent !important;

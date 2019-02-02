@@ -71,20 +71,20 @@
                     <div class="brand-image brand-big">
                         <img src="assets/img/swiftly/origami.svg" alt="logo" class="logo-big" style="width: 50px; position: absolute; top: 15px; left: 20px;">
                     </div>
-                     <ul class="list-unstyled">
-                           <!--  <li>
+                    <ul class="list-unstyled">
+                        <!--  <li>
                                 <a href="./main.html">
                                     <i class="ti ti-receipt"></i><span>Newsfeed</span>
                                     <img src="./assets/icons/swiftly/bar-chart.svg" /><span>Dashboard</span>
 
                                 </a>
                             </li> -->
-                            <li class="">
-                                <a href="./main.html">
-                                    <img src="./assets/icons/swiftly/bar-chart.svg" /><span>Dashboard</span>
-                                </a>
-                            </li>
-                        <li >
+                        <li class="">
+                            <a href="./main.html">
+                                <img src="./assets/icons/swiftly/bar-chart.svg" /><span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="./deposit.html">
                                 <img src="./assets/icons/swiftly/cube.svg" /><span>Deposits</span>
                             </a>
@@ -99,7 +99,7 @@
                                 <img src="./assets/icons/swiftly/cog.svg" /><span>Settings</span>
                             </a>
                         </li>
-                        <li >
+                        <li>
                             <a href=" ./support.html">
                                 <img src="./assets/icons/swiftly/help.svg" /><span>Support</span>
                             </a>
@@ -128,187 +128,201 @@
                 </nav>
             </div>
         </div>
+       
         <div class="content-inner compact">
             <div class="container-fluid">
-
-                <div class="row flex-row">
+                <div class="row">
                     <div class="page-header">
                         <div class="d-flex align-items-center">
-                            <h2 class="page-header-title">Transfer Funds</h2>
+                           <h2 class="page-header-title">Transfer Funds</h2>
                         </div>
+                     </div>
 
-                        <div class="col-xl-7">
-                            <div class="widget-body">
-                                <div class="row flex-row justify-content-center">
-                                    <div class="col-xl-10">
-                                        <div id="rootwizard">
+                     <div class="swift-page-content" style="width: 100%;">
+                         <div class="container">
+                             <div class="row ">
+                                <div class="col-12 col-md-7 col-lg-7 col-xl-7">
+                                    <div class="widget has-shadow swift-card">
+                                        <div class=" col-xl-12 ">
                                             <div class="step-container">
-                                                <div class="step-wizard">
-                                                    <div class="progress">
-                                                        <div class="progressbar"></div>
+                                                <div id="rootwizard">
+                                                    <div class="step-wizard">
+                                                        <div class="progress"  >
+                                                            <div class="progressbar"></div>
+                                                        </div>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="#tab1" data-toggle="tab"> <span class="step">1</span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#tab2" data-toggle="tab"> <span class="step">2</span></a>
+                                                            </li>
+                                                        </ul>
                                                     </div>
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#tab1" data-toggle="tab">
-                                                                <span class="step">1</span>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#tab2" data-toggle="tab">
-                                                                <span class="step">2</span>
-                                                            </a>
-                                                        </li>
-                                                       <!--  <li>
-                                                            <a href="#tab3" data-toggle="tab">
-                                                                <span class="step">3</span>
-                                                            </a>
-                                                        </li> -->
-                                                    </ul>
                                                 </div>
                                             </div>
                                             <div class="tab-content">
+                                                <!-- First Step -->
                                                 <div class="tab-pane" id="tab1">
-                                                    <div class="section-title mt-5 mb-5" style="text-align:center;">
+                                                    <div class="section-title mt-3 mb-3" style="text-align:center;">
                                                         <h2 style="color: #515aa1 !important;">Who would you like to transfer <br><span style=" margin:10px;"> funds to?</span> </h2>
                                                     </div>
                                                     <div class="form">
                                                         <input type="text" placeholder="1500123" minlength="7" maxlength="7" class="form-control trans-input" onkeypress="return Num(event)">
                                                     </div>
-                                                    <div class="section-title mt-5 mb-5" style="text-align:center; color: #c4c4c4 !important;">
-                                                        <h2 style="color: #c4c4c4 !important; ">or</h2>
+                                                    <div class="section-title mt-5 mb-3" style="text-align:center; color: #c4c4c4 !important;">
+                                                        <h4 style="color: #c4c4c4 !important;">or you select one of your frequent transfer receipts</h4>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="card-body no-padding">
-                                                            <div class="swift-card" style="width: 50%; align-content:center; margin: 0 auto;">
-
-                                                                <div class="table-responsive">
-                                                                    <table class="table table-bordered swiftly-bordered-alt" style="width:auto; margin: 0 auto;">
-                                                                        <tbody style="text-align:center;">
-                                                                            <h5 style="text-align:center; color: #c4c4c4;">Select one of your frequent transfer receipts</h5>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <input type="radio" class="dash-radio">
-                                                                                </td>
-
-                                                                                <td> Ogbuji Bright <span>&#9473;  1500205</span></td>
-                                                                                <td>
-                                                                                    <a href="#"> <i class="ti ti-trash rad-icon"></i></a>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <input type="radio" class="dash-radio">
-                                                                                </td>
-                                                                                <td> Adegoke David Afolabi <span>&#9473; 1500205</span></td>
-                                                                                <td>
-                                                                                    <a href="#"> <i class="ti ti-trash rad-icon"></i></a>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <input type="radio" class="dash-radio">
-                                                                                </td>
-                                                                                <td> Ogunfemi Micheal <span>&#9473;  1400790</span></td>
-                                                                                <td>
-                                                                                    <a href="#"> <i class="ti ti-trash rad-icon"></i></a>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered swiftly-bordered-alt" style="width:auto; margin: 0 auto;">
+                                                             <tbody style="text-align:center;">
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="radio" class="dash-radio">
+                                                                    </td>
+                                                                    <td> Ogbuji Bright <span>&#9473;  1500205</span></td>
+                                                                    <td> 
+                                                                        <a href="#"> <i class="ti ti-trash rad-icon"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="radio" class="dash-radio">
+                                                                    </td>
+                                                                    <td> Adegoke David Afolabi <span>&#9473; 1500205</span></td>
+                                                                    <td>
+                                                                        <a href="#"> <i class="ti ti-trash rad-icon"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="radio" class="dash-radio">
+                                                                    </td>
+                                                                    <td> Ogunfemi Micheal <span>&#9473;  1400790</span></td>
+                                                                    <td>
+                                                                        <a href="#"> <i class="ti ti-trash rad-icon"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <div class=" mt-20">
+                                                            <button class="btn d-btn-gradient-2 fl-right">Next</button>
                                                         </div>
                                                     </div>
-                                                    <div class=" mt-50">
-                                                        <button class="btn d-btn-gradient-2" style="margin-left:85%;">Next</button>
-                                                    </div>
                                                 </div>
+                                                <!-- End of First Step -->
 
+                                                <!-- Second Step -->
                                                 <div class="tab-pane" id="tab2">
-                                                    <h1 style="text-align:center; color: #515aa1 !important;">How much do you want to <br>transfer to <span>azeez olamide? </span></h1>
+                                                    <div class="section-title mt-3 mb-3" style="text-align:center;">
+                                                        <h2 style="color: #515aa1 !important;">How much do you want to <br><span style=" margin:10px;">Wolemajekodumi Emeka Yakubu?</span> </h2>
+                                                    </div>
                                                     <div class="col-12">
                                                         <div class="row">
                                                             <div class="col-xl-3 col-md-6 col-sm-12">
-                                                                <div class="widget widget-12 has-shadow swift-card">
+                                                                <div class="widget widget-1 has-shadow price-card">
                                                                     <div class="widget-body">
                                                                         <div class="media">
                                                                             <div class="media-body align-self-center">
-                                                                                <div class="number dash-h3" style="text-align:center;">
-                                                                                    <h3>&#8358; 500</h3>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-xl-3 col-md-6 col-sm-12">
-                                                                <div class="widget widget-12 has-shadow swift-card">
-                                                                    <div class="widget-body">
-                                                                        <div class="media">
-                                                                            <div class="media-body align-self-center">
-                                                                                <div class="number dash-h3" style="text-align:center;">
+                                                                                <div class="number dash-h3">
                                                                                     <h3>&#8358; 1000</h3>
                                                                                 </div>
-
                                                                             </div>
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                             <div class="col-xl-3 col-md-6 col-sm-12">
-                                                                <div class="widget widget-12 has-shadow swift-card">
+                                                                <div class="widget widget-1 has-shadow price-card">
                                                                     <div class="widget-body">
                                                                         <div class="media">
                                                                             <div class="media-body align-self-center">
-                                                                                <div class="number dash-h3" style="text-align:center;">
+                                                                                <div class="number dash-h3">
                                                                                     <h3>&#8358; 2000</h3>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-
+                                                            </div> 
                                                             <div class="col-xl-3 col-md-6 col-sm-12">
-                                                                <div class="widget widget-12 has-shadow swift-card">
+                                                                <div class="widget widget-1 has-shadow price-card">
                                                                     <div class="widget-body">
                                                                         <div class="media">
                                                                             <div class="media-body align-self-center">
-                                                                                <div class="number dash-h3" style="text-align:center;">
-                                                                                    <h3>&#8358; 5000</h3>
+                                                                                <div class="number dash-h3" >
+                                                                                    <h3>&#8358; 3000</h3>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-xl-3 col-md-6 col-sm-12">
+                                                                <div class="widget widget-1 has-shadow price-card">
+                                                                    <div class="widget-body">
+                                                                        <div class="media">
+                                                                            <div class="media-body align-self-center">
+                                                                                <div class="number dash-h3" >
+                                                                                    <h3>&#8358; 5000</h3>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div> 
                                                         </div>
+                                                    </div>  
+                                                    <div class="section-title mt-5 mb-5" style="text-align:center; color: #c4c4c4 !important;">
+                                                        <h4 style="color: #c4c4c4 !important;">or enter a custom amount</h4>
+                                                    </div>
+                                                    <div class="form">
+                                                        <input type="text" placeholder="&#8358; 15000" class="form-control trans-input" onkeypress="return Num(event)" minlength="1" maxlength="7">
+                                                    </div>
+                                                     <div class=" mt-50">
+                                                        <button class="btn d-btn-gradient-2">Previous</button>
+                                                        <button class="btn d-btn-gradient-2 fl-right">Next</button>
+                                                    </div>
+                                                </div>
+                                                <!-- End of Second Step -->
+                                            </div>
+                                        </div>
+                                    </div>                                     
+                                </div> 
 
-                                                        <div class="section-title mt-5 mb-5" style="text-align: center;">
-                                                            <h2 style="color: #c1c2c5 !important; font-weight: bold;">or enter a custom amount</h2>
+                                <div class="col-12 col-md-5 col-lg-5 col-xl-5">
+                                    <div class="row " id="deposit">
+                                        <div class="swift-card deposit-funds-card" style="display:block">
+                                            <div class="d-box">
+                                                    <div class="d-d-box">
+                                                        <div class="small-box">
+                                                            <img src="./assets/icons/swiftly/deposit.svg" class="center" style="width: 123.38px; height:96.5px; margin: 0 auto; display: absolute" alt="">
+                                                            <h4>Deposit Summary</h4>
                                                         </div>
-
-                                                        <div class="form">
-                                                            <input type="text" placeholder="&#8358; 15000" class="form-control trans-input" onkeypress="return Num(event)" minlength="1" maxlength="7">
-                                                        </div>
-
+                                                        <h4 style="float:left; color: #BFBFBF;">Deposit Method</h4>
+                                                        <img src="./assets/icons/swiftly/debit-card.svg" style="width: 24.17px; height:24.17px; margin: 0 auto; display: absolute; float: center;" alt="">
+                                                        <h4 style="float:right; color:#BFBFBF;">Online Deposit</h4>
+                                                        <hr style="margin-top: 10px; width: 50%;">
+                                                        <h6 style="float:center; color:#BFBFBF !important;">Instant</h6>
+                                                        <h4 style="float:left; color: #BFBFBF;">Deposit Amount</h4>
+                                                        <h4 style="float:right; color:#BFBFBF;">NGN 7,500.00</h4>
+                                                        <hr style="margin-top: 40px;">
+                                                        <h4 style="float:left; color: #BFBFBF;">Transaction fees</h4>
+                                                        <h4 style="float:right; color:#BFBFBF; padding-right:50px;">+0.79%</h4>
+                                                        <hr style="margin-top: 50px;">
+                                                        <h4 style="float:left; color: #BFBFBF;">Total</h4>
+                                                        <h4 style="float:right; color:#63B4FF;">NGN 7,556.25</h4>
+                                                        <hr style="margin-top: 50px;">    
                                                         <div class=" mt-50">
-
-                                                            <button class="btn mt-10  mb-2 d-btn-gradient-2">Previous</button>
-
-                                                            <button class="btn mt-10  mb-2 d-btn-gradient-2" style="margin-left: 71%;">Next</button>
-                                                        </div>
+                                                        <button class="btn d-btn-gradient-2">Proceed</button>
+                                                        </div>                   
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </div>                                    
+                                </div>                                
                             </div>
-                        </div>
+                        </div>  
                     </div>
                 </div>
             </div>
@@ -335,7 +349,10 @@
 
             return true;
         }
-    </script> >
+        document.getElementById("left-button").onclick = function() {
+            location.href = "file:///C:/xampp/htdocs/Swift-wallet/web/deposit.html";
+           };
+        </script>
 
 </body>
 
