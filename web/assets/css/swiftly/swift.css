@@ -814,11 +814,17 @@ label.swift-toggle-label:active:after {
     .page-header-title{
         margin-left: 0px;
     }
+    .support-hero-content{
+        width: 100%;
+    }
+    .wave-banner{
+        padding: 30px 0px !important;
+    }
 }
 
 @media screen and (min-width: 567px){
     .is-hidden-desktop{
-        display: none;
+        display: none !important;
     }
 }
 
@@ -1034,6 +1040,7 @@ font-weight: medium; */
     background-repeat: no-repeat; */
     /* background-position-y: ; */
     background: #DFF1FE;
+    height: 45vh;
 }
 
 .support-items {
