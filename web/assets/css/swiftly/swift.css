@@ -1297,13 +1297,14 @@ font-weight: medium; */
 }
 
 .d-btn-gradient-2 {
-    width: 120px;
-    height: 42px;
+    width: 90px;
+    height:35px;
     color: #fff;
     border-radius: 3px;
     border: none;
     background: linear-gradient(to right, #a8e9c5 0%, #6bb4ed 100%);
-    font-size: 1.2rem;
+    font-size: 1rem;
+    text-align: center;
 }
 .d-btn-gradient-2:hover {
      background: linear-gradient(to right,#6bb4ed  0%,  #a8e9c5 100%); 

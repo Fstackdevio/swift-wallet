@@ -3603,8 +3603,8 @@ section.forms form small {
     position: absolute;
     top: 23px;
     height: 4px;
-    left: 50px;
-    width: 75%;
+    left: 0;
+    width: 77%;
 }
 
 .step-wizard .progressbar {
@@ -3636,7 +3636,6 @@ section.forms form small {
     line-height: 42px;
     width: 55px;
     height: 55px;
-    margin-left: 55px;
     border-radius: 50%;
     border: 3px solid;
     background: #fff;

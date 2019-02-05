@@ -144,7 +144,7 @@
                                 <div class="col-12 col-md-7 col-lg-7 col-xl-7">
                                     <div class="widget has-shadow swift-card">
                                         <div class=" col-xl-12 ">
-                                            <div class="step-container">
+                                           <!--  <div class="step-container">
                                                 <div id="rootwizard">
                                                     <div class="step-wizard">
                                                         <div class="progress"  >
@@ -160,10 +160,11 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
+                                            <!-- Tab content -->
                                             <div class="tab-content">
                                                 <!-- First Step -->
-                                                <div class="tab-pane" id="tab1">
+                                                <div class="tab-pane active" id="tab1">
                                                     <div class="section-title mt-3 mb-3" style="text-align:center;">
                                                         <h2 style="color: #515aa1 !important;">Who would you like to transfer <br><span style=" margin:10px;"> funds to?</span> </h2>
                                                     </div>
@@ -296,30 +297,33 @@
                                             <div class="d-box">
                                                     <div class="d-d-box">
                                                         <div class="small-box">
-                                                            <img src="./assets/icons/swiftly/deposit.svg" class="center" style="width: 123.38px; height:96.5px; margin: 0 auto; display: absolute" alt="">
-                                                            <h4>Deposit Summary</h4>
+                                                            <img src="./assets/icons/swiftly/deposit.svg" class="center " style="width: 123.38px; height:96.5px; margin: 0 auto; display: absolute" alt="">
+                                                            <h4>Transfer Summary</h4>
                                                         </div>
-                                                        <h4 style="float:left; color: #BFBFBF;">Deposit Method</h4>
-                                                        <img src="./assets/icons/swiftly/debit-card.svg" style="width: 24.17px; height:24.17px; margin: 0 auto; display: absolute; float: center;" alt="">
-                                                        <h4 style="float:right; color:#BFBFBF;">Online Deposit</h4>
-                                                        <hr style="margin-top: 10px; width: 50%;">
-                                                        <h6 style="float:center; color:#BFBFBF !important;">Instant</h6>
-                                                        <h4 style="float:left; color: #BFBFBF;">Deposit Amount</h4>
-                                                        <h4 style="float:right; color:#BFBFBF;">NGN 7,500.00</h4>
-                                                        <hr style="margin-top: 40px;">
-                                                        <h4 style="float:left; color: #BFBFBF;">Transaction fees</h4>
-                                                        <h4 style="float:right; color:#BFBFBF; padding-right:50px;">+0.79%</h4>
-                                                        <hr style="margin-top: 50px;">
-                                                        <h4 style="float:left; color: #BFBFBF;">Total</h4>
-                                                        <h4 style="float:right; color:#63B4FF;">NGN 7,556.25</h4>
-                                                        <hr style="margin-top: 50px;">    
-                                                        <div class=" mt-50">
-                                                        <button class="btn d-btn-gradient-2">Proceed</button>
-                                                        </div>                   
+                                                        <div>                                          
+                                                            <h4 style="color: #BFBFBF;"> Wolemajekodumi Emeka Yakubu</h4>
+                                                            <hr style="margin-top: 10px; width: 50%;">
+                                                            <h6 style="float:center; color:#BFBFBF !important;">Name</h6>
+                                                            <h4 style="float:left; color: #BFBFBF;">Reg number</h4>
+                                                            <h4 style="float:right; color:#BFBFBF;">2300070</h4>
+                                                            <hr style="margin-top: 40px;">
+                                                            <h4 style="float:left; color: #BFBFBF;">Transfer Amount</h4>
+                                                            <h4 style="float:right; color:#BFBFBF;">NGN 7,500.00</h4>
+                                                            <hr style="margin-top: 40px;">
+                                                            <h4 style="float:left; color: #BFBFBF;">Transaction fees</h4>
+                                                            <h4 style="float:right; color:#BFBFBF; padding-right:50px;">+0.79%</h4>
+                                                            <hr style="margin-top: 50px;">
+                                                            <h4 style="float:left; color: #BFBFBF;">Total</h4>
+                                                            <h4 style="float:right; color:#63B4FF;">NGN 7,556.25</h4>
+                                                            <hr style="margin-top: 50px;"> 
+                                                           
+                                                            <button class="btn d-btn-gradient-2" style="text-align: justify-all;">Proceed</button>
+                                                            
+                                                        </div>                  
                                                     </div>
-                                                </div>
                                             </div>
-                                        </div>                                    
+                                        </div>
+                                    </div>                                    
                                 </div>                                
                             </div>
                         </div>  
@@ -328,16 +332,12 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
 
     <script src="assets/vendors/js/base/jquery.min.js" type="text/javascript"></script>
     <script src="assets/vendors/js/base/core.min.js" type="text/javascript"></script>
-
     <script src="assets/vendors/js/nicescroll/nicescroll.min.js" type="text/javascript"></script>
     <script src="assets/vendors/js/bootstrap-wizard/bootstrap.wizard.min.js" type=" text/javascript"></script>
     <script src="assets/vendors/js/app/app.min.js" type="text/javascript"></script>
-
     <script src="assets/js/components/wizard/form-wizard.min.js" type="text/javascript"></script>
     <script src="./assets/js/common/rocket-loader.min.js" data-cf-nonce="" defer=""></script>
 
@@ -352,7 +352,7 @@
         document.getElementById("left-button").onclick = function() {
             location.href = "file:///C:/xampp/htdocs/Swift-wallet/web/deposit.html";
            };
-        </script>
+  </script>
 
 </body>
 
