@@ -27,20 +27,35 @@ $(document).ready(()=>{
 
     $('.right-slidebar').each('div', new SimpleBar);
 
-    $(".next_btn").click(function() { // Function Runs On NEXT Button Click
-        $(this).parent().next().fadeIn('slow');
-        $(this).parent().css({
-        'display': 'none'
-        });
-        // Adding Class Active To Show Steps Forward;
-        $('.active').next().addClass('active');
-        });
-        $(".pre_btn").click(function() { // Function Runs On PREVIOUS Button Click
-        $(this).parent().prev().fadeIn('slow');
-        $(this).parent().css({
-        'display': 'none'
-        });
-        // Removing Class Active To Show Steps Backward;
-        $('.active:last').removeClass('active');
-    });
+   $('#next_btn').on('click', function(){
+       $('#tab1').removeClass('active');
+       $('#tab2').addClass('active');
+       $("#trans_btn").attr("disabled", "disabled");
+       
+   });
+
+   $('#prev_btn').on('click', function(){
+       $('#tab2').removeClass('active');
+       $('#tab1').addClass('active');
+       $("#trans_btn").attr("disabled", "disabled");
+   })
+
+   $('#pro_btn').on('click', function(){
+       $('#process').removeClass('trans-blur');
+       $('.tab-content').addClass('trans-blur');
+   })
+
+   $('#pro_btn').on('click', function(){
+       $('#process').removeClass('trans-blur');
+       $('.tab-content').addClass('trans-blur');
+       $("button,input[type=text]").attr("disabled", "disabled");
+   })
+
+    $('.left_btn').on('click', function(){
+       $('.tab-content').removeClass('trans-blur');
+       $('#tab1').addClass('active');
+       $('#tab2').removeClass('active');
+       $('#process').addClass('trans-blur');
+       $("button,input[type=text]").removeAttr("disabled", "disabled");
+   })
 })

@@ -1259,6 +1259,14 @@ font-weight: medium; */
     left: 50%;
     margin-left: -215px;
 }
+.transfer-funds-card {
+    width: 469.49px;
+    height: 484.5px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    margin-left: -215px;
+}
 
 .d-box {
     margin: 10px;
@@ -1669,5 +1677,10 @@ font-weight: medium; */
     border: 1px  solid black;
     margin-top: 5px;
     height: 70px;
+
+}
+.trans-blur{
+  -webkit-filter: blur(2px); /* Chrome, Safari, Opera */
+  filter: blur(2px) grayscale(90%);
 
 }
