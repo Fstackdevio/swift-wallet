@@ -27,35 +27,5 @@ $(document).ready(()=>{
 
     $('.right-slidebar').each('div', new SimpleBar);
 
-   $('#next_btn').on('click', function(){
-       $('#tab1').removeClass('active');
-       $('#tab2').addClass('active');
-       $("#trans_btn").attr("disabled", "disabled");
-       
-   });
-
-   $('#prev_btn').on('click', function(){
-       $('#tab2').removeClass('active');
-       $('#tab1').addClass('active');
-       $("#trans_btn").attr("disabled", "disabled");
-   })
-
-   $('#pro_btn').on('click', function(){
-       $('#process').removeClass('trans-blur');
-       $('.tab-content').addClass('trans-blur');
-   })
-
-   $('#pro_btn').on('click', function(){
-       $('#process').removeClass('trans-blur');
-       $('.tab-content').addClass('trans-blur');
-       $("button,input[type=text]").attr("disabled", "disabled");
-   })
-
-    $('.left_btn').on('click', function(){
-       $('.tab-content').removeClass('trans-blur');
-       $('#tab1').addClass('active');
-       $('#tab2').removeClass('active');
-       $('#process').addClass('trans-blur');
-       $("button,input[type=text]").removeAttr("disabled", "disabled");
-   })
+  
 })

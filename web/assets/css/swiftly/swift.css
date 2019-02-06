@@ -1680,7 +1680,7 @@ font-weight: medium; */
 
 }
 .trans-blur{
-  -webkit-filter: blur(2px); /* Chrome, Safari, Opera */
-  filter: blur(2px) grayscale(90%);
+  -webkit-filter: blur(1.5px); /* Chrome, Safari, Opera */
+  filter: blur(1.5px) grayscale(90%);
 
 }
