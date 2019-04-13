@@ -552,15 +552,6 @@ body {
     padding: 15px;
 }
 
-@media screen and (min-width: 767px) {
-    header.header {
-        display: none;
-    }
-    .navbar-header .logo-big {
-        display: none
-    }
-}
-
 .navbar-header .logo-small {
     width: 55px;
     padding: 10px;
@@ -653,25 +644,6 @@ body {
 .btn-changepass {
     margin-top: 28px;
     max-height: 40px;
-}
-
-@media screen and (min-width: 768px) {
-    .row-little-gutter>[class*=col] {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-   .deposit-option-card{
-       padding: 2em 1.5rem !important;
-        height: 150px;
-        width: 200px;
-    }
-    .deposit-option-card p, .deposit-option-card small{
-        display: block;
-    }
-
-    .deposit-option-card img{
-         width: 60px;
-    }
 }
 
 .form-control.swift-input {
@@ -820,27 +792,6 @@ input.swift-toggle:checked + label:after {
 
 label.swift-toggle-label:active:after {
     width: 25px;
-}
-
-@media(max-width: 567px) {
-    .is-hidden-mobile {
-        display: none;
-    }
-    .page-header-title{
-        margin-left: 0px;
-    }
-    .support-hero-content{
-        width: 100%;
-    }
-    .wave-banner{
-        padding: 30px 0px !important;
-    }
-}
-
-@media screen and (min-width: 567px){
-    .is-hidden-desktop{
-        display: none !important;
-    }
 }
 
 .swift-card.no-bg {
@@ -1382,8 +1333,8 @@ font-weight: medium; */
 
 .f-box {
     margin: 10px;
-    height: 579.09px;
-    width: 797px;
+    /*height: 579.09px;
+    width: 797px;*/
     /* border: 1px solid black; */
     margin-left: 40px;
 }
@@ -1424,11 +1375,6 @@ font-weight: medium; */
     position: absolute;
 }
 
-/* @media (min-width: 576px){
-    .f-box{
-        width: 320px;
-    }
-} */
 .deposit-intro h2{
     font-family: Nunito;
     font-weight: bold;
@@ -1684,3 +1630,128 @@ font-weight: medium; */
   filter: blur(1.5px) grayscale(90%);
 
 }
+
+/*Responsive */
+
+@media screen and (min-width: 767px) {
+    .header {
+        display: none;
+    }
+    .navbar-header .logo-big {
+        display: none
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .row-little-gutter>[class*=col] {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+   .deposit-option-card{
+       padding: 2em 1.5rem !important;
+        height: 150px;
+        width: 200px;
+    }
+    .deposit-option-card p, .deposit-option-card small{
+        display: block;
+    }
+
+    .deposit-option-card img{
+         width: 60px;
+    }
+}
+
+@media screen and (max-width: 768px){
+     .is-hidden-desktop{
+        display: none !important;
+    }
+    .deposit-intro h2{
+        font-family: Nunito;
+        font-weight: bold;
+        font-size: 30px;
+        text-align: left;
+        color: #63b4ff;
+    }
+    .deposit-intro p{
+        width: 650px!important;
+        height: 80px;
+        font-family: Nunito;
+        font-size: 20px !important;
+        text-align: justify!important;
+        color: #c6c6c6;
+        margin: 10px 0 90px 0;
+    }
+    .deposit-options{
+        margin-top: 40px!important;
+    }
+
+ }
+
+@media screen and (max-width: 567px) {
+    /*.is-hidden-mobile {
+        display: none;
+    }*/
+    .page-header-title{
+        margin-left: 0px;
+    }
+    .support-hero-content{
+        width: 100%;
+    }
+    .wave-banner{
+        padding: 30px 0px !important;
+    }
+
+    .worldwide-img {
+        display: none;
+    }
+
+    .f-box {
+        margin: 5px;
+    }
+
+    .deposit-intro h2{
+        font-family: Nunito;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: left;
+        color: #63b4ff;
+    }
+    .deposit-intro p{
+        max-width: 100%;
+        height: 100px;
+        font-family: Nunito;
+        font-size: 16px !important;
+        text-align: justify!important;
+        color: #c6c6c6;
+        margin: 10px 0 50px 0;
+    }
+    .deposit-options{
+        margin-top: px!important;
+    }
+
+    .deposit-option-number{
+        display: none;
+    }
+    .deposit-options{
+        margin-top: 30px;
+    }
+
+    .deposit-option-pane h4{
+        font-size: 1.3em;
+        max-width: 400px;
+        margin:10px -30px ;
+    }
+
+    .deposit-option-card{
+      margin: 5px;
+    }
+}
+
+@media screen and (max-width: 4px){
+    /*.is-hidden-desktop{
+        display: none !important;
+    }*/
+
+}
+
